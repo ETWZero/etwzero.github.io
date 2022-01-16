@@ -1,0 +1,652 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+
+<head>
+    <meta charset="UTF-8">
+    
+    <link rel="apple-touch-icon" sizes="76x76" href="/img/cod.png">
+    <link rel="icon" type="image/png" href="/img/cod.png">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5">
+    <title>一帖搞定地图导入问题！ - etw的破站</title>
+    
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+    
+    
+    <meta name="description" content="业余人的博客">
+    <meta name="author" content="Eric Zane">
+    <meta name="keywords" content="">
+    <style>
+
+
+    
+    :root{
+        --shadow-color: rgba(0,0,0,0.2);
+        --sec-shadow: rgba(0,0,0,0.03);
+        --shadow-hover-color: rgba(0,0,0,0.28);
+        --first-text-color: #475b6d;
+        --second-text-color: #37475b;
+        --third-text-color: #858585;
+        --default-text-color: #505050;
+        --default-link-color: #007bff;
+        --link-color: #000000;
+        --second-link-color: #4F9BFA;
+        --code-color:rgba(27,31,35,.05);
+        --post-bkg-color: #fff;
+        --page-bkg-color: #f2f5f8;
+        --nav-a-hover-color: #3498db;
+        --post-sec-text-color: #718096;
+        --sec-bkg: #f2f5f8;
+        --color-mode: 'light';
+        --bkg-h: rgba(255,255,255,0.6);
+        --bkg-m: #e1e4e8;
+        --home-title-color: #4169E1;
+        --shadow: 0 4px 10px rgba(0,2,4,0.06),0 0 1px rgba(0,2,4,0.11);
+        --hr-color: #ddd;
+        --bg-t: #f4f4f4;
+        --nav-bkg: rgba(255,255,255,0.6);
+    }
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-mode: 'dark';
+  }
+
+  :root:not([data-theme]) {
+    --first-text-color: hsla(0,0%,100%,0.92);
+    --second-text-color: hsla(0,0%,100%,0.86);
+    --third-text-color: #a7a9ad;
+    --default-text-color: #505050;
+    --default-link-color: #1589e9;
+    --link-color: #000000;
+    --second-link-color: #30a9de;
+    --post-bkg-color: #252d38;
+    --page-bkg-color: #181c27;
+    --nav-a-hover-color: #3498db;
+    --post-sec-text-color: #a7a9ad;
+    --sec-bkg: #364151;
+    --bkg-h: rgba(255,255,255,0.2);
+    --bkg-m: rgba(255,255,255,0.1);
+    --home-title-color: rgb(226, 82, 90);
+    --code-color:#3e4b5e;
+    --shadow: none;
+    --hr-color: #718096;
+    --bg-t: #364151;
+    --nav-bkg: rgba(13,17,23,0.6);
+  }
+}
+
+[data-theme='dark'] {
+    --shadow-color: rgba(0,0,0,0.2);
+    --shadow-hover-color: rgba(0,0,0,0.28);
+    --first-text-color: hsla(0,0%,100%,0.92);
+    --second-text-color: hsla(0,0%,100%,0.86);
+    --third-text-color: #a7a9ad;
+    --default-text-color: #505050;
+    --default-link-color: #1589e9;
+    --link-color: #000000;
+    --second-link-color: #30a9de;
+    --post-bkg-color: #252d38;
+    --page-bkg-color: #181c27;
+    --nav-a-hover-color: #3498db;
+    --post-sec-text-color: #a7a9ad;
+    --sec-bkg: #364151;
+    --bkg-h: rgba(255,255,255,0.2);
+    --bkg-m: rgba(255,255,255,0.1);
+    --home-title-color: rgb(226, 82, 90);
+    --code-color:#3e4b5e;
+    --shadow: none;
+    --hr-color: #718096;
+    --bg-t: #364151;
+    --nav-bkg: rgba(13,17,23,0.6);
+}
+
+</style>
+
+
+
+<style>
+#page-main,footer,.p-btn{
+    display: none;
+}
+html,body{
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    overflow-y: overlay;
+}
+body{
+    background-color: var(--page-bkg-color);
+    color: var(--second-text-color);
+    overflow-y: scroll;
+}
+a {
+    color: var(--default-link-color);
+    text-decoration: none;
+    background-color: transparent;
+}
+a:hover{
+    color: var(--second-link-color);
+}
+.main-content,.post-card-main{
+    margin: 30px;
+}
+
+
+
+@media (max-width: 410px){
+    .post-card-main{
+        max-width: 350px!important;
+    }
+}
+
+@media (max-width: 980px){
+    .post-card-main{
+        max-width: 520px!important;
+    }
+}
+
+
+@media (min-width: 780px){ 
+    h3{
+        font-size: 1.5rem;
+        line-height: 1.5em;
+    }
+}
+@media (min-width: 1280px){ 
+    h3{
+        font-size: 1.7rem;
+        line-height: 1.5em;
+    }
+}
+@media (min-width: 2096px){ 
+    h3{
+        font-size: 1.8rem;
+        line-height: 1.5em;
+    }
+}
+
+.text-center{
+    text-align: center!important;
+}
+.middle-center{
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    height: 100%;
+}
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    height: 54px;
+    padding: 0 1.25rem;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 10;
+    border-bottom: 1px solid var(--bkg-m);
+    background-color: var(--nav-bkg);
+}
+header .header__left, header .header__right {
+    display: flex;
+    align-items: center;
+    font-family: rubik,sans-serif,Varela Round;
+}
+header .header__left .logo__text {
+    font-size: 18px;
+    font-weight: 450;
+    padding: 14.5px 10px;
+    border-radius: 5px;
+    color: var(--second-text-color);
+}
+header .header__right .navbar__menus {
+    height: 54px;
+    padding: 0 0 0 15px;
+}
+header .header__right .button {
+    color: var(--second-text-color);
+}
+header .header__right .navbar__menus .navbar-menu {
+    display: inline-block;
+    align-items: center;
+    height: 54px;
+    padding: 0 10px;
+    font-size: 16px;
+    line-height: 54px;
+}
+header .header__right .dropdown-icon {
+    display: none;
+    height: 54px;
+    padding: 15px 10px;
+    border: 0;
+    background-color: transparent;
+}
+header .header__right .dropdown-menus {
+    line-height: 2rem;
+    animation: slide-in .15s ease 1;
+    display: none;
+    position: absolute;
+    left: 12px;
+    right: 12px;
+    top: calc(54px + 10px);
+    border-radius: 6px;
+    padding: 24px;
+    background-color: var(--page-bkg-color);
+    border: 1px solid var(--bkg-m);
+    z-index: 9999;
+    justify-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+header .header__right #btn-search, header .header__right #btn-toggle-dark{
+    display: inline-block;
+    padding:  18px 10px;
+    height: 25px;
+}
+header .header__right #btn-dropdown{
+  display: inline-block;
+  padding:  13.5px 0;
+}
+header .header__right .dropdown-menus .dropdown-menu {
+    padding: 10px;
+    color: var(--second-text-color);
+}
+@media screen and (max-width: 764px){
+.navbar__menus {
+    display: none!important;
+}
+.dropdown-icon {
+    display: inline-block!important;
+}
+}
+.p-btn{
+    position: fixed;
+    bottom: 1.2rem;
+    right: 1.2rem;
+    contain: layout;
+}
+.toc-btn,.click-btn{
+    cursor: pointer;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    align-items: center;
+    margin-top: .5rem;
+    font-size: .75rem;
+    background-color: var(--sec-bkg);
+    display: block;
+    padding: 0.9rem;
+    box-shadow: 0 0.3rem 0.6rem rgba(48,55,66,.15);
+    border: none;
+    border-radius: 0.5rem;
+    line-height: 1;
+    color: var(--first-text-color);
+}
+.toc-link{
+    color: var(--second-text-color);
+}
+
+#css-loading h3{
+    font-weight: 500;
+    font-size: 1.4rem;
+    text-align: center;
+    position: fixed;
+    top: 200px;
+    left: 0;
+    right: 0;
+    opacity: 0;
+    animation: cssLoad;
+    animation-delay: 0.3s;
+    -webkit-animation: cssLoad;
+    -webkit-animation-delay: 0.3s;
+}
+@keyframes cssLoad {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 0.9;
+    }
+}
+
+
+.memorial {
+    -webkit-filter: grayscale(100%);
+    -moz-filter: grayscale(100%);
+    -ms-filter: grayscale(100%);
+    -o-filter: grayscale(100%);
+    filter: grayscale(100%);
+    filter:progid:DXImageTransform.Microsoft.BasicImage(grayscale=1); filter:gray;
+}
+
+
+    .post-copyright:after {
+        position: absolute;
+        color: #fff;
+        background: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 496 512'%3E%3Cpath fill='gray' d='M245.8 214.9l-33.2 17.3c-9.4-19.6-25.2-20-27.4-20-22.2 0-33.3 14.6-33.3 43.9 0 23.5 9.2 43.8 33.3 43.8 14.4 0 24.6-7 30.5-21.3l30.6 15.5a73.2 73.2 0 01-65.1 39c-22.6 0-74-10.3-74-77 0-58.7 43-77 72.6-77 30.8-.1 52.7 11.9 66 35.8zm143 0l-32.7 17.3c-9.5-19.8-25.7-20-27.9-20-22.1 0-33.2 14.6-33.2 43.9 0 23.5 9.2 43.8 33.2 43.8 14.5 0 24.7-7 30.5-21.3l31 15.5c-2 3.8-21.3 39-65 39-22.7 0-74-9.9-74-77 0-58.7 43-77 72.6-77C354 179 376 191 389 214.8zM247.7 8C104.7 8 0 123 0 256c0 138.4 113.6 248 247.6 248C377.5 504 496 403 496 256 496 118 389.4 8 247.6 8zm.8 450.8c-112.5 0-203.7-93-203.7-202.8 0-105.5 85.5-203.3 203.8-203.3A201.7 201.7 0 01451.3 256c0 121.7-99.7 202.9-202.9 202.9z'/%3E%3C/svg%3E");
+        content: ' ';
+        height: 10rem;
+        width: 10rem;
+        right: -2rem;
+        top: -2rem;
+        opacity: .1;
+    }
+
+</style>
+
+    
+
+    
+        <!--
+        <link rel="stylesheet" href="/css/page.css" media="print"
+            onload="this.media='all';this.onload=null">
+        <noscript>-->
+            <link rel="stylesheet" href="/css/page.css">
+        <!--</noscript>-->
+    
+    
+    <link rel="stylesheet" href="/css/main.css" media="print" onload="this.media='all';this.onload=null">
+    <noscript>
+        <link rel="stylesheet" href="/css/main.css">
+    </noscript>
+
+    
+    <script src="/js/main.js"></script>
+    
+<meta name="generator" content="Hexo 6.0.0"></head>
+
+    <body>
+        <header>
+            
+<div class="header__left">
+	<a href="/" class="button"><span class="logo__text">ETW&#39;s Blog</span></a>
+</div>
+<div class="header__right">
+	<div class="navbar__menus">
+		
+	</div>
+	
+	<a href="/search/" class="button">
+		<div id="btn-search">
+			<svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 1024 1024" width="24" height="24" fill="currentColor"
+				stroke="currentColor" stroke-width="32">
+				<path
+					d="M192 448c0-141.152 114.848-256 256-256s256 114.848 256 256-114.848 256-256 256-256-114.848-256-256z m710.624 409.376l-206.88-206.88A318.784 318.784 0 0 0 768 448c0-176.736-143.264-320-320-320S128 271.264 128 448s143.264 320 320 320a318.784 318.784 0 0 0 202.496-72.256l206.88 206.88 45.248-45.248z">
+				</path>
+			</svg>
+		</div>
+	</a>
+	
+	<a href="javaScript:void(0);" class="button" id="btn-toggle-dark">
+		<div>
+			<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewbox="0 0 24 24" fill="none"
+				stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+				<path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+			</svg>
+		</div>
+	</a>
+	<a href="javaScript:void(0);" class="dropdown-icon button">
+		<div id="btn-dropdown">
+			<svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 1024 1024" width="24" height="24" fill="currentColor"
+				stroke="currentColor" stroke-width="32" stroke-linecap="round">
+				<path
+					d="M903.43 561.52H148.8c-13.25 0-24-10.75-24-24s10.75-24 24-24h754.63c13.25 0 24 10.75 24 24s-10.75 24-24 24zM903.43 204.31H148.8c-13.25 0-24-10.75-24-24s10.75-24 24-24h754.63c13.25 0 24 10.75 24 24s-10.75 24-24 24zM903.43 918.73H148.8c-13.25 0-24-10.75-24-24s10.75-24 24-24h754.63c13.25 0 24 10.75 24 24s-10.75 24-24 24z"
+					fill="currentColor"></path>
+			</svg>
+		</div>
+	</a>
+	<div class="dropdown-menus" id="dropdown-menus">
+		
+	</div>
+</div>
+
+        </header>
+        <div id="top"></div>
+        <div id="page-main" class="main-content">
+        <div class="mg-top">
+            
+
+<article class="page">
+<div id="post-meta-m">
+    <div class="post-meta" id="post-meta">
+  <h3>一帖搞定地图导入问题！</h3>
+    
+      <span class="post-meta-label">
+        Eric Zane
+      </span>
+    
+    
+      <span class="post-meta-label">
+        <span class="p-dot"></span>
+        <time datetime="2020-10-01 08:31" pubdate>
+          2020-10-01
+        </time>
+      </span>
+    
+    
+      
+      <span class="post-meta">
+        <span class="p-dot"></span>
+        共 4k 字
+      </span>
+    
+    
+    
+  </div>
+  
+</div>
+<div class="article-m">
+  <div class="post-toc">
+    
+      
+    
+  </div>
+    <div id="article">
+      <div id="post-content" class="markdown-body textretty">
+        <p>好的环境往往是一张渲染图的重要组成部分，这次我们来探讨一下如何以正确的姿势导入Minecraft地图及其相应的材质，以及如何更换你所希望的资源包。由于这类教程或古旧或不全，或产生了全新的领域，所以本教程的目的就是补充与更新相关内容，尽量将内容讲解得更全面一些。</p>
+<p>以下是将游戏地图数据导入到3D软件的一般流程： <img src="https://s1.ax1x.com/2020/09/27/0kZylV.png" class="lazyload-img" data-srcset="https://s1.ax1x.com/2020/09/27/0kZylV.png" srcset="/path/to/your/file" alt="0kZylV.png"> 这里我们以使用软件的不同，分为4部分来讲解，你所关心的其他相关内容会以合适的地方出现在里面：</p>
+<p>Mineways(V7.19) Jmc20bj(V109&amp;VPre1.13) Blender 3D(2.90.1) Cinema 4D(r20)</p>
+<p>这里暂时不探讨其他3D软件的操作方式，大伙完全可以举一反三，实现自己的目的。 这次我们的用例为The GreenHouse，作者为kimandjax，地图版本为1.16.1，原帖链接：<a target="_blank" rel="noopener" href="https://www.planetminecraft.com/project/the-greenhouse-4767475/">https://www.planetminecraft.com/project/the-greenhouse-4767475/</a> 本实例使用的材质包为Bare Bones Texture Pack，网站地址：<a target="_blank" rel="noopener" href="https://www.robotpantaloons.com/">https://www.robotpantaloons.com/</a>。</p>
+<p>Mineways 下载地址：<a target="_blank" rel="noopener" href="http://www.realtimerendering.com/erich/minecraft/public/mineways/downloads.html">http://www.realtimerendering.com/erich/minecraft/public/mineways/downloads.html</a> 站内转载地址（十分古老，不推荐从这里下载）：<a target="_blank" rel="noopener" href="https://www.mcbbs.net/thread-652931-1-1.html">https://www.mcbbs.net/thread-652931-1-1.html</a> 软件优点： 1、几乎支持目前所有主流版本的地图导出。 2、操作简单，上手容易。 软件缺点： 1、仅支持Windows系统，其他系统不支持。 2、无法导出材质包的法线、高光等贴图数据。</p>
+<p>首先，请获取目前的最新版本，截至发帖为止版本已更新至7.19，最高能支持至1.16.3——当然1.12.2也是可以导入的。 打开软件，在菜单里打开存档的level.dat文件，这样地图的数据就会加载到主界面里面了：</p>
+<p>在主界面，左键拖动地图，中键缩放地图，右键框选需要导出渲染的地图，或者调整框选的大小。Height的意思是导出地图上界，Depth的意思是导出地图的下界。如果在选择区块的时候弹出一个很长的对话框，选择“Yes”即可，软件会自动调整地图下界的层数。 <img src="https://s1.ax1x.com/2020/09/27/0kVXR0.png" class="lazyload-img" data-srcset="https://s1.ax1x.com/2020/09/27/0kVXR0.png" srcset="/path/to/your/file" alt="0kVXR0.png"> 选择完成后，选择“File” -&gt;”Export for Rendering”，弹出保存的对话框，选择自己的工程文件夹即可。之后会弹出一个导出选项： <img src="https://s1.ax1x.com/2020/09/27/0kVjzV.png" class="lazyload-img" data-srcset="https://s1.ax1x.com/2020/09/27/0kVjzV.png" srcset="/path/to/your/file" alt="0kVjzV.png"> 看起来挺多的，实际上我们只需要关注以下区域的几个选项：</p>
+<p>不导出任何材质 导出纯色材质 导出更丰富的色彩材质 导出全部的材质图案 导出所有独立贴图，放在&lt;texture&gt;文件夹里（选择这项以更改材质包） 材质输出：RGB通道 透明通道 RGBA通道 这里我们选择最后一项，方便我们更换材质，同时将文件夹名改为tex，如图所示。 另外就是模型的大小了，这里设置为每个方块边长为1000mm，即1米。如果需要调整的话就按照实际情况设置即可。 其他区域的选项我们保留默认就可以了。 如果想搞明白所有的选项，那么就看一下蓝鸡的翻译文档吧： <a target="_blank" rel="noopener" href="https://www.mcbbs.net/thread-652931-1-1.html">https://www.mcbbs.net/thread-652931-1-1.html</a></p>
+<p>选项设置完成后，点击“OK”就完成导出了。 到这里我们就已经将地图转换成了3D软件可以识别的格式了。有人会问，这个软件能不能更换资源包。其实更换资源包这个问题很简单，但使用Mineways后，Blender 3D和Cinema 4D两个软件更换资源包的方法不同，所以如果使用Mineways查阅如何换资源包，请直接到每个3D软件下参阅。</p>
+<p>Jmc2obj 下载地址：<a target="_blank" rel="noopener" href="https://github.com/jmc2obj/j-mc-2-obj/releases">https://github.com/jmc2obj/j-mc-2-obj/releases</a> 站内转载地址（十分古老，不推荐从这里下载）：<a target="_blank" rel="noopener" href="https://www.mcbbs.net/forum.php?mod=viewthread&tid=613552">https://www.mcbbs.net/forum.php?mod=viewthread&amp;tid=613552</a> 软件优点： 1、可直接换资源包，同时保留法线和高光贴图数据。 2、跨平台，可在其他平台运行，只要安装Java运行环境。 软件缺点： 1、无Bug最高支持版本为1.14.4，暂时无法支持高版本地图。 2、操作略微繁琐。 如果游戏版本为1.13+的话，那么就先获取目前的最新版本，截至发帖为止已更新至V109，最高可加载游戏版本至1.16.3（但1.16和1.15的材质与新方块会丢失材质和模型，推荐使用的地图版本最高为1.14.4）。如果游戏版本为1.12.2，那么就选择Pre 1.13版本。这个软件需要Java运行环境，但我估计来看教程的各位电脑里应该都能正常运行Minecraft，所以就不再强调如何安装Java环境了。</p>
+<p>首先新建文本文档，在里面输入以下内容： java -Xmx4096m -jar jMc2Obj-109.jar 其中-Xmx4096m的数值以自己电脑的内存为准，推荐值为电脑物理内存的一半，jMc2Obj-109.jar为你下载到的文件名。以bat格式保存文件，双击这个批处理文件，即可打开软件。 <img src="https://s1.ax1x.com/2020/09/27/0kZSLF.png" class="lazyload-img" data-srcset="https://s1.ax1x.com/2020/09/27/0kZSLF.png" srcset="/path/to/your/file" alt="0kZSLF.png"> 点击右上角的“…”，选择地图“level.dat所在的”文件夹，点击左上角的“加载”，地图俯视图就加载出来了。如果显示黑屏的话，那么该地图版本不合适，具体的版本选用在上面已经提及，选择合适的版本即可。 <img src="https://s1.ax1x.com/2020/09/27/0kVzsU.png" class="lazyload-img" data-srcset="https://s1.ax1x.com/2020/09/27/0kVzsU.png" srcset="/path/to/your/file" alt="0kVzsU.png"> 在主界面，鼠标左键框选要渲染的区域，也可以调整当前选区的大小。鼠标滚轮缩放地图，鼠标右键移动地图。上面的选项顾名思义，这里不再赘述。 选择完成需要渲染的区域，点击“导出”按钮，弹出下面的导出选项： <img src="https://s1.ax1x.com/2020/09/27/0kVxMT.png" class="lazyload-img" data-srcset="https://s1.ax1x.com/2020/09/27/0kVxMT.png" srcset="/path/to/your/file" alt="0kVxMT.png"> 下面来分别解释每一项的含义：</p>
+<p>偏移 地图比例：地图中方块的大小，使用默认值1即可。如果想缩放那么就填写想要缩放的值，例如方块边长0.1米，那么这里需要填0.1。 原点位置：这里填写中心即可，在渲染软件中可以自己调整。</p>
+<p>导出纹理 预缩放纹理：将纹理缩放至相应的值。例如资源包原大小为16x16，缩放8x后为128x128。如果懒而且显卡足够好的话可以调大一些，这样就不用在3D软件中设置采样了。 将Alpha通道导出到单独的文件中：顾名思义。3D软件中可以根据png设置Alpha值，所以就没有选择的必要了。 将所有纹理导出到单个文件中：不推荐勾选。这样后期更换资源包较为麻烦。但是优点是文件数量大大减少，材质占用磁盘的空间也会略微减少。 导出单独的发光方块文件：3D渲染软件一般有发光材质选项，没有必要可以不勾选。 额外层映射(Extra maps) 导出法线(Export normal)：如果有的话，导出资源包里的法线层。 导出高光(Export Specular)：如果有的话，导出资源包里的高光层。绝大多数资源包没有法线与高光层。如何判断资源包是否有法线与高光层呢？很简单，在optifine加载资源包且在支持法线与高光层的条件下，一些有光泽的方块（铁块，金块）会镜面反射光线，这类资源包就有法线与高光层。</p>
+<p>导出选项 渲染未知的块：如果勾选则未知的块会显示紫色丢失材质，可在3D软件中修复。按照默认设置即可。 渲染世界的侧面和底面：勾选则渲染。不勾选的优点是减少侧面和地面的面数，在3D软件中略微降低内存使用。看个人喜好吧。 渲染生物群落：渲染生物群系的颜色。如果有必要则选中。 渲染实体：将实体（旗帜，画等）渲染出来。如果有必要则选中。 将所有矿物方块转换为石块：顾名思义。如果有必要则选中。 将相同材质的物体创建为一个单独的对象：如果不勾选，那么整个选中的区域就是一个对象。如果没有特殊需要的话不需要选中。 遮挡不同的相邻材质：如果相邻的材质不同（比如玻璃板和方块），那么两种方块材质都会保留下来。默认勾选即可。 将每个区块创建为一个单独的对象：顾名思义。如果有必要则选中。 将每个方块单独创建为一个对象：顾名思义。如果选中则面数极大的增多，十分不推荐勾选。如果要制作建筑物爆炸效果，则勾选。 优化网格：配置较低的电脑，或场景较大勾选，一般不需要勾选。 不允许重复的顶点：按照默认不勾选即可。 使用单一的纹理文件：Todo。 使用单一的材质导出：Todo。 导出所使用的线程数：通常比电脑线程数少一个即可（比如四核八线程CPU，使用线程数为7），另外线程数越多占用内存越大，如果内存较少则选用较少的线程数。 使用最后的保存位置和名称：该选项用于替换已经导出的文件，如果地图需要重新导出，那么选中该选项即可。</p>
+<p>如果懒得看以上内容的话，那么按照默认的设置就可以了，缩放置1就行。</p>
+<p>我们需要材质文件夹，所以点击“选择要使用的纹理”下的两个按钮，按照自己的需要就可以了。 这里的自定义材质包只测试了Java版的资源包，基岩版的材质包尚未测试。 云层obj按需自取，一般渲染可以不适用云层，有需要的话也可以使用HDR环境纹理提供。 我们还需要.obj和.mtl文件，所以在设置完成后点击导出即可。 以上的文件，包括材质文件夹和另外两个文件，需要放在同一个文件夹下，养成良好的工程管理习惯。 <img src="https://s1.ax1x.com/2020/09/27/0kIQMD.png" class="lazyload-img" data-srcset="https://s1.ax1x.com/2020/09/27/0kIQMD.png" srcset="/path/to/your/file" alt="0kIQMD.png"> 到这里我们就已经将地图转换成了3D软件可以识别的格式了。</p>
+<p>Blender 3D 下载地址：推荐Steam搜索Blender下载，可以自动更新至最新稳定版。如果不希望自动更新，那么就去国内镜像站下载：<a target="_blank" rel="noopener" href="https://www.blendercn.org/download">https://www.blendercn.org/download</a> 使用Blender来创作Minecraft风格的渲染图，就不得不提一个著名的插件：MCPrep。这个插件的下载地址为<a target="_blank" rel="noopener" href="https://github.com/TheDuckCow/MCprep/releases">https://github.com/TheDuckCow/MCprep/releases</a> ，在Blender 2.90.1下可用。这次导入模型，修复模糊更换资源包，就是利用了这个插件的功能。该插件同时兼容Mineways和Jmc2obj，及其对应的资源包导入功能。所以这里就以Mineways为例来导入了。 首先新建文件，删掉默认给的方块（Default Cube） 菜单栏选择“文件”-&gt;“导入”-&gt;“Wavefront(.obj)”： <img src="https://s1.ax1x.com/2020/09/27/0kImPx.png" class="lazyload-img" data-srcset="https://s1.ax1x.com/2020/09/27/0kImPx.png" srcset="/path/to/your/file" alt="0kImPx.png"> 找到刚才导出的.obj文件，修改右侧边栏的几何数据里的复选框，仅选中“Split by Group”（按群组分离物体），这样就可以导入地图数据了。 <img src="https://s1.ax1x.com/2020/09/27/0kIVaR.png" class="lazyload-img" data-srcset="https://s1.ax1x.com/2020/09/27/0kIVaR.png" srcset="/path/to/your/file" alt="0kIVaR.png"> 这时按下M键新建一个集合“Maps”，将选中的物体移动到这个集合里面。这样做的原因是为了保持工程内物体的合理分组。文章末尾的提取码是ETWZ。你也可以给灯光、人物/生物模型、摄像机分组，更容易找到相关的项目。  <img src="https://s1.ax1x.com/2020/09/27/0kIuRK.png" class="lazyload-img" data-srcset="https://s1.ax1x.com/2020/09/27/0kIuRK.png" srcset="/path/to/your/file" alt="0kIuRK.png"> <img src="https://s1.ax1x.com/2020/09/27/0kIEZ9.png" class="lazyload-img" data-srcset="https://s1.ax1x.com/2020/09/27/0kIEZ9.png" srcset="/path/to/your/file" alt="0kIEZ9.png"></p>
+<p>分完组以后，保持选择刚才导入的地图物体，按下“N”键打开右侧边栏，找到“MCprep”选项卡，选择“Prep Materials”，不用做任何改动直接确认，地图就导入完成了。 <img src="https://s1.ax1x.com/2020/09/27/0kIKxO.png" class="lazyload-img" data-srcset="https://s1.ax1x.com/2020/09/27/0kIKxO.png" srcset="/path/to/your/file" alt="0kIKxO.png"> 如果要切换材质包，需要将材质包先解压，之后点击“Swap Texture Pack”，弹出文件浏览器。找到材质包解压后的文件夹（即pack.png所在的文件夹内），点击“Swap Texture Pack”就可以导入材质包了。侧边栏的选项按照默认选中即可。 <img src="https://s1.ax1x.com/2020/09/27/0kIlse.png" class="lazyload-img" data-srcset="https://s1.ax1x.com/2020/09/27/0kIlse.png" srcset="/path/to/your/file" alt="0kIlse.png"> 这时候将视图模式切换到渲染模式，就可以看最终的效果了： <img src="https://s1.ax1x.com/2020/09/27/0kI1qH.png" class="lazyload-img" data-srcset="https://s1.ax1x.com/2020/09/27/0kI1qH.png" srcset="/path/to/your/file" alt="0kI1qH.png"> 不过会有一个问题，有些新的光源方块无法发光。这时候就需要手动调整光源方块的材质了。选中光源方块（例如菌光体，海晶灯等），在顶部的选项卡切换至“Shading”（材质调节选项卡），按照下面的节点连接材质节点： <img src="https://s1.ax1x.com/2020/09/27/0kInG6.png" class="lazyload-img" data-srcset="https://s1.ax1x.com/2020/09/27/0kInG6.png" srcset="/path/to/your/file" alt="0kInG6.png"> 到这里，地图的导入就已经完成了。由于方块的光源属于间接光，如果使用EEVEE渲染器的话需要使用辐射体积并烘培光线才能有间接光照明的效果；另外，如果在EEVEE渲染器中使用直接光照明的话，接触阴影可能会未启用，具体的体现就是阴影的位置不对。解决的办法是在每个灯光的设置下面启用“接触阴影”。这或许是新版本的一个Bug，可能在之后的版本中修复。使用Cycles渲染器的话就可以直接拿去打光并渲染了。</p>
+<p>Cinema 4D： 这里不能放盗版软件的下载，所以就请支持正版软件，在这里购买：<a target="_blank" rel="noopener" href="https://www.maxon.net/cn/%E4%BA%A7%E5%93%81/cinema-4d/cinema-4d/">https://www.maxon.net/cn/%E4%BA%A7%E5%93%81/cinema-4d/cinema-4d/</a> &lt;由于笔者很少使用C4D来制作渲染图，因此对于这部分仅从纹理贴图的角度来讲解，方块的光照等特性需要自己添加。&gt; 这里如果使用Jmc2obj导出地图的话，那么就可以跳过更换材质包这一部分了。如果使用Mineways导出材质包，那么就需要在导入地图前更改材质。首先资源包里的assets\minecraft\textures\block文件夹内的文件复制出来，全选并替换掉tex文件夹里的贴图。完成这些事情后，就可以开启C4D软件，导入地图文件了。 <img src="https://s1.ax1x.com/2020/09/28/0V3UOJ.png" class="lazyload-img" data-srcset="https://s1.ax1x.com/2020/09/28/0V3UOJ.png" srcset="/path/to/your/file" alt="0V3UOJ.png"> 打开软件，将obj文件拖到软件里面，按照默认方式导入，会发现模型贴图全部丢失了。可以点击“窗口”-&gt;“纹理管理器”，选择全部的贴图，右键弹出菜单，点击“本地化文件名”。这时候纹理就全部出现了。 <img src="https://s1.ax1x.com/2020/09/28/0V30T1.png" class="lazyload-img" data-srcset="https://s1.ax1x.com/2020/09/28/0V30T1.png" srcset="/path/to/your/file" alt="0V30T1.png"> <img src="https://s1.ax1x.com/2020/09/28/0V3wwR.png" class="lazyload-img" data-srcset="https://s1.ax1x.com/2020/09/28/0V3wwR.png" srcset="/path/to/your/file" alt="0V3wwR.png"> 返回主界面，选择所有的纹理，将纹理的采样改为“无”，这时候就可以解决纹理模糊的现象了。 <img src="https://s1.ax1x.com/2020/09/28/0V3DFx.png" class="lazyload-img" data-srcset="https://s1.ax1x.com/2020/09/28/0V3DFx.png" srcset="/path/to/your/file" alt="0V3DFx.png"> 之后就是修复草方块（草丛、树叶）的颜色。这时候可以拿拾色器选取草方块边缘的绿色，调整一下HSV的值就能做到没有违和感了。其他方块同理。 <img src="https://s1.ax1x.com/2020/09/28/0V3sfK.png" class="lazyload-img" data-srcset="https://s1.ax1x.com/2020/09/28/0V3sfK.png" srcset="/path/to/your/file" alt="0V3sfK.png"> 接下来修复透明方块的透明部分。文章末尾的提取码为ETWZ。在基本中勾选Alpha，按住Shift选择颜色和Alpha选项卡，将颜色里的纹理拖动到Alpha里的纹理，就可以修复这个问题了。 <img src="https://s1.ax1x.com/2020/09/28/0V36SO.png" class="lazyload-img" data-srcset="https://s1.ax1x.com/2020/09/28/0V36SO.png" srcset="/path/to/your/file" alt="0V36SO.png"> <img src="https://s1.ax1x.com/2020/09/28/0V3g6e.png" class="lazyload-img" data-srcset="https://s1.ax1x.com/2020/09/28/0V3g6e.png" srcset="/path/to/your/file" alt="0V3g6e.png"> 其他的内容，比如让方块发光这类问题，可以参考Icrdr的教程，这部分内容到目前依然不过时：<a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1Vx411K7cX">https://www.bilibili.com/video/BV1Vx411K7cX</a> 。</p>
+<p>到这里，全部的内容就已经讲解完毕了。如果觉得这个教程很糟糕，那么就点一下踩并回复反馈问题；如果这个教程帮到了你那么我自然是十分高兴，欢迎在楼下交流学习成果~</p>
+<p>本教程内的所有素材都整理完毕，在这里下载：</p>
+<p><a target="_blank" rel="noopener" href="https://pan.baidu.com/s/1Xc-I-yYpmofIzgdVBOOW3Q">https://pan.baidu.com/s/1Xc-I-yYpmofIzgdVBOOW3Q</a></p>
+<p>如果你仔细看教程的话，提取码是不难获取的。再次感谢你的支持！</p>
+
+      </div>
+    </div>
+</div>
+
+<div class="post-category">
+
+    <div id="p-meta-i">
+        
+              
+                <a class="hover-with-bg" href="/categories/%E6%95%99%E7%A8%8B/">教程</a>
+              
+          
+          
+    </div>
+</div>
+
+
+<div class="post-footer">
+  
+
+  <div class="post-copyright">
+    <p style="margin: 5px 0;">文章作者：<a href="/">Eric Zane</a></p>
+    <p style="margin: 5px 0;">文章链接：<a href="http://etw.github.io/2020/10/01/how-to-import-surroundings/">http://etw.github.io/2020/10/01/how-to-import-surroundings/</a></p>
+    <p style="margin: 5px 0;">版权声明：本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处，谢谢。</p>
+  </div>
+  
+</div>
+
+    <!-- Comments -->
+    <div class="comments">
+        
+        
+    </div>
+
+</article>
+
+
+        </div>
+        
+<footer class="text-center">
+    
+    
+    
+    
+    
+    <p>&copy;  2020 - 2021&nbsp;&nbsp;Theme Miracle</p>
+    
+    <p>Powered by <a href="https://hexo.io" target="_blank">Hexo</a> | Theme by <a href="https://github.com/hifun-team/hexo-theme-miracle" target="_blank">Miracle</a></p>
+    
+    
+</footer>
+
+<div class="p-btn">
+    
+        <a class="toc-btn" id="toc-btn"><i id="i-menu"></i></a>
+    
+    <a href="#top" class="click-btn">
+      <i id="i-up"></i>
+    </a>
+</div>
+
+<!-- SCRIPTS -->
+
+
+
+
+
+
+
+<script>
+    document.getElementById("btn-dropdown").addEventListener('click', () => {
+      toggleClass("#dropdown-menus","display-inline");
+    });
+    console.log('\n' + ' %c Powered by Hexo Theme Miracle ' + ' %c https://github.com/hifun-team/hexo-theme-miracle ' + '\n' + '\n', 'color: #fff; background: #4F9BFA; padding:5px 0;', 'background: #FFF; padding:5px 0;');
+
+    
+
+    
+  /* 小彩蛋: 饮茶先啦 */
+  setTimeout(() => {
+    var time = new Date();
+    if (time.getHours() == 15) {
+      let comment = document.createComment(' 三点几嚟！饮茶先啦！ ');
+      document.body.insertBefore(comment, document.getElementsByTagName('header')[0]);
+    }
+  },1);
+    
+</script>
+
+
+<script>
+    var postImg = document.querySelectorAll("article[class=page] img");
+    for (let imgi = 0; imgi < postImg.length; imgi++) {
+        postImg[imgi].onclick = () => {
+            let zoomImg = document.createElement("div");
+            zoomImg.id = "zoomImg";
+            zoomImg.innerHTML = `<div id="zoom-picture"></div>
+    <div class="poptrox-overlay"
+        style="position: fixed; left: 0px; top: 0px; z-index: 20000; width: 100%; height: 100%; text-align: center; cursor: zoom-out; opacity: 1;">
+        <div style="display:inline-block;height:100%;vertical-align:middle;"></div>
+        <div
+            style="position:absolute;left:0;top:0;width:100%;height:100%;background:#000000;opacity:0;filter:alpha(opacity=0);">
+        </div>
+        <div class="poptrox-popup"
+            style="display: inline-block; vertical-align: middle; position: relative; z-index: 1; cursor: zoom-out; min-width: 10px; min-height: 10px; width: auto; height: auto;">
+            <div class="loader" style="display: none;"></div>
+            <div class="pic" style="text-indent: 0px;"><img
+                    src="${ postImg[imgi].srcset || postImg[imgi].src }" alt="Loading..."
+                    style="vertical-align: bottom; max-width: 85vw; max-height: 85vh;"></div>
+        </div>
+    </div>`;
+            document.body.appendChild(zoomImg);
+                document.querySelector("#zoomImg").onclick = () => {
+                    document.querySelector("#zoomImg").remove();
+                }
+        }
+    }
+    
+</script>
+
+
+
+<script>
+        try {
+            var io = new IntersectionObserver(function (entries) {
+                entries.forEach(function (entry) {
+                    if (entry.isIntersecting) {
+                        var img = entry.target;
+                        img.srcset = img.getAttribute('data-srcset');
+                        img.className += ' loaded'
+                        io.unobserve(img);
+                    }
+                });
+            });
+        } catch (e) {
+            console.info(e);
+        }
+        query('.lazyload-img').forEach(function (item) {
+            try {
+                io.observe(item);
+            } catch (e) {
+                console.info(e);
+            }
+        });
+    </script>
+
+
+    <script>
+        query("#toc-btn")[0].onclick = () => {
+            if (query(".post-toc")[0].innerHTML) {
+                toggleClass(".post-toc", "display-inline");
+            }
+        }
+
+        if (!query(".post-toc")[0].innerHTML) {
+            addClass("#toc-btn","display-none");
+        }
+    </script>
+
+
+
+
+
+
+
+
+
+        </div>
+        <div id="css-loading">
+            <h3 class="text-center">加载中...</h3>
+        </div>
+        
+    </body>
+</html>
