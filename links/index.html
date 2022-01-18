@@ -457,56 +457,176 @@ header .header__right .dropdown-menus .dropdown-menu {
 </div>
 <div class="links-page" style="padding-top:10px;" id="links-page">
     
-    
-      <script>
-        (async () => {
-          var res = await fetch('');
-          var json = await res.json();
-          console.log(json);
-          const Linkscontainer = document.getElementById('links-page');
-          json.forEach(item => {
-            const element = document.createElement('div');
-            element.className = "links-card";
-
-            element.innerHTML = `
-        <a href="${item.link}" class="links-card-body" target="_blank" rel="noopener">
+      
+      <div class="links-card">
+        <a href="https://yuanze.wang/" class="links-card-body" target="_blank" rel="noopener">
           <div class="links-card-content">
+            
               <div class="link-avatar my-auto">
-                <img webp-comp class="lazyload-img" data-srcset="${item.image}" srcset="/img/loading.svg" src="${item.image}" alt="${item.title}" />
+                <img src="/path/to/your/image" class="lazyload-img" data-srcset="/path/to/your/image" srcset="/path/to/your/file" alt="远处有泽细细说" />
               </div>
+            
             <div class="link-text">
-              <div class="link-title">${item.title}</div>
-              <div class="link-intro">${item.intro}</div>
+              <div class="link-title">远处有泽细细说</div>
+              <div class="link-intro">Hello ...</div>
             </div>
           </div>
         </a>
-            `;
-            Linkscontainer.appendChild(element);
-          });
-          setTimeout(function () {
-  function query(selector) {
-    return Array.from(document.querySelectorAll(selector));
-}
+      </div>
     
-var io = new IntersectionObserver(function (entries) {
-    entries.forEach(function (entry) {
-        if (entry.isIntersecting) { 
-            var img = entry.target;
-            img.srcset = img.getAttribute('data-srcset');
-            img.className += ' loaded'
-            io.unobserve(img);
-        }
-    });
-});
+      
+      <div class="links-card">
+        <a href="https://main.since2014.cn/" class="links-card-body" target="_blank" rel="noopener">
+          <div class="links-card-content">
+            
+              <div class="link-avatar my-auto">
+                <img src="/path/to/your/image" class="lazyload-img" data-srcset="/path/to/your/image" srcset="/path/to/your/file" alt="Bayes-Navi" />
+              </div>
+            
+            <div class="link-text">
+              <div class="link-title">Bayes-Navi</div>
+              <div class="link-intro">Hello ...</div>
+            </div>
+          </div>
+        </a>
+      </div>
     
-query('.lazyload-img').forEach(function (item) {
-    io.observe(item);
-});
-},0)
-        })();
-
-
-      </script>
+      
+      <div class="links-card">
+        <a href="https://yukishirataco.moe/" class="links-card-body" target="_blank" rel="noopener">
+          <div class="links-card-content">
+            
+              <div class="link-avatar my-auto">
+                <img src="/path/to/your/image" class="lazyload-img" data-srcset="/path/to/your/image" srcset="/path/to/your/file" alt="雪野白玉的编程随想" />
+              </div>
+            
+            <div class="link-text">
+              <div class="link-title">雪野白玉的编程随想</div>
+              <div class="link-intro">Hello ...</div>
+            </div>
+          </div>
+        </a>
+      </div>
+    
+      
+      <div class="links-card">
+        <a href="http://c7w.tech/" class="links-card-body" target="_blank" rel="noopener">
+          <div class="links-card-content">
+            
+              <div class="link-avatar my-auto">
+                <img src="/path/to/your/image" class="lazyload-img" data-srcset="/path/to/your/image" srcset="/path/to/your/file" alt="c7w的博客" />
+              </div>
+            
+            <div class="link-text">
+              <div class="link-title">c7w的博客</div>
+              <div class="link-intro">Hello ...</div>
+            </div>
+          </div>
+        </a>
+      </div>
+    
+      
+      <div class="links-card">
+        <a href="https://www.wd-ljt.com/" class="links-card-body" target="_blank" rel="noopener">
+          <div class="links-card-content">
+            
+              <div class="link-avatar my-auto">
+                <img src="/path/to/your/image" class="lazyload-img" data-srcset="/path/to/your/image" srcset="/path/to/your/file" alt="问谛居" />
+              </div>
+            
+            <div class="link-text">
+              <div class="link-title">问谛居</div>
+              <div class="link-intro">Hello ...</div>
+            </div>
+          </div>
+        </a>
+      </div>
+    
+      
+      <div class="links-card">
+        <a href="https://lakejason0.wordpress.com/" class="links-card-body" target="_blank" rel="noopener">
+          <div class="links-card-content">
+            
+              <div class="link-avatar my-auto">
+                <img src="/path/to/your/image" class="lazyload-img" data-srcset="/path/to/your/image" srcset="/path/to/your/file" alt="Lake桑的存档馆 &gt;&gt; Wordpress.com分馆" />
+              </div>
+            
+            <div class="link-text">
+              <div class="link-title">Lake桑的存档馆 >> Wordpress.com分馆</div>
+              <div class="link-intro">Hello ...</div>
+            </div>
+          </div>
+        </a>
+      </div>
+    
+      
+      <div class="links-card">
+        <a href="https://powerdia.nl/" class="links-card-body" target="_blank" rel="noopener">
+          <div class="links-card-content">
+            
+              <div class="link-avatar my-auto">
+                <img src="/path/to/your/image" class="lazyload-img" data-srcset="/path/to/your/image" srcset="/path/to/your/file" alt="电量量的博客" />
+              </div>
+            
+            <div class="link-text">
+              <div class="link-title">电量量的博客</div>
+              <div class="link-intro">Hello ...</div>
+            </div>
+          </div>
+        </a>
+      </div>
+    
+      
+      <div class="links-card">
+        <a href="https://blog.azurezeng.com/" class="links-card-body" target="_blank" rel="noopener">
+          <div class="links-card-content">
+            
+              <div class="link-avatar my-auto">
+                <img src="/path/to/your/image" class="lazyload-img" data-srcset="/path/to/your/image" srcset="/path/to/your/file" alt="AzureZeng&#39;s Blog" />
+              </div>
+            
+            <div class="link-text">
+              <div class="link-title">AzureZeng's Blog</div>
+              <div class="link-intro">Hello ...</div>
+            </div>
+          </div>
+        </a>
+      </div>
+    
+      
+      <div class="links-card">
+        <a href="https://www.ff98sha.me/" class="links-card-body" target="_blank" rel="noopener">
+          <div class="links-card-content">
+            
+              <div class="link-avatar my-auto">
+                <img src="/path/to/your/image" class="lazyload-img" data-srcset="/path/to/your/image" srcset="/path/to/your/file" alt="ff98sha的博客" />
+              </div>
+            
+            <div class="link-text">
+              <div class="link-title">ff98sha的博客</div>
+              <div class="link-intro">Hello ...</div>
+            </div>
+          </div>
+        </a>
+      </div>
+    
+      
+      <div class="links-card">
+        <a href="https://blog.zapic.cc/" class="links-card-body" target="_blank" rel="noopener">
+          <div class="links-card-content">
+            
+              <div class="link-avatar my-auto">
+                <img src="/path/to/your/image" class="lazyload-img" data-srcset="/path/to/your/image" srcset="/path/to/your/file" alt="Zapic&#39;s Blog" />
+              </div>
+            
+            <div class="link-text">
+              <div class="link-title">Zapic's Blog</div>
+              <div class="link-intro">Hello ...</div>
+            </div>
+          </div>
+        </a>
+      </div>
+    
     
 </div>
   </div>

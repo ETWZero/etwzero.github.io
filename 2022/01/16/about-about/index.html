@@ -8,7 +8,7 @@
     <link rel="apple-touch-icon" sizes="76x76" href="/img/cod.png">
     <link rel="icon" type="image/png" href="/img/cod.png">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5">
-    <title>分类 - uncategorized - ETW的破站</title>
+    <title>About Me - ETW的破站</title>
     
     <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
     
@@ -450,25 +450,88 @@ header .header__right .dropdown-menus .dropdown-menu {
         <div class="mg-top">
             
 
-
 <article class="page">
-  <div class="archive-list">
-    <p class="h4">共计 1 篇文章</p>
-    <hr>
+<div id="post-meta-m">
+    <div class="post-meta" id="post-meta">
+  <h3>About Me</h3>
+    
+      <span class="post-meta-label">
+        Eric Zane
+      </span>
+    
+    
+      <span class="post-meta-label">
+        <span class="p-dot"></span>
+        <time datetime="2022-01-16 20:29" pubdate>
+          2022-01-16
+        </time>
+      </span>
     
     
       
-        
-        <p class="h5">2020</p>
-      
-      <a href="/2020/09/21/%E5%BF%AB%E9%80%9F%E8%AE%BF%E9%97%AE-index/" class="list-group-item list-group-item-action">
-        <span class="archive-post-title">快速访问</span>
-        <time style="float: right;">09-21</time>
-      </a>
+      <span class="post-meta">
+        <span class="p-dot"></span>
+        共 47 字
+      </span>
     
-
+    
+    
+  </div>
+  
 </div>
+<div class="article-m">
+  <div class="post-toc">
+    
+      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%85%B3%E4%BA%8E%E6%88%91"><span class="toc-number">1.</span> <span class="toc-text">关于我</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%81%94%E7%B3%BB%E6%88%91"><span class="toc-number">1.1.</span> <span class="toc-text">联系我</span></a></li></ol></li></ol>
+    
+  </div>
+    <div id="article">
+      <div id="post-content" class="markdown-body textretty">
+        <h1 id="关于我"><a href="#关于我" class="headerlink" title="关于我"></a>关于我</h1><p>一条咸鱼，但是有了梦想。</p>
+<h2 id="联系我"><a href="#联系我" class="headerlink" title="联系我"></a>联系我</h2><p>邮箱：<a href="mailto:&#x65;&#114;&#105;&#x63;&#x5f;&#116;&#x68;&#x65;&#95;&#x66;&#105;&#x73;&#104;&#64;&#113;&#113;&#x2e;&#x63;&#x6f;&#109;">&#x65;&#114;&#105;&#x63;&#x5f;&#116;&#x68;&#x65;&#95;&#x66;&#105;&#x73;&#104;&#64;&#113;&#113;&#x2e;&#x63;&#x6f;&#109;</a></p>
+<p>开黑啦频道：<a target="_blank" rel="noopener" href="https://kaihei.co/mslmTX">https://kaihei.co/mslmTX</a></p>
+
+      </div>
+    </div>
+</div>
+
+<div class="post-category">
+
+    <div id="p-meta-i">
+        
+              
+                <a class="hover-with-bg" href="/categories/About/">About</a>
+              
+          
+          
+              
+                <a class="hover-with-bg" href="/tags/About/"># About</a>
+              
+          
+    </div>
+</div>
+
+
+<div class="post-footer">
+  
+
+  <div class="post-copyright">
+    <p style="margin: 5px 0;">文章作者：<a href="/">Eric Zane</a></p>
+    <p style="margin: 5px 0;">文章链接：<a href="http://etwzero.github.io/2022/01/16/about-about/">http://etwzero.github.io/2022/01/16/about-about/</a></p>
+    <p style="margin: 5px 0;">版权声明：本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处，谢谢。</p>
+  </div>
+  
+</div>
+
+    <!-- Comments -->
+    <div class="comments">
+        
+        
+    </div>
+
 </article>
+
+
         </div>
         
 <footer class="text-center">
@@ -485,6 +548,8 @@ header .header__right .dropdown-menus .dropdown-menu {
 </footer>
 
 <div class="p-btn">
+    
+        <a class="toc-btn" id="toc-btn"><i id="i-menu"></i></a>
     
     <a href="#top" class="click-btn">
       <i id="i-up"></i>
@@ -520,8 +585,74 @@ header .header__right .dropdown-menus .dropdown-menu {
 </script>
 
 
+<script>
+    var postImg = document.querySelectorAll("article[class=page] img");
+    for (let imgi = 0; imgi < postImg.length; imgi++) {
+        postImg[imgi].onclick = () => {
+            let zoomImg = document.createElement("div");
+            zoomImg.id = "zoomImg";
+            zoomImg.innerHTML = `<div id="zoom-picture"></div>
+    <div class="poptrox-overlay"
+        style="position: fixed; left: 0px; top: 0px; z-index: 20000; width: 100%; height: 100%; text-align: center; cursor: zoom-out; opacity: 1;">
+        <div style="display:inline-block;height:100%;vertical-align:middle;"></div>
+        <div
+            style="position:absolute;left:0;top:0;width:100%;height:100%;background:#000000;opacity:0;filter:alpha(opacity=0);">
+        </div>
+        <div class="poptrox-popup"
+            style="display: inline-block; vertical-align: middle; position: relative; z-index: 1; cursor: zoom-out; min-width: 10px; min-height: 10px; width: auto; height: auto;">
+            <div class="loader" style="display: none;"></div>
+            <div class="pic" style="text-indent: 0px;"><img
+                    src="${ postImg[imgi].srcset || postImg[imgi].src }" alt="Loading..."
+                    style="vertical-align: bottom; max-width: 85vw; max-height: 85vh;"></div>
+        </div>
+    </div>`;
+            document.body.appendChild(zoomImg);
+                document.querySelector("#zoomImg").onclick = () => {
+                    document.querySelector("#zoomImg").remove();
+                }
+        }
+    }
+    
+</script>
 
 
+
+<script>
+        try {
+            var io = new IntersectionObserver(function (entries) {
+                entries.forEach(function (entry) {
+                    if (entry.isIntersecting) {
+                        var img = entry.target;
+                        img.srcset = img.getAttribute('data-srcset');
+                        img.className += ' loaded'
+                        io.unobserve(img);
+                    }
+                });
+            });
+        } catch (e) {
+            console.info(e);
+        }
+        query('.lazyload-img').forEach(function (item) {
+            try {
+                io.observe(item);
+            } catch (e) {
+                console.info(e);
+            }
+        });
+    </script>
+
+
+    <script>
+        query("#toc-btn")[0].onclick = () => {
+            if (query(".post-toc")[0].innerHTML) {
+                toggleClass(".post-toc", "display-inline");
+            }
+        }
+
+        if (!query(".post-toc")[0].innerHTML) {
+            addClass("#toc-btn","display-none");
+        }
+    </script>
 
 
 
