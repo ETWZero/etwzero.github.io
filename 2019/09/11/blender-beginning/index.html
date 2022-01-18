@@ -377,12 +377,12 @@ header .header__right .dropdown-menus .dropdown-menu {
 			<div class="navbar-menu">首页</div>
 		</a>
 		
-		<a href="/categories/" class="button">
-			<div class="navbar-menu">分类</div>
+		<a href="/archives/" class="button">
+			<div class="navbar-menu">归档</div>
 		</a>
 		
-		<a href="/talk/" class="button">
-			<div class="navbar-menu">说说</div>
+		<a href="/categories/" class="button">
+			<div class="navbar-menu">分类</div>
 		</a>
 		
 		<a href="/links/" class="button">
@@ -429,10 +429,10 @@ header .header__right .dropdown-menus .dropdown-menu {
 		<a href="/" class="dropdown-menu button">首页</a>
 		<br>
 		
-		<a href="/categories/" class="dropdown-menu button">分类</a>
+		<a href="/archives/" class="dropdown-menu button">归档</a>
 		<br>
 		
-		<a href="/talk/" class="dropdown-menu button">说说</a>
+		<a href="/categories/" class="dropdown-menu button">分类</a>
 		<br>
 		
 		<a href="/links/" class="dropdown-menu button">友链</a>
@@ -498,66 +498,66 @@ header .header__right .dropdown-menus .dropdown-menu {
 <p>③逐渐强大的中文社区。我是新人，不做评判，但是就本地化而言社区的确贡献了很大的力量，包括软件的翻译和用户手册的翻译。</p>
 <p>3）（有点重要）如何进行下载与安装，以及一些个人认为比较重要的准备工作？</p>
 <p>①下载：进入blender.org，页面里有一个大大的下载按钮（Download Blender 2.80）。推荐直接下载Windows Installer 64bit（安装包版），当然如果希望拷到移动硬盘里带着可以下载压缩包版——如果有其他系统（比如Linux或Mac OS）或者其他架构也可以选择相应平台的可执行文件。（官网的下载速度感人，请做好下载半个小时乃至一个小时的准备，本贴末尾会给一个备用网盘地址）（极其不推荐32位！请尽量下载64位的软件！）</p>
-<p><img src="https://www.z4a.net/images/2019/09/01/1a25bd71bedc2b30c.png" class="lazyload-img" data-srcset="https://www.z4a.net/images/2019/09/01/1a25bd71bedc2b30c.png" srcset="/path/to/your/file"></p>
+<p><img src="https://www.z4a.net/images/2019/09/01/1a25bd71bedc2b30c.png"></p>
 <p>②安装：一路下一步即可，不用担心捆绑软件的问题，还可以把Blender装在非系统盘里。</p>
 <p>③准备工作（使用Windows平台）：</p>
 <p>a)将软件注册到系统用户：在blender安装目录下按住shift右键，选择“在此处打开命令提示符”（如果是Powershell，同样打开即可，只不过需要在Powershell里输入“cmd”并回车），输入以下命令并回车：</p>
 <p>blender.exe -R</p>
 <p>此时会弹出对话框，提示软件已经注册到该用户，如果要安装到所有用户用管理员权限执行即可。</p>
-<p><img src="https://www.z4a.net/images/2019/09/01/2b331bc4ab8d768b3.png" class="lazyload-img" data-srcset="https://www.z4a.net/images/2019/09/01/2b331bc4ab8d768b3.png" srcset="/path/to/your/file" alt="https://www.z4a.net/images/2019/09/01/2b331bc4ab8d768b3.png"></p>
+<p><img src="https://www.z4a.net/images/2019/09/01/2b331bc4ab8d768b3.png" alt="https://www.z4a.net/images/2019/09/01/2b331bc4ab8d768b3.png"></p>
 <p>此后，你可以通过文件管理器看到.blend文件的缩略图了，同样双击可以直接打开这类文件了。</p>
-<p><img src="https://www.z4a.net/images/2019/09/01/7.png" class="lazyload-img" data-srcset="https://www.z4a.net/images/2019/09/01/7.png" srcset="/path/to/your/file" alt="https://www.z4a.net/images/2019/09/01/7.png"></p>
+<p><img src="https://www.z4a.net/images/2019/09/01/7.png" alt="https://www.z4a.net/images/2019/09/01/7.png"></p>
 <p>（这一步当然可以省略，但是如果没有这一步的话，有可能会无法像其他3D软件一样在文件管理器里直接查看工程缩略图）</p>
 <p>b)软件内的设置：</p>
 <p>·第一次运行的设置。按照默认的设置即可，选择键设置在鼠标左键就行</p>
 <p>·本地化。选择”Edit”-&gt;”Interface”，勾选”Translation”前的复选框，同时在下面的复选框选中”Tooltips”（工具提示）和”Interface”（界面），新建数据可以按照个人喜好勾选。</p>
-<p><img src="https://www.z4a.net/images/2019/09/01/33e62cc23471940f6.png" class="lazyload-img" data-srcset="https://www.z4a.net/images/2019/09/01/33e62cc23471940f6.png" srcset="/path/to/your/file" alt="https://www.z4a.net/images/2019/09/01/33e62cc23471940f6.png"></p>
+<p><img src="https://www.z4a.net/images/2019/09/01/33e62cc23471940f6.png" alt="https://www.z4a.net/images/2019/09/01/33e62cc23471940f6.png"></p>
 <p>·硬件加速。Blender的Cycle渲染器支持CUDA加速和OpenCL加速，如果显卡较好的话推荐启用。选择“编辑”-&gt;“系统”，将Cycle渲染设备里的“无”改成“CUDA”或“OpenCL”，我的显卡是英伟达的GTX1050ti，自然选择CUDA加速：把CPU和GPU都勾上即可。（我手上没有A卡，估计A卡用OpenCL，如果有多张显卡交火或桥接记得打好驱动，把所有GPU全部勾上即可，加一点私货，AMDYES!）</p>
-<p><img src="https://www.z4a.net/images/2019/09/01/45b4920de1f5a99d9.png" class="lazyload-img" data-srcset="https://www.z4a.net/images/2019/09/01/45b4920de1f5a99d9.png" srcset="/path/to/your/file" alt="https://www.z4a.net/images/2019/09/01/45b4920de1f5a99d9.png"></p>
+<p><img src="https://www.z4a.net/images/2019/09/01/45b4920de1f5a99d9.png" alt="https://www.z4a.net/images/2019/09/01/45b4920de1f5a99d9.png"></p>
 <p>·内置插件推荐。选择“编辑”-&gt;“插件”，勾选如下插件（灵活使用搜索功能进行插件查找）：</p>
 <p>Import Images as Planes //作为平面导入图片。 Material Library //内置材质库，质量还可以，有条件可以下一个PBR Materials插件，也是材质库，质量很高，免费下载。 Auto Tile Size //自动调节渲染区块大小，大部分情况可以略微提升渲染速度。 Dynamic Sky //动态天空，如果没有天空HDR可以将就用一下，纯节点材质。</p>
-<p><img src="https://www.z4a.net/images/2019/09/01/54c715799ac290fb0.png" class="lazyload-img" data-srcset="https://www.z4a.net/images/2019/09/01/54c715799ac290fb0.png" srcset="/path/to/your/file" alt="https://www.z4a.net/images/2019/09/01/54c715799ac290fb0.png"></p>
+<p><img src="https://www.z4a.net/images/2019/09/01/54c715799ac290fb0.png" alt="https://www.z4a.net/images/2019/09/01/54c715799ac290fb0.png"></p>
 <p>1、基础操作</p>
 <p>现在我们能够打开Blender2.80了，首先来看一下软件的布局吧：</p>
-<p><img src="https://www.z4a.net/images/2019/09/01/6fa866740ffff7acd.png" class="lazyload-img" data-srcset="https://www.z4a.net/images/2019/09/01/6fa866740ffff7acd.png" srcset="/path/to/your/file" alt="https://www.z4a.net/images/2019/09/01/6fa866740ffff7acd.png"></p>
+<p><img src="https://www.z4a.net/images/2019/09/01/6fa866740ffff7acd.png" alt="https://www.z4a.net/images/2019/09/01/6fa866740ffff7acd.png"></p>
 <p>_Blender窗口的默认布局。 顶栏(蓝色)，工作区(绿色)和状态栏(红色)。_[2]</p>
 <p>看完了，我们就可以尝试把玩这个软件了。这次做一张非常简单的图，只有4个元素：一个猴头、两个灯光、一个平面。（为照顾低配机器先使用EEVEE渲染器，另一个后面讲）</p>
 <p>首先“新建文件”-&gt;“常规”，创建一个工程。</p>
 <p>我们的三维视图里出现了一个正方体、一个摄像机、一个灯光。</p>
-<p><img src="https://www.z4a.net/images/2019/09/01/8.png" class="lazyload-img" data-srcset="https://www.z4a.net/images/2019/09/01/8.png" srcset="/path/to/your/file" alt="https://www.z4a.net/images/2019/09/01/8.png"></p>
+<p><img src="https://www.z4a.net/images/2019/09/01/8.png" alt="https://www.z4a.net/images/2019/09/01/8.png"></p>
 <p>我们可以按下小键盘的“0”键，转到摄像头视角来看初始工程的样子（说实话是真的不够靓），再按下小键盘的”0”键恢复到默认视角：</p>
 <p>选中立方体，按下x键，会提示确定删除的菜单，单击确认：（当然你也可以用Del键直接删除元素）</p>
-<p><img src="https://www.z4a.net/images/2019/09/01/9.png" class="lazyload-img" data-srcset="https://www.z4a.net/images/2019/09/01/9.png" srcset="/path/to/your/file" alt="https://www.z4a.net/images/2019/09/01/9.png"></p>
+<p><img src="https://www.z4a.net/images/2019/09/01/9.png" alt="https://www.z4a.net/images/2019/09/01/9.png"></p>
 <p>选择左上角的“添加”（快捷键为Shift+A（dd）），可以添加很多元素，我们本次只用到网格和灯光：</p>
 <p>选择“网格”-&gt;“猴头”，把猴头添加到场景中：</p>
-<p><img src="https://www.z4a.net/images/2019/09/01/10.png" class="lazyload-img" data-srcset="https://www.z4a.net/images/2019/09/01/10.png" srcset="/path/to/your/file" alt="https://www.z4a.net/images/2019/09/01/10.png"></p>
+<p><img src="https://www.z4a.net/images/2019/09/01/10.png" alt="https://www.z4a.net/images/2019/09/01/10.png"></p>
 <p>这时会发现一个问题：猴头的位置在原点，所以我们可以将猴头拖动到xy平面上方。选择左侧的移动（快捷键为g（rab））可以看见物体上出现了三个相互垂直的矢量箭头和三个互相垂直的平面。拖动蓝色的箭头（z轴，快捷键为z，用在使用快捷键拖动、缩放和旋转之后）即可在z轴移动元素。在拖动的同时按住Ctrl可以以米为单位拖动，按住Shift可以进行精确的移动（移动速度很慢）。调整到合适的位置即可。</p>
-<p><img src="https://www.z4a.net/images/2019/09/01/114b896cd205fe41c3.png" class="lazyload-img" data-srcset="https://www.z4a.net/images/2019/09/01/114b896cd205fe41c3.png" srcset="/path/to/your/file" alt="https://www.z4a.net/images/2019/09/01/114b896cd205fe41c3.png"></p>
+<p><img src="https://www.z4a.net/images/2019/09/01/114b896cd205fe41c3.png" alt="https://www.z4a.net/images/2019/09/01/114b896cd205fe41c3.png"></p>
 <p>猴头看起来有点棱角分明了，所以我们可以尝试把他盘得圆润一些。选中猴头，在右侧选项卡选择修改器（图标是扳手），选择“添加修改器”-&gt;“表面细分”，可以适当提高细分程度。此时猴头就明显变得圆润了。</p>
-<p><img src="https://www.z4a.net/images/2019/09/01/130ebcda06181feec5.png" class="lazyload-img" data-srcset="https://www.z4a.net/images/2019/09/01/130ebcda06181feec5.png" srcset="/path/to/your/file" alt="https://www.z4a.net/images/2019/09/01/130ebcda06181feec5.png"></p>
+<p><img src="https://www.z4a.net/images/2019/09/01/130ebcda06181feec5.png" alt="https://www.z4a.net/images/2019/09/01/130ebcda06181feec5.png"></p>
 <p>（如何调整操作视图的位置、缩放和方向呢？可以用右上角的操作栏直接拖动，不过更加快捷的方式是通过快捷键：鼠标中键调整视角方向，Ctrl+鼠标中键为放大/缩小视角，Shift+鼠标中键为平移视角）</p>
 <p>选择“网格”-&gt;“平面”，把平面添加到场景中：</p>
 <p>这个平面有点小，所以我们可以通过缩放功能将其放大。选择左侧的缩放（快捷键为s（cale）），可以看见出现了三个相互垂直的调节条、三个互相垂直的平面和两个圆。我们可以拖动内部或者外部的圆来进行整体的缩放，也可以按照坐标轴进行缩放（快捷键为x，y，z，对应于x，y，z轴，用在使用快捷键拖动、缩放和旋转之后）。这个平面尽量大即可。</p>
-<p><img src="https://www.z4a.net/images/2019/09/01/14fbd49055eaad1c2c.png" class="lazyload-img" data-srcset="https://www.z4a.net/images/2019/09/01/14fbd49055eaad1c2c.png" srcset="/path/to/your/file" alt="https://www.z4a.net/images/2019/09/01/14fbd49055eaad1c2c.png"></p>
+<p><img src="https://www.z4a.net/images/2019/09/01/14fbd49055eaad1c2c.png" alt="https://www.z4a.net/images/2019/09/01/14fbd49055eaad1c2c.png"></p>
 <p>选择“灯光”-&gt;“点光”，添加一个点光源：</p>
 <p>不过这个点光源的光强有点小，我们在右侧的灯光选项卡把能量调节到300W到500W，此时光强基本就差不多了，按照上面的过程给光源调整一个位置就可以了。</p>
 <p>此外我们可以给这两个光源调整颜色，比如橙色和蓝色，紫色和黄色（才不是赛博朋克风呢#狗头保命）等等，按照自己的喜好配色就可以（滑稽）。</p>
-<p><img src="https://www.z4a.net/images/2019/09/01/15731c44f24690ad52.png" class="lazyload-img" data-srcset="https://www.z4a.net/images/2019/09/01/15731c44f24690ad52.png" srcset="/path/to/your/file" alt="https://www.z4a.net/images/2019/09/01/15731c44f24690ad52.png"></p>
+<p><img src="https://www.z4a.net/images/2019/09/01/15731c44f24690ad52.png" alt="https://www.z4a.net/images/2019/09/01/15731c44f24690ad52.png"></p>
 <p>现在就可以预览了，不过你会发现在摄像机视图中物体不在屏幕中央，所以需要调整相机的位置。除了普通的移动相机和旋转相机外，还有两种更加直接的方法：</p>
 <p>1、将操作视角调节到你希望拍摄/渲染的位置，按下快捷键“Ctrl+Alt+小键盘0键”即可将活动摄像机调节到当前视角。</p>
 <p>2、在相机视角里按下快捷键“Shift+`（键盘输入区最左上角的那个键，Esc键的下面）”，变成自由视角，此时就像一些游戏的观战视角一样了，wasd移动视角的前后左右，q键视角位置下移，e键视角位置上移，移动到合适角度时记得左键确认，如果像想放弃操作可以右键取消。（这个方法同样适用于操作视角 ）</p>
 <p>这两种方法可以混合使用，以达到最佳的视觉效果。</p>
 <p>此时就可以打开实时渲染了（右上角的最后一种预览方式）：</p>
-<p><img src="https://www.z4a.net/images/2019/09/01/16530f61af3b2e9af2.png" class="lazyload-img" data-srcset="https://www.z4a.net/images/2019/09/01/16530f61af3b2e9af2.png" srcset="/path/to/your/file" alt="https://www.z4a.net/images/2019/09/01/16530f61af3b2e9af2.png"></p>
+<p><img src="https://www.z4a.net/images/2019/09/01/16530f61af3b2e9af2.png" alt="https://www.z4a.net/images/2019/09/01/16530f61af3b2e9af2.png"></p>
 <p>就算猴子使用的是默认材质，现在的效果就已经很不错了。</p>
 <p>在此基础上还可以四处玩玩，比如开启环境光遮蔽，辉光，屏幕空间反射等比较好玩的设置，体验一下XD</p>
 <p>如何进行渲染导出呢？选择“渲染”-&gt;“渲染图像”（快捷键为F12）即可，如果电脑配置好的话会立即完成渲染，低配电脑可能需要一段时间的等待。渲染完成即可“Ctrl+S”保存输出图像即可。</p>
-<p><img src="https://www.z4a.net/images/2019/09/01/171edfa21f5590d76f.png" class="lazyload-img" data-srcset="https://www.z4a.net/images/2019/09/01/171edfa21f5590d76f.png" srcset="/path/to/your/file" alt="https://www.z4a.net/images/2019/09/01/171edfa21f5590d76f.png"></p>
+<p><img src="https://www.z4a.net/images/2019/09/01/171edfa21f5590d76f.png" alt="https://www.z4a.net/images/2019/09/01/171edfa21f5590d76f.png"></p>
 <p>（EEVEE引擎到此结束（因为本次笔记不涉及自定义材质节点问题），下面内容开始使用Cycle渲染器，上面的操作没有变化）</p>
-<p><img src="https://www.z4a.net/images/2019/09/01/18.png" class="lazyload-img" data-srcset="https://www.z4a.net/images/2019/09/01/18.png" srcset="/path/to/your/file" alt="https://www.z4a.net/images/2019/09/01/18.png"></p>
+<p><img src="https://www.z4a.net/images/2019/09/01/18.png" alt="https://www.z4a.net/images/2019/09/01/18.png"></p>
 <p>猴子的材质还是不过瘾啊……整一个好看的材质吧！选中猴子，在右侧的材质栏可以看见当前材质为空，所以我们可以点击下面的“新建”新建一个材质：</p>
 <p>如果安装了推荐插件里的“Material Library”,可以看见材质栏多了一个“Material Library VX”属性，我们将“Select a Library”改为“Cycle Material”，下面会出现很多材质——你可以试一试各种材质！要单击旁边的应用按钮（球型图案）才能应用到物体上。我使用的材质是Ceramic Polished，看起来就是有光泽的陶瓷。</p>
-<p><img src="https://www.z4a.net/images/2019/09/01/20.png" class="lazyload-img" data-srcset="https://www.z4a.net/images/2019/09/01/20.png" srcset="/path/to/your/file" alt="https://www.z4a.net/images/2019/09/01/20.png"></p>
+<p><img src="https://www.z4a.net/images/2019/09/01/20.png" alt="https://www.z4a.net/images/2019/09/01/20.png"></p>
 <p>如果自己的电脑配置不高还要使用Cycle渲染器，还希望渲染的速度可以快一些，可以尝试把采样次数降低（比如64,48甚至32），以及开启降噪功能即可。保存渲染图片的方式和上面相同，只是渲染时间很长罢了。</p>
 <p>本篇内容总结：安装及配置软件，初步使用两个渲染器进行简单的制作</p>
 <p>常用的快捷键表（适用于2.80及以上版本，2.79b及以下存在小差异,比如自由视角等快捷键）：</p>
@@ -632,7 +632,7 @@ header .header__right .dropdown-menus .dropdown-menu {
   <div class="post-copyright">
     <p style="margin: 5px 0;">文章作者：<a href="/">Eric Zane</a></p>
     <p style="margin: 5px 0;">文章链接：<a href="http://etwzero.github.io/2019/09/11/blender-beginning/">http://etwzero.github.io/2019/09/11/blender-beginning/</a></p>
-    <p style="margin: 5px 0;">版权声明：本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处，谢谢。</p>
+    <p style="margin: 5px 0;">版权声明：本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-NC-SA 4.0 协议</a> ，转载请注明出处，谢谢。</p>
   </div>
   
 </div>

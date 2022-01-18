@@ -377,12 +377,12 @@ header .header__right .dropdown-menus .dropdown-menu {
 			<div class="navbar-menu">首页</div>
 		</a>
 		
-		<a href="/categories/" class="button">
-			<div class="navbar-menu">分类</div>
+		<a href="/archives/" class="button">
+			<div class="navbar-menu">归档</div>
 		</a>
 		
-		<a href="/talk/" class="button">
-			<div class="navbar-menu">说说</div>
+		<a href="/categories/" class="button">
+			<div class="navbar-menu">分类</div>
 		</a>
 		
 		<a href="/links/" class="button">
@@ -429,10 +429,10 @@ header .header__right .dropdown-menus .dropdown-menu {
 		<a href="/" class="dropdown-menu button">首页</a>
 		<br>
 		
-		<a href="/categories/" class="dropdown-menu button">分类</a>
+		<a href="/archives/" class="dropdown-menu button">归档</a>
 		<br>
 		
-		<a href="/talk/" class="dropdown-menu button">说说</a>
+		<a href="/categories/" class="dropdown-menu button">分类</a>
 		<br>
 		
 		<a href="/links/" class="dropdown-menu button">友链</a>
@@ -492,31 +492,31 @@ header .header__right .dropdown-menus .dropdown-menu {
 <h3 id="1、将Minecraft世界导出至obj格式"><a href="#1、将Minecraft世界导出至obj格式" class="headerlink" title="1、将Minecraft世界导出至obj格式"></a>1、将Minecraft世界导出至obj格式</h3><p>在本学习笔记中，我们推荐使用<a target="_blank" rel="noopener" href="http://www.realtimerendering.com/erich/minecraft/public/mineways/">Mineway</a>（这是<a target="_blank" rel="noopener" href="https://www.mcbbs.net/forum.php?mod=viewthread&tid=652931">国内搬运帖</a>，不过已经年代久远了，推荐去官方网站进行下载）进行导出，具体的导出过程很多教程里面都有详细阐述，比如<a target="_blank" rel="noopener" href="https://www.mcbbs.net/thread-678417-1-1.html">这个</a>和<a target="_blank" rel="noopener" href="https://www.mcbbs.net/forum.php?mod=viewthread&tid=652931">上面的搬运贴</a>，而Blender使用的设置和他们相同，所以就不再造轮子重新写一份新教程了（当然有需要的话我还是会写一份的）。</p>
 <p>（本例的导出设置使用默认设置）</p>
 <h3 id="2、将obj格式导入到Blender里，并进行相应的调整。"><a href="#2、将obj格式导入到Blender里，并进行相应的调整。" class="headerlink" title="2、将obj格式导入到Blender里，并进行相应的调整。"></a>2、将obj格式导入到Blender里，并进行相应的调整。</h3><p>在这里我们需要一款Blender插件：<a target="_blank" rel="noopener" href="https://theduckcow.com/dev/blender/mcprep/">MCprep</a>。目前这款插件最新版本为3.2.1，支持Blender版本为2.7x，2.8x。（此版本相较于本月上旬时的3.2.0版本修复了一吨Bug，包括材质节点的修复等等，以及对EEVEE渲染器进行更好的支持）（此插件的备份下载地址将在本文的最后给出）</p>
-<p><img src="https://s2.ax1x.com/2019/10/11/uqpenH.png" class="lazyload-img" data-srcset="https://s2.ax1x.com/2019/10/11/uqpenH.png" srcset="/path/to/your/file" alt="uqpenH.png"></p>
+<p><img src="https://s2.ax1x.com/2019/10/11/uqpenH.png" alt="uqpenH.png"></p>
 <p>1）安装插件。</p>
 <p>①在<a target="_blank" rel="noopener" href="https://theduckcow.com/dev/blender/mcprep/">上面的链接</a>中下载插件后，<strong>不要解压</strong>，直接放在一个容易找到的文件夹里即可。</p>
 <p>②打开Blender，选择“编辑”-&gt;“设置”，打开设置窗口，切换至插件选项卡。</p>
-<p><img src="https://s2.ax1x.com/2019/10/11/uqpVje.png" class="lazyload-img" data-srcset="https://s2.ax1x.com/2019/10/11/uqpVje.png" srcset="/path/to/your/file" alt="uqpVje.png"></p>
+<p><img src="https://s2.ax1x.com/2019/10/11/uqpVje.png" alt="uqpVje.png"></p>
 <p>③单击右上角的“安装”按钮，找到刚才下载的文件，双击即可自动安装。</p>
-<p><img src="https://s2.ax1x.com/2019/10/11/uqpEcD.png" class="lazyload-img" data-srcset="https://s2.ax1x.com/2019/10/11/uqpEcD.png" srcset="/path/to/your/file" alt="uqpEcD.png"></p>
+<p><img src="https://s2.ax1x.com/2019/10/11/uqpEcD.png" alt="uqpEcD.png"></p>
 <p>④安装完毕，如果默认没有勾选启用的话，请勾选以启用此插件</p>
-<p><img src="https://s2.ax1x.com/2019/10/11/uqpk9K.png" class="lazyload-img" data-srcset="https://s2.ax1x.com/2019/10/11/uqpk9K.png" srcset="/path/to/your/file" alt="uqpk9K.png"></p>
+<p><img src="https://s2.ax1x.com/2019/10/11/uqpk9K.png" alt="uqpk9K.png"></p>
 <p>⑤此时应该能在主界面3D视图的右侧工具栏中找到“MCperp”选项卡，如果找不到则在3D视图中按下“N”键展开右侧边栏。</p>
-<p><img src="https://s2.ax1x.com/2019/10/11/uqpA1O.png" class="lazyload-img" data-srcset="https://s2.ax1x.com/2019/10/11/uqpA1O.png" srcset="/path/to/your/file" alt="uqpA1O.png"></p>
+<p><img src="https://s2.ax1x.com/2019/10/11/uqpA1O.png" alt="uqpA1O.png"></p>
 <p>2）导入obj文件。选择“文件”-&gt;‘’导入“-&gt;”Wavefront(.obj)“，找到刚才导出的obj文件，双击导入。（注意，最好勾选“Split by Object”（作用是将不同材质的方块分成不同的物体），取消勾选“Split by Object”（作用是防止物体名称包含不必要的内容，如图就是反例））如果地图过大，那么软件会卡顿一会儿，等待一会儿即可。</p>
-<p><img src="https://s2.ax1x.com/2019/10/09/uIPmp4.png" class="lazyload-img" data-srcset="https://s2.ax1x.com/2019/10/09/uIPmp4.png" srcset="/path/to/your/file" alt="uIPmp4.png"></p>
-<p><img src="https://s2.ax1x.com/2019/10/09/uIPZhF.png" class="lazyload-img" data-srcset="https://s2.ax1x.com/2019/10/09/uIPZhF.png" srcset="/path/to/your/file" alt="uIPZhF.png"></p>
+<p><img src="https://s2.ax1x.com/2019/10/09/uIPmp4.png" alt="uIPmp4.png"></p>
+<p><img src="https://s2.ax1x.com/2019/10/09/uIPZhF.png" alt="uIPZhF.png"></p>
 <p>3）选中刚才导入的物体，在右侧边栏中找到”MCperp“选项卡，找到”Prep Materials“，按照默认设置即可，单击”确定“……材质即可一秒导入。</p>
-<p><img src="https://s2.ax1x.com/2019/10/09/uIPn1J.png" class="lazyload-img" data-srcset="https://s2.ax1x.com/2019/10/09/uIPn1J.png" srcset="/path/to/your/file" alt="uIPn1J.png"></p>
-<p><img src="https://s2.ax1x.com/2019/10/09/uIPVtU.png" class="lazyload-img" data-srcset="https://s2.ax1x.com/2019/10/09/uIPVtU.png" srcset="/path/to/your/file" alt="uIPVtU.png"></p>
+<p><img src="https://s2.ax1x.com/2019/10/09/uIPn1J.png" alt="uIPn1J.png"></p>
+<p><img src="https://s2.ax1x.com/2019/10/09/uIPVtU.png" alt="uIPVtU.png"></p>
 <h3 id="3、进行一系列光照的设置和材质的设置，以及最后的合成："><a href="#3、进行一系列光照的设置和材质的设置，以及最后的合成：" class="headerlink" title="3、进行一系列光照的设置和材质的设置，以及最后的合成："></a>3、进行一系列光照的设置和材质的设置，以及最后的合成：</h3><p>1）某些可以发光的方块（例如南瓜灯、海晶灯、萤石块等）无法发光，怎么办？</p>
 <p>这是Mcprep插件的一个Bug，不过解决方式也很简单。将3D视图分割成两个部分（指针移动到3D视图的最右上角，光标变成十字星，之后向下拖动，就能形成上下两个部分），将上面的“编辑器类型”改成“着色器编辑器”，在右侧选中需要改变材质的物体（例如Glowstone），左侧即可显示该材质的节点。保留“Diffuse Tex”，按照下面的节点进行设置：</p>
-<p><img src="https://s2.ax1x.com/2019/10/09/uIPl0x.png" class="lazyload-img" data-srcset="https://s2.ax1x.com/2019/10/09/uIPl0x.png" srcset="/path/to/your/file" alt="uIPl0x.png"></p>
+<p><img src="https://s2.ax1x.com/2019/10/09/uIPl0x.png" alt="uIPl0x.png"></p>
 <p>（其实是借用了岩浆这类能够正常进行自发光的节点，当然如果懒的话可以直接复制岩浆的节点到萤石，替换掉岩浆的材质并把无关节点删掉即可）</p>
 <p>2）相机显示的画面不正常，怎么调整？</p>
-<p><img src="https://s2.ax1x.com/2019/10/09/uIPGtO.png" class="lazyload-img" data-srcset="https://s2.ax1x.com/2019/10/09/uIPGtO.png" srcset="/path/to/your/file" alt="uIPGtO.png"></p>
+<p><img src="https://s2.ax1x.com/2019/10/09/uIPGtO.png" alt="uIPGtO.png"></p>
 <p>选中相机，之后找到相机的属性，将结束点改成1000m甚至更远即可。</p>
-<p><img src="https://s2.ax1x.com/2019/10/09/uIPJhD.png" class="lazyload-img" data-srcset="https://s2.ax1x.com/2019/10/09/uIPJhD.png" srcset="/path/to/your/file" alt="uIPJhD.png"></p>
+<p><img src="https://s2.ax1x.com/2019/10/09/uIPJhD.png" alt="uIPJhD.png"></p>
 <p><strong>本学习笔记的素材：</strong></p>
 <p>链接：<a target="_blank" rel="noopener" href="https://pan.baidu.com/s/1Q86K6I6ARi1Myn3WwKouQw">https://pan.baidu.com/s/1Q86K6I6ARi1Myn3WwKouQw</a> 提取码：sptx</p>
 <p>（本期使用的Blender版本为2.81Alpha较新的版本，使用了2.8不包含的节点（降噪节点）。如果渲染后全黑可以到合成选项卡中去掉“未定义节点”即可。）</p>
@@ -548,7 +548,7 @@ header .header__right .dropdown-menus .dropdown-menu {
   <div class="post-copyright">
     <p style="margin: 5px 0;">文章作者：<a href="/">Eric Zane</a></p>
     <p style="margin: 5px 0;">文章链接：<a href="http://etwzero.github.io/2020/09/21/blender-import-surroundings/">http://etwzero.github.io/2020/09/21/blender-import-surroundings/</a></p>
-    <p style="margin: 5px 0;">版权声明：本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处，谢谢。</p>
+    <p style="margin: 5px 0;">版权声明：本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-NC-SA 4.0 协议</a> ，转载请注明出处，谢谢。</p>
   </div>
   
 </div>
