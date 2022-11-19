@@ -506,13 +506,13 @@ header .header__right .dropdown-menus .dropdown-menu {
 <p>数一下格子，9x9，这意思看来是要填充数字做数独，但是现有的数字完全不够，因此需要推测这些形状所代表的数字。除此之外，最上面一行有银河标准字体，直接找对照表可以发现是“ABCDEFGHI”顺序。</p>
 <p>罗马数字很好解释，直接写出来就可以了。剩下三种颜色的字体分别是来自《塞尔达传说：旷野之息》的希卡族文字、来自《EVE: Online》的深渊三神裔字体，以及来自《Alice in Cradle》的文字。最后的文字在Sheep-Reamls的B站动态有提到。</p>
 <p>以下是填充后的数独题面：</p>
-<p><img src="https://img1.imgtp.com/2022/10/17/lj9T62Q6.png" class="lazyload-img" data-srcset="https://img1.imgtp.com/2022/10/17/lj9T62Q6.png" srcset="/img/loading.svg" alt="数独题面.png"></p>
+<p><img src="https://s1.ax1x.com/2022/11/19/zuBWB4.png" class="lazyload-img" data-srcset="https://s1.ax1x.com/2022/11/19/zuBWB4.png" srcset="/img/loading.svg" alt="数独题面.png"></p>
 <p>获得这些信息后在网上找一个<a target="_blank" rel="noopener" href="https://www.sudokuwiki.org/sudoku.htm">数独计算器</a>，计算后发现有多解。因此疑点就转移到了那个看不清楚是什么东西的方格了。</p>
 <p>此时将那个方格里1-9全部尝试，最后这里填写8才是唯一解，因此这个方块所代表的数字应该为8，同时获得箭头指向行的数字：</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">736812549</span><br></pre></td></tr></table></figure>
 
 <p>这是数独的答案：</p>
-<p><img src="https://img1.imgtp.com/2022/10/17/l4O1xOje.png" class="lazyload-img" data-srcset="https://img1.imgtp.com/2022/10/17/l4O1xOje.png" srcset="/img/loading.svg" alt="数独答案.png"></p>
+<p><img src="https://s1.ax1x.com/2022/11/19/zuBRuF.png" class="lazyload-img" data-srcset="https://s1.ax1x.com/2022/11/19/zuBRuF.png" srcset="/img/loading.svg" alt="数独答案.png"></p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">195436872736812549428957163257691384643578291819243657962384715374165928581729436</span><br></pre></td></tr></table></figure>
 
 <p>将<code>scroll.jpg</code>以文本形式打开，可在头部发现密文：</p>
@@ -529,7 +529,7 @@ header .header__right .dropdown-menus .dropdown-menu {
 <p>回头看一下左声道含有噪音的那段，打开频谱图，可以获得一串字符，根据上面暗示可得第二段密文：</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">f7wkve9a</span><br></pre></td></tr></table></figure>
 
-<p><img src="https://img1.imgtp.com/2022/10/17/JyWfmeru.png" class="lazyload-img" data-srcset="https://img1.imgtp.com/2022/10/17/JyWfmeru.png" srcset="/img/loading.svg" alt="频谱图.png"></p>
+<p><img src="https://s1.ax1x.com/2022/11/19/zuBfHJ.png" class="lazyload-img" data-srcset="https://s1.ax1x.com/2022/11/19/zuBfHJ.png" srcset="/img/loading.svg" alt="频谱图.png"></p>
 <p>但是使用右声道的摩斯电码，却无法正常翻译出来——除了最后的一串数字。此时推测数字之前使用的编码标准应该不是摩斯电码，但是含有明显特征：每5个信号隔开一次，推测可能是将26字母通过二进制写入到每一个信号块中。Python写程序验证一下，发现所有信号块的值都小于25，因此写一个python程序将这个信号转换成字符串：</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">text = &#x27;-.--- ..... ..-.- -.-.- .-.-- --..- .-..- -.--. -.--. ..--- .-..- ..... ..-.. -.--. ..-.- .--.. ..-.. -..-- -.--. .-..- .-.-. -.--- .-..- ..--. ..-.. .-.-- --..- -.--. .-..- -.--. -.-.. ..... ..--- -.--. .-.-- --..- -.--. ..... .-..- ..--- .-..- ..--. -.-.- .--.. -.-.. .-.-- ..... ..-.- --..- -.--. .---- -..-. -.-.- -.--. -.-.. ..... ..-.. -..-. ...-- -.--- ..--. .-..- ..-.. .---. ..... ...-- ...-- -..-- -.--. .-.-- --..- -.--. ...-- -..-. .-.-. .-.-- ..--- -..-. .-..- .-.-- ..--. -.--- .-.-- --..- -.--. -.-.. ..--. -.-.- -.--.&#x27;</span><br><span class="line"></span><br><span class="line">bits = text.split()</span><br><span class="line"></span><br><span class="line">for i in bits:</span><br><span class="line">    i = i.replace(&#x27;-&#x27;,&#x27;1&#x27;)</span><br><span class="line">    i = i.replace(&#x27;.&#x27;,&#x27;0&#x27;)</span><br><span class="line">    #print(int(i,2))</span><br><span class="line">    print(chr(int(i,2)+97),end=&#x27;&#x27;)</span><br></pre></td></tr></table></figure>
 
@@ -585,7 +585,7 @@ header .header__right .dropdown-menus .dropdown-menu {
     <div id="p-meta-i">
         
               
-                <a class="hover-with-bg" href="/categories/College/">College</a>
+                <a class="hover-with-bg" href="/categories/%E6%80%BB%E7%BB%93/">总结</a>
               
           
           
