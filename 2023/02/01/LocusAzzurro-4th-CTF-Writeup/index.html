@@ -8,12 +8,12 @@
     <link rel="apple-touch-icon" sizes="76x76" href="/img/cod.png">
     <link rel="icon" type="image/png" href="/img/cod.png">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5">
-    <title>标签 - ETW的破站</title>
+    <title>咸鱼人的2023生日会解密 Writeup 草稿 - ETW的破站</title>
     
     <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
     
     
-    <meta name="description" content="业余人的博客">
+    <meta name="description" content="草稿，进度非常缓慢，有没有大佬救救🥺">
     <meta name="author" content="Eric Zane">
     <meta name="keywords" content="">
     <style>
@@ -449,18 +449,115 @@ header .header__right .dropdown-menus .dropdown-menu {
         <div id="page-main" class="main-content">
         <div class="mg-top">
             
+
 <article class="page">
-<div id="post-meta-m" style="padding-bottom:0;">
-  <div class="post-meta" id="post-meta">
-    <h3>标签</h3>
+<div id="post-meta-m">
+    <div class="post-meta" id="post-meta">
+  <h3>咸鱼人的2023生日会解密 Writeup 草稿</h3>
+    
+      <span class="post-meta-label">
+        Eric Zane
+      </span>
+    
+    
+      <span class="post-meta-label">
+        <span class="p-dot"></span>
+        <time datetime="2023-02-01 22:19" pubdate>
+          2023-02-01
+        </time>
+      </span>
+    
+    
+      
+      <span class="post-meta">
+        <span class="p-dot"></span>
+        共 1.3k 字
+      </span>
+    
+    
+    
   </div>
+  
 </div>
-<div class="tag-page-main" style="padding-top:10px;">
-<div class="text-center tagcloud">
-  <a href="/tags/%E4%BD%9C%E5%93%81/" style="font-size: 15px; color: #acb3c2">作品</a> <a href="/tags/%E6%95%99%E7%A8%8B/" style="font-size: 30px; color: #454d5d">教程</a> <a href="/tags/%E8%A7%A3%E5%AF%86/" style="font-size: 30px; color: #454d5d">解密</a>
+<div class="article-m">
+  <div class="post-toc">
+    
+      
+    
+  </div>
+    <div id="article">
+      <div id="post-content" class="markdown-body textretty">
+        <p>帖子里的刮刮卡内容：<br>1nnxk_S-W2-mfLo9J2GlhrA &#x2F;&#x2F; blck</p>
+<p>size&#x3D;0px的隐藏内容：<br>417a7a7572726f</p>
+<p>记得用binwalk</p>
+<p>古典密码解析<br><a target="_blank" rel="noopener" href="https://ctf-wiki.org/crypto/classical/monoalphabetic/">https://ctf-wiki.org/crypto/classical/monoalphabetic/</a></p>
+<p>词频爆破<br><a target="_blank" rel="noopener" href="http://quipqiup.com/">http://quipqiup.com/</a></p>
+<p>日语罗马音转换<br><a target="_blank" rel="noopener" href="https://tozzger.info/romaji">https://tozzger.info/romaji</a></p>
+<p>需要做的事情：<br>V 写一个自动化程序，提交密码时同时测试4个压缩包密码是否正确</p>
+<hr>
+<p>data_ed9b1b6d<br>一个schem文件，顶层是二维码，扫码结果：<br><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1sW4y1g7By/">https://www.bilibili.com/video/BV1sW4y1g7By/</a><br>EVE Online，乌鸦级旋转一分钟<br>BGM: Funky Town，梗来自旋转鸡块<br>其他层由一些种类不同的方块构成，意义未知<br>倒数第二层包含一个16x16的Piet，应该是第二块</p>
+<p>data_13145bf4<br>wav文件，又来摩斯密码了<br>左声道：<br>R A J Q W D M 相隔0.5秒<br>Y T D W Y F F A U O N M Z C X I A I S N U E L M A V F H E O V X M U V Y F P X 相隔1秒<br>I Q B V G O I E W M V V J Y D L U Y F U L S 相隔1秒<br>Z 相隔一段时间<br>F<br>以下是连接后的：<br>R A J Q W D M Y T D W Y F F A U O N M Z C X I A I S N U E L M A V F H E O V X M U V Y F P X I Q B V G O I E W M V V J Y D L U Y F U L S Z F<br>共70字母<br>以上信息意义未知<br>右声道未知内容，调整成频谱图也不知道是什么，意义未知</p>
+<p>data_7dcffd91<br>png文件，调整曝光进行边缘检测后是20x20的码表，意义未知<br>GIMP打开后提示Corrupt JPEG data: 2 extraneous bytes before marker 0xe1</p>
+<p>data_2443630b<br>zip文件，有密码保护<br>其中的文件名为Final.png</p>
+<hr>
+<p>data_550ce377.png<br>图片为蓝色波浪线，意义未知<br>图片内包含压缩包，解压后文件：data_6d177ad9<br>得知为mp3文件，处理的时候别忘了音量电平-24db~-16db左右</p>
+<p>data_6d177ad9.mp3<br>处理的时候别忘了音量电平-24db~-16db左右<br>前10秒为幅值巨大的噪音<br>00:10 - 00:50 C418 - alpha<br>00:50 - 01:10 波幅巨大的白噪音<br>00:53 - 01:07 ???，和前10秒的噪音相减后效果依然很差<br>01:10 - 01:17 倒放的录音，需要正过来，应该是某个音游曲目：Blue Zenith - xi<br>01:18 - 01:36 八音盒的音乐，前半部分是stay alive，后半未知<br>01:45 - 最后   INTERNET OVERDOSE<br>最终的操作意义未知</p>
+<p>data_5de34ba6.png<br>图片内包含压缩包，解压后文件：P1_TL.png<br>来自《EVE: Online》的深渊三神裔文字，需要对照查看，意义未知<br>元数据里的Exif.Image.0xea1c 属性很奇怪，长度巨大<br>kino きの 菌株<br>nani なに 什么<br>Ala Α-亚麻酸</p>
+<p>P1_TL.png<br>Piet第一块</p>
+<p>data_4f0256af.png<br>药剂工艺原材料合成路线图，<br>棕色：Firebell<br>蓝色：Icefruit<br>青绿色：Weirdshroom<br>青色：Fluffbloom<br>绿色：Tangleweed<br>赭红色：Lava Root</p>
+<p>紫色：Terraria加盐<br>深棕色：未知<br>黑色：什么勾把<br>意义未知</p>
+<p>文档祖先长度巨大</p>
+<p>剩下三个压缩包，全部带密码，内含文件全部为data_16进制数字格式，和其他文件基本一致。</p>
+<hr>
+<p>data_7cca0dd5<br>文本内容，内容如下：<br>Cladeships of the 3 tactical troika classification in communion militant of Varpulis Subclade of Perun Clade encountered the Ancient Enemy Azdaja at reverse-time co-ordinates 1673482349 while processing in sub-18 exclave of conduit loop construct-405. Absolute imperative of poshlost extirpation against Azdaja was invoked without acceptable material realization. Tactical troika of Varpulis Subclade placed a casting of absorbed data into the cladeflow for reflection of Convocation of Triglav Outside the Struggle.</p>
+<p>必应一下，发现是来自这个网站的内容：<br><a target="_blank" rel="noopener" href="https://www.alpha-orbital.com/news/the-complete-lore-of-the-triglavian-collective">https://www.alpha-orbital.com/news/the-complete-lore-of-the-triglavian-collective</a><br>相关解析网站：<br>三进制数据档案（AEA篇）<br><a target="_blank" rel="noopener" href="https://www.bilibili.com/read/cv11474124">https://www.bilibili.com/read/cv11474124</a><br>原文如下：<br>Cladeships of the 3 tactical troika classification in communion militant of Varpulis Subclade of Perun Clade encountered the Ancient Enemy Azdaja at reverse-time co-ordinates (indecipherable) while processing in sub-18 exclave of conduit loop construct-405. Absolute imperative of poshlost extirpation against Azdaja was invoked without acceptable material realization. Tactical troika of Varpulis Subclade placed a casting of absorbed data into the cladeflow for reflection of Convocation of Triglav Outside the Struggle. </p>
+<p>可以发现和原文的关系，是将原文的(indecipherable)（释义为无法理解的词语或说出来的话语）替换为了1673482349，是一个时间戳，时间为2023-01-12 08:12:29，文件的修改时间为2023-01-12 08:12:34<br>将该数字填入所有的4个加密压缩包，均提示密码错误。<br>将4个压缩包按其内容文件的修改时间的时间戳作为密码输入，均提示密码错误。</p>
+<hr>
+<p>141635ebrie3gbehhhy1s1.jpg<br>此文件为蓝鸡在论坛的提示<br>包含一个压缩包，内含一个txt文件epsilon.txt，内容如下：<br>dozdbv vsdfhohvv prvwob frxqwohvv vrphwlphv fdsohvv<br>解析密文如下：<br>always spaceless mostly countless sometimes capless<br>译为：总是没有空格，绝大多数的情况不可数，有时候不区分大小写</p>
+<p>022617lzhcbsxrc6h2sbsk.jpg<br>在自己的群组内发了一张图片，内含一艘EVE: Online的一艘飞船：毒蜥级（Gila），种族为古斯塔斯海盗</p>
+<p>蓝鸡的B站动态提供了一个正则表达式：<br>&#x2F;[a-z]{74}&#x2F;<br>说明可能存在一串内容为从a到z的74位密文。会不会和70位的那个摩尔斯电码有所关联呢</p>
+
+      </div>
+    </div>
 </div>
+
+<div class="post-category">
+
+    <div id="p-meta-i">
+        
+              
+                <a class="hover-with-bg" href="/categories/%E8%A7%A3%E5%AF%86/">解密</a>
+              
+          
+          
+              
+                <a class="hover-with-bg" href="/tags/%E8%A7%A3%E5%AF%86/"># 解密</a>
+              
+          
+    </div>
 </div>
+
+
+<div class="post-footer">
+  
+
+  <div class="post-copyright">
+    <p style="margin: 5px 0;">文章作者：<a href="/">Eric Zane</a></p>
+    <p style="margin: 5px 0;">文章链接：<a href="http://etwzero.github.io/2023/02/01/LocusAzzurro-4th-CTF-Writeup/">http://etwzero.github.io/2023/02/01/LocusAzzurro-4th-CTF-Writeup/</a></p>
+    <p style="margin: 5px 0;">版权声明：本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-NC-SA 4.0 协议</a> ，转载请注明出处，谢谢。</p>
+  </div>
+  
+</div>
+
+    <!-- Comments -->
+    <div class="comments">
+        
+        
+    </div>
+
 </article>
+
+
         </div>
         
 <footer class="text-center">
@@ -477,6 +574,8 @@ header .header__right .dropdown-menus .dropdown-menu {
 </footer>
 
 <div class="p-btn">
+    
+        <a class="toc-btn" id="toc-btn"><i id="i-menu"></i></a>
     
     <a href="#top" class="click-btn">
       <i id="i-up"></i>
@@ -512,8 +611,74 @@ header .header__right .dropdown-menus .dropdown-menu {
 </script>
 
 
+<script>
+    var postImg = document.querySelectorAll("article[class=page] img");
+    for (let imgi = 0; imgi < postImg.length; imgi++) {
+        postImg[imgi].onclick = () => {
+            let zoomImg = document.createElement("div");
+            zoomImg.id = "zoomImg";
+            zoomImg.innerHTML = `<div id="zoom-picture"></div>
+    <div class="poptrox-overlay"
+        style="position: fixed; left: 0px; top: 0px; z-index: 20000; width: 100%; height: 100%; text-align: center; cursor: zoom-out; opacity: 1;">
+        <div style="display:inline-block;height:100%;vertical-align:middle;"></div>
+        <div
+            style="position:absolute;left:0;top:0;width:100%;height:100%;background:#000000;opacity:0;filter:alpha(opacity=0);">
+        </div>
+        <div class="poptrox-popup"
+            style="display: inline-block; vertical-align: middle; position: relative; z-index: 1; cursor: zoom-out; min-width: 10px; min-height: 10px; width: auto; height: auto;">
+            <div class="loader" style="display: none;"></div>
+            <div class="pic" style="text-indent: 0px;"><img
+                    src="${ postImg[imgi].srcset || postImg[imgi].src }" alt="Loading..."
+                    style="vertical-align: bottom; max-width: 85vw; max-height: 85vh;"></div>
+        </div>
+    </div>`;
+            document.body.appendChild(zoomImg);
+                document.querySelector("#zoomImg").onclick = () => {
+                    document.querySelector("#zoomImg").remove();
+                }
+        }
+    }
+    
+</script>
 
 
+
+<script>
+        try {
+            var io = new IntersectionObserver(function (entries) {
+                entries.forEach(function (entry) {
+                    if (entry.isIntersecting) {
+                        var img = entry.target;
+                        img.srcset = img.getAttribute('data-srcset');
+                        img.className += ' loaded'
+                        io.unobserve(img);
+                    }
+                });
+            });
+        } catch (e) {
+            console.info(e);
+        }
+        query('.lazyload-img').forEach(function (item) {
+            try {
+                io.observe(item);
+            } catch (e) {
+                console.info(e);
+            }
+        });
+    </script>
+
+
+    <script>
+        query("#toc-btn")[0].onclick = () => {
+            if (query(".post-toc")[0].innerHTML) {
+                toggleClass(".post-toc", "display-inline");
+            }
+        }
+
+        if (!query(".post-toc")[0].innerHTML) {
+            addClass("#toc-btn","display-none");
+        }
+    </script>
 
 
 
