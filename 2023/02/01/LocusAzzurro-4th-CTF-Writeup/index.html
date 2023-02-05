@@ -8,7 +8,7 @@
     <link rel="apple-touch-icon" sizes="76x76" href="/img/cod.png">
     <link rel="icon" type="image/png" href="/img/cod.png">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5">
-    <title>咸鱼人的2023生日会解密 Writeup 草稿 - ETW的破站</title>
+    <title>蓝鸡鸡的2023生日会解密 Writeup 草稿 - ETW的破站</title>
     
     <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
     
@@ -453,7 +453,7 @@ header .header__right .dropdown-menus .dropdown-menu {
 <article class="page">
 <div id="post-meta-m">
     <div class="post-meta" id="post-meta">
-  <h3>咸鱼人的2023生日会解密 Writeup 草稿</h3>
+  <h3>蓝鸡鸡的2023生日会解密 Writeup 草稿</h3>
     
       <span class="post-meta-label">
         Eric Zane
@@ -471,7 +471,7 @@ header .header__right .dropdown-menus .dropdown-menu {
       
       <span class="post-meta">
         <span class="p-dot"></span>
-        共 1.3k 字
+        共 1.8k 字
       </span>
     
     
@@ -493,21 +493,24 @@ header .header__right .dropdown-menus .dropdown-menu {
 <p>古典密码解析<br><a target="_blank" rel="noopener" href="https://ctf-wiki.org/crypto/classical/monoalphabetic/">https://ctf-wiki.org/crypto/classical/monoalphabetic/</a></p>
 <p>词频爆破<br><a target="_blank" rel="noopener" href="http://quipqiup.com/">http://quipqiup.com/</a></p>
 <p>日语罗马音转换<br><a target="_blank" rel="noopener" href="https://tozzger.info/romaji">https://tozzger.info/romaji</a></p>
+<p>图片LSE隐写分析软件<br><a target="_blank" rel="noopener" href="http://www.caesum.com/handbook/Stegsolve.jar">http://www.caesum.com/handbook/Stegsolve.jar</a></p>
+<p>CTF取证教程<br><a target="_blank" rel="noopener" href="https://trailofbits.github.io/ctf/forensics/">https://trailofbits.github.io/ctf/forensics/</a></p>
+<p>Signal Wiki:<br><a target="_blank" rel="noopener" href="https://www.sigidwiki.com/wiki/">https://www.sigidwiki.com/wiki/</a></p>
 <p>需要做的事情：<br>V 写一个自动化程序，提交密码时同时测试4个压缩包密码是否正确</p>
 <hr>
 <p>data_ed9b1b6d<br>一个schem文件，顶层是二维码，扫码结果：<br><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1sW4y1g7By/">https://www.bilibili.com/video/BV1sW4y1g7By/</a><br>EVE Online，乌鸦级旋转一分钟<br>BGM: Funky Town，梗来自旋转鸡块<br>其他层由一些种类不同的方块构成，意义未知<br>倒数第二层包含一个16x16的Piet，应该是第二块</p>
-<p>data_13145bf4<br>wav文件，又来摩斯密码了<br>左声道：<br>R A J Q W D M 相隔0.5秒<br>Y T D W Y F F A U O N M Z C X I A I S N U E L M A V F H E O V X M U V Y F P X 相隔1秒<br>I Q B V G O I E W M V V J Y D L U Y F U L S 相隔1秒<br>Z 相隔一段时间<br>F<br>以下是连接后的：<br>R A J Q W D M Y T D W Y F F A U O N M Z C X I A I S N U E L M A V F H E O V X M U V Y F P X I Q B V G O I E W M V V J Y D L U Y F U L S Z F<br>共70字母<br>以上信息意义未知<br>右声道未知内容，调整成频谱图也不知道是什么，意义未知</p>
-<p>data_7dcffd91<br>png文件，调整曝光进行边缘检测后是20x20的码表，意义未知<br>文本方式打开文件头有Brainfuck代码，<br>代码为：<code>&gt;++++++++++[&lt;++++++&gt;-]&lt;+++++++&gt;&gt;++++++[&lt;+++&gt;-]&lt;[&lt;.&gt;-]&lt;+++++&gt;&gt;&gt;+++[&lt;++&gt;-]&lt;[&lt;+++&gt;-]&lt;[&lt;.&gt;-]&lt;++++++.+...</code><br>解码为：<code>CCCCCCCCCCCCCCCCCCHHHHHHHHHHHHHHHHHHNOOO</code><br>后面还有一串字符为HHHHHHHHH<br>GIMP打开后提示Corrupt JPEG data: 2 extraneous bytes before marker 0xe1</p>
+<p>data_13145bf4<br>wav文件，又来摩斯密码了<br>左声道：<br>R A J Q W D M 相隔0.5秒<br>Y T D W Y F F A U O N M Z C X I A I S N U E L M A V F H E O V X M U V Y F P X 相隔1秒<br>I Q B V G O I E W M V V J Y D L U Y F U L S 相隔1秒<br>Z 相隔一段时间<br>F<br>以下是连接后的：<br>R A J Q W D M Y T D W Y F F A U O N M Z C X I A I S N U E L M A V F H E O V X M U V Y F P X I Q B V G O I E W M V V J Y D L U Y F U L S Z F<br>共70字母<br>以上信息意义未知<br>右声道疑似DTMF编码，<br>在线解码工具（<a target="_blank" rel="noopener" href="http://dialabc.com/sound/detect/index.html%EF%BC%89%E6%8C%82%E4%BA%86%EF%BC%8C">http://dialabc.com/sound/detect/index.html）挂了，</a><br>离线解码工具（<a target="_blank" rel="noopener" href="https://linux.softpedia.com/get/Multimedia/Audio/DTMF2NUM-37898.shtml%EF%BC%89%E8%A7%A3%E4%B8%8D%E5%87%BA%E6%9D%A5%EF%BC%8C%E8%A7%82%E5%AF%9F%E9%A2%91%E8%B0%B1%E6%B2%A1%E6%9C%89%E5%8F%8C%E5%B3%B0%EF%BC%8C%E6%89%80%E4%BB%A5%E5%B9%B6%E4%B8%8D%E6%98%AF">https://linux.softpedia.com/get/Multimedia/Audio/DTMF2NUM-37898.shtml）解不出来，观察频谱没有双峰，所以并不是</a><br>最开始那1秒可能是Radio Teletype (RTTY)，不过原音频频率很高，具体可查Signal Wiki<br>开头的频率稳定，分为三种频率，1899Hz, 1506Hz, 2301Hz</p>
+<p>data_7dcffd91<br>png文件，调整曝光进行边缘检测后是20x20的码表，意义未知<br>文本方式打开文件头有Brainfuck代码，<br>代码为：<code>&gt;++++++++++[&lt;++++++&gt;-]&lt;+++++++&gt;&gt;++++++[&lt;+++&gt;-]&lt;[&lt;.&gt;-]&lt;+++++&gt;&gt;&gt;+++[&lt;++&gt;-]&lt;[&lt;+++&gt;-]&lt;[&lt;.&gt;-]&lt;++++++.+...</code><br>解码为：<code>CCCCCCCCCCCCCCCCCCHHHHHHHHHHHHHHHHHHNOOO</code><br>后面还有一串字符为<code>HHHHHHHHH</code><br>GIMP打开后提示Corrupt JPEG data: 2 extraneous bytes before marker 0xe1<br>CCCCCCCCCCCCCCCCCCHHHHHHHHHHHHHHHHHHNOOO<br>18 18 1 3 9<br>c18h27no3<br>应该是辣椒素的化学式<br>capsaicin</p>
 <p>data_2443630b<br>zip文件，有密码保护<br>其中的文件名为Final.png</p>
 <hr>
 <p>data_550ce377.png<br>图片为蓝色波浪线，意义未知<br>图片内包含压缩包，解压后文件：data_6d177ad9<br>得知为mp3文件，处理的时候别忘了音量电平-24db~-16db左右</p>
-<p>data_6d177ad9.mp3<br>处理的时候别忘了音量电平-24db~-16db左右<br>前10秒为幅值巨大的噪音<br>00:10 - 00:50 C418 - alpha<br>00:50 - 01:10 波幅巨大的白噪音<br>00:53 - 01:07 ???，和前10秒的噪音相减后效果依然很差<br>01:10 - 01:17 倒放的录音，需要正过来，应该是某个音游曲目：Blue Zenith - xi<br>01:18 - 01:36 八音盒的音乐，前半部分是stay alive，后半未知<br>01:45 - 最后   INTERNET OVERDOSE<br>最终的操作意义未知</p>
-<p>data_5de34ba6.png<br>图片内包含压缩包，解压后文件：P1_TL.png<br>来自《EVE: Online》的深渊三神裔文字，需要对照查看，意义未知<br>元数据里的Exif.Image.0xea1c 属性很奇怪，长度巨大<br>kino きの 菌株<br>nani なに 什么<br>Ala Α-亚麻酸</p>
+<p>data_6d177ad9.mp3<br>处理的时候别忘了音量电平-24db~-16db左右<br>前10秒为幅值巨大的噪音<br>00:10 - 00:50 C418 - alpha<br>00:50 - 01:10 波幅巨大的白噪音<br>00:53 - 01:07 ???，和前10秒的噪音相减后效果依然很差<br>01:10 - 01:17 倒放的录音，需要正过来，应该是某个音游曲目：Blue Zenith - xi<br>01:18 - 01:36 八音盒的音乐，前半部分是stay alive，后半未知<br>01:45 - 最后   INTERNET OVERDOSE<br>可能是74位的密码？目前只有41位。<br>alphabluezenithstillaliveinternetoverdose</p>
+<p>data_5de34ba6.png<br>图片内包含压缩包，解压后文件：P1_TL.png<br>来自《EVE: Online》的深渊三神裔文字，需要对照查看，意义未知<br>元数据里的Exif.Image.0xea1c 属性很奇怪，长度巨大，二进制打开后Hex码很奇怪，需要研究一下<br>kino きの 菌株<br>nani なに 什么<br>Ala Α-亚麻酸</p>
 <p>P1_TL.png<br>Piet第一块</p>
 <p>data_4f0256af.png<br>药剂工艺原材料合成路线图，<br>棕色：Firebell<br>蓝色：Icefruit<br>青绿色：Weirdshroom<br>青色：Fluffbloom<br>绿色：Tangleweed<br>赭红色：Lava Root</p>
-<p>紫色：Terraria加盐<br>深棕色：未知<br>黑色：什么勾把<br>意义未知</p>
-<p>文档祖先长度巨大</p>
+<p>紫色：Terraria加盐<br>深棕色：未知<br>黑色：什么勾把<br>意义未知<br><code>FirebellIcefruitWeirdshroomFluffbloomTangleweedLavaroot</code><br>文档祖先长度巨大</p>
 <p>剩下三个压缩包，全部带密码，内含文件全部为data_16进制数字格式，和其他文件基本一致。</p>
+<p>data_031c6f61<br>压缩包密码为FirebellIcefruitWeirdshroomFluffbloomTangleweedLavaroot<br>解压文件内容明显base64，转换图片后的图像是piet被Minecraft方块遮住的结果，猜测（4片拼图）是部分正确的，不过数量比想象中的要多</p>
 <hr>
 <p>data_7cca0dd5<br>文本内容，内容如下：<br>Cladeships of the 3 tactical troika classification in communion militant of Varpulis Subclade of Perun Clade encountered the Ancient Enemy Azdaja at reverse-time co-ordinates 1673482349 while processing in sub-18 exclave of conduit loop construct-405. Absolute imperative of poshlost extirpation against Azdaja was invoked without acceptable material realization. Tactical troika of Varpulis Subclade placed a casting of absorbed data into the cladeflow for reflection of Convocation of Triglav Outside the Struggle.</p>
 <p>必应一下，发现是来自这个网站的内容：<br><a target="_blank" rel="noopener" href="https://www.alpha-orbital.com/news/the-complete-lore-of-the-triglavian-collective">https://www.alpha-orbital.com/news/the-complete-lore-of-the-triglavian-collective</a><br>相关解析网站：<br>三进制数据档案（AEA篇）<br><a target="_blank" rel="noopener" href="https://www.bilibili.com/read/cv11474124">https://www.bilibili.com/read/cv11474124</a><br>原文如下：<br>Cladeships of the 3 tactical troika classification in communion militant of Varpulis Subclade of Perun Clade encountered the Ancient Enemy Azdaja at reverse-time co-ordinates (indecipherable) while processing in sub-18 exclave of conduit loop construct-405. Absolute imperative of poshlost extirpation against Azdaja was invoked without acceptable material realization. Tactical troika of Varpulis Subclade placed a casting of absorbed data into the cladeflow for reflection of Convocation of Triglav Outside the Struggle. </p>
@@ -516,6 +519,9 @@ header .header__right .dropdown-menus .dropdown-menu {
 <p>141635ebrie3gbehhhy1s1.jpg<br>此文件为蓝鸡在论坛的提示<br>包含一个压缩包，内含一个txt文件epsilon.txt，内容如下：<br>dozdbv vsdfhohvv prvwob frxqwohvv vrphwlphv fdsohvv<br>解析密文如下：<br>always spaceless mostly countless sometimes capless<br>译为：总是没有空格，绝大多数的情况不可数，有时候不区分大小写</p>
 <p>022617lzhcbsxrc6h2sbsk.jpg<br>在自己的群组内发了一张图片，内含一艘EVE: Online的一艘飞船：毒蜥级（Gila），种族为古斯塔斯海盗</p>
 <p>蓝鸡的B站动态提供了一个正则表达式：<br>&#x2F;[a-z]{74}&#x2F;<br>说明可能存在一串内容为从a到z的74位密文。会不会和70位的那个摩尔斯电码有所关联呢</p>
+<p><a target="_blank" rel="noopener" href="https://www.mcbbs.net/forum.php?mod=redirect&amp;goto=findpost&amp;ptid=1417951&amp;pid=27984743">https://www.mcbbs.net/forum.php?mod=redirect&amp;goto=findpost&amp;ptid=1417951&amp;pid=27984743</a> 1&#x2F;27日的提示（2&#x2F;5才看到捏，下次这类活动别放音乐了，我不想被音乐吓一跳）：<br>The experts at the Ishukone Corporation have shared the following information in an effort to facilitate the decryption process.<br>Three pairings of the data files exist in one of the data directories.<br>Some of the codes used has a pattern that conforms to the following rule:<br><code>/([A-Z]&#123;1&#125;[a-z]&#123;5,10&#125;)&#123;2,6&#125;/</code><br>Only select codes used in encryption contain numerical digits.<br>Special note about 6d177ad9: 0002.</p>
+<p>百度翻译：<br>Ishukone Corporation的专家分享了以下信息，以促进解密过程。<br>其中一个数据目录中存在三对数据文件。<br>使用的某些代码具有符合以下规则的模式：<br><code>/([A-Z]&#123;1&#125;[a-z]&#123;5,10&#125;)&#123;2,6&#125;/</code><br>只有用于加密的选定代码包含数字。<br>关于6d177ad9: 0002的特别说明。</p>
+<p>Ishukone Corporation是EVE: Online的异株湖集团。<br>正则表达式很明显指代的就是药剂工艺的那个图，测试FirebellIcefruitWeirdshroomFluffbloomTangleweedLavaroot密码正确</p>
 
       </div>
     </div>
