@@ -471,7 +471,7 @@ header .header__right .dropdown-menus .dropdown-menu {
       
       <span class="post-meta">
         <span class="p-dot"></span>
-        共 2.6k 字
+        共 2.7k 字
       </span>
     
     
@@ -604,6 +604,8 @@ header .header__right .dropdown-menus .dropdown-menu {
 <p>6d177ad9是那个音频听力题目，给出的0002也无法得知含义是什么。</p>
 <h2 id="3-结论与花絮"><a href="#3-结论与花絮" class="headerlink" title="3.结论与花絮"></a>3.结论与花絮</h2><p>这次只拿到了三个获取最终结果的flag碎片，因为春节期间确实也是很忙的，包括假期后还搬了一次家，然后提示比较少，很多地方串不起来，串起来也不知道怎么分析，何况不够二次元，一些基本的信息也拿不到，这次活动基本上就划水了。</p>
 <h3 id="一次测试3个压缩包密码"><a href="#一次测试3个压缩包密码" class="headerlink" title="一次测试3个压缩包密码"></a>一次测试3个压缩包密码</h3><p>代码如下，将数组的元素改成压缩包位置，之后跑这个脚本输入密码即可，密码正确不提示，然后解压正确的压缩包，密码错误提示密码错误。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> zipfile</span><br><span class="line"></span><br><span class="line"><span class="built_in">zip</span> = [<span class="string">&#x27;dir_qrpgbbyf/data_031c6f61.zip&#x27;</span>,\</span><br><span class="line">        <span class="string">&#x27;dir_qrpgbbyf/data_387d677f.zip&#x27;</span>,\</span><br><span class="line">        <span class="string">&#x27;dir_qrpgbbyf/data_c03fc8b0.zip&#x27;</span>,]</span><br><span class="line"></span><br><span class="line">pwd = <span class="built_in">bytes</span>(<span class="built_in">input</span>(<span class="string">&#x27;Enter the password:\n&gt;&#x27;</span>), <span class="string">&#x27;ascii&#x27;</span>)</span><br><span class="line"></span><br><span class="line">zip_file = []</span><br><span class="line"><span class="keyword">for</span> filename <span class="keyword">in</span> <span class="built_in">zip</span>:</span><br><span class="line">    zip_file.append(zipfile.ZipFile(filename, <span class="string">&#x27;r&#x27;</span>))</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> file <span class="keyword">in</span> zip_file:</span><br><span class="line">    <span class="keyword">try</span>:</span><br><span class="line">        file.extractall(file.filename[<span class="number">0</span>:-<span class="number">4</span>]+<span class="string">&quot;_extract/&quot;</span>,pwd=pwd)</span><br><span class="line">    <span class="keyword">except</span>:</span><br><span class="line">        <span class="built_in">print</span>(file.filename + <span class="string">&#x27; password is wrong!&#x27;</span>)</span><br></pre></td></tr></table></figure>
+
 <p>写这个脚本的原因很简单，拿到密码后，测试密码太折磨人了。于是就有了这个脚本程序。</p>
 <h3 id="音频分析"><a href="#音频分析" class="headerlink" title="音频分析"></a>音频分析</h3><p>八音盒的那部分由于频率比较单一且明显，于是考虑通过扒谱来辅助作答。于是准备了wavetone然后一顿扒谱，生成的midi结果喂给网易云的结果是巴赫的某组曲，很明显是不对的。不知道midi有没有八音盒的采样，如果有的话可以考虑再试试。</p>
 <h3 id="图像分析"><a href="#图像分析" class="headerlink" title="图像分析"></a>图像分析</h3><p>全部经过LSE分析，结果一无所获。</p>
