@@ -16,6 +16,7 @@
     <meta name="description" content="业余人的博客">
     <meta name="author" content="Eric Zane">
     <meta name="keywords" content="">
+    
     <style>
 
 
@@ -109,17 +110,18 @@
 #page-main,footer,.p-btn{
     display: none;
 }
-html,body{
+html, body {
     margin: 0;
     padding: 0;
     width: 100%;
     height: 100%;
-    overflow-y: overlay;
 }
-body{
+body {
     background-color: var(--page-bkg-color);
     color: var(--second-text-color);
     overflow-y: scroll;
+    overflow-x: hidden;
+    transition: all .3s;
 }
 a {
     color: var(--default-link-color);
@@ -195,6 +197,8 @@ header {
     z-index: 10;
     border-bottom: 1px solid var(--bkg-m);
     background-color: var(--nav-bkg);
+    backdrop-filter: blur(4px);
+    transition: all .3s;
 }
 header .header__left, header .header__right {
     display: flex;
@@ -378,6 +382,10 @@ header .header__right .dropdown-menus .dropdown-menu {
 			<div class="navbar-menu">分类</div>
 		</a>
 		
+		<a href="/frequently-used-software/" class="button">
+			<div class="navbar-menu">常用网站</div>
+		</a>
+		
 		<a href="/links/" class="button">
 			<div class="navbar-menu">友链</div>
 		</a>
@@ -428,6 +436,9 @@ header .header__right .dropdown-menus .dropdown-menu {
 		<a href="/categories/" class="dropdown-menu button">分类</a>
 		<br>
 		
+		<a href="/frequently-used-software/" class="dropdown-menu button">常用网站</a>
+		<br>
+		
 		<a href="/links/" class="dropdown-menu button">友链</a>
 		<br>
 		
@@ -457,345 +468,365 @@ header .header__right .dropdown-menus .dropdown-menu {
 <div class="post-card-center">
 <div class="post-card-main">
 
-    <div class="index-card">
-      
-      <article class="index-card-info">
-        <h3 class="index-header">
-          <a href="/2024/03/10/saltyfish-mans-lightroom-for-minecraft-skins-render/">
-          
-          咸鱼人的灯房V2——一个不普通的皮肤渲染模板</a>
-        </h3>
-        <p class="index-excerpt">
+    
+      <div class="index-card">
+        
+        <article class="index-card-info">
+          <h3 class="index-header">
+            <a href="/2024/03/10/saltyfish-mans-lightroom-for-minecraft-skins-render/">
+            
+            咸鱼人的灯房V2——一个不普通的皮肤渲染模板</a>
+          </h3>
+          <p class="index-excerpt">
+              
+              
+                
+              
+              这个模板的用途是渲染皮肤预览图，允许作者修改皮肤、修改胳膊的粗细、修改作者的Logo、修改是否展示皮肤UV等功能。
+          </p>
+          <div class="index-btm post-metas">
+            
+              
+                <time datetime="2024-03-10 10:47" pubdate>
+                  2024-03-10
+                </time>
+              
             
             
               
-            
-            这个模板的用途是渲染皮肤预览图，允许作者修改皮肤、修改胳膊的粗细、修改作者的Logo、修改是否展示皮肤UV等功能。
-        </p>
-        <div class="index-btm post-metas">
-          
-            
-              <time datetime="2024-03-10 10:47" pubdate>
-                2024-03-10
-              </time>
-            
-          
-          
-            
-              
-                <span class="p-dot"></span><a href="/categories/%E6%95%99%E7%A8%8B/">教程</a>
+                
+                  <span class="p-dot"></span><a href="/categories/%E6%95%99%E7%A8%8B/">教程</a>
+                
               
             
-          
-        </div>
-      </article>
-    </div>
+          </div>
+        </article>
+      </div>
+    
   
-    <div class="index-card">
-      
-      <article class="index-card-info">
-        <h3 class="index-header">
-          <a href="/2024/03/10/make-non-shader-minecraft-skin-preview/">
-          
-          使用Blender制作MC皮肤的无光影预览图</a>
-        </h3>
-        <p class="index-excerpt">
+    
+      <div class="index-card">
+        
+        <article class="index-card-info">
+          <h3 class="index-header">
+            <a href="/2024/03/10/make-non-shader-minecraft-skin-preview/">
+            
+            使用Blender制作MC皮肤的无光影预览图</a>
+          </h3>
+          <p class="index-excerpt">
+              
+              
+                
+              
+              使用Blender制作MC皮肤的无光影预览图。
+          </p>
+          <div class="index-btm post-metas">
+            
+              
+                <time datetime="2024-03-10 10:34" pubdate>
+                  2024-03-10
+                </time>
+              
             
             
               
-            
-            使用Blender制作MC皮肤的无光影预览图。
-        </p>
-        <div class="index-btm post-metas">
-          
-            
-              <time datetime="2024-03-10 10:34" pubdate>
-                2024-03-10
-              </time>
-            
-          
-          
-            
-              
-                <span class="p-dot"></span><a href="/categories/%E6%95%99%E7%A8%8B/">教程</a>
+                
+                  <span class="p-dot"></span><a href="/categories/%E6%95%99%E7%A8%8B/">教程</a>
+                
               
             
-          
-        </div>
-      </article>
-    </div>
+          </div>
+        </article>
+      </div>
+    
   
-    <div class="index-card">
-      
-      <article class="index-card-info">
-        <h3 class="index-header">
-          <a href="/2024/03/10/make-avatar-with-minecraft-skin/">
-          
-          用Blender制作你的经典风格MC头像【内附模板】</a>
-        </h3>
-        <p class="index-excerpt">
+    
+      <div class="index-card">
+        
+        <article class="index-card-info">
+          <h3 class="index-header">
+            <a href="/2024/03/10/make-avatar-with-minecraft-skin/">
+            
+            用Blender制作你的经典风格MC头像【内附模板】</a>
+          </h3>
+          <p class="index-excerpt">
+              
+              
+                
+              
+              用Blender制作你的经典风格MC头像。
+          </p>
+          <div class="index-btm post-metas">
+            
+              
+                <time datetime="2024-03-10 10:26" pubdate>
+                  2024-03-10
+                </time>
+              
             
             
               
-            
-            用Blender制作你的经典风格MC头像。
-        </p>
-        <div class="index-btm post-metas">
-          
-            
-              <time datetime="2024-03-10 10:26" pubdate>
-                2024-03-10
-              </time>
-            
-          
-          
-            
-              
-                <span class="p-dot"></span><a href="/categories/%E6%95%99%E7%A8%8B/">教程</a>
+                
+                  <span class="p-dot"></span><a href="/categories/%E6%95%99%E7%A8%8B/">教程</a>
+                
               
             
-          
-        </div>
-      </article>
-    </div>
+          </div>
+        </article>
+      </div>
+    
   
-    <div class="index-card">
-      
-      <article class="index-card-info">
-        <h3 class="index-header">
-          <a href="/2024/03/03/LocusAzzurro-5th-CTF-Writeup/">
-          
-          蓝鸡鸡的2024生日会解密 Writeup</a>
-        </h3>
-        <p class="index-excerpt">
+    
+      <div class="index-card">
+        
+        <article class="index-card-info">
+          <h3 class="index-header">
+            <a href="/2024/03/03/LocusAzzurro-5th-CTF-Writeup/">
+            
+            蓝鸡鸡的2024生日会解密 Writeup</a>
+          </h3>
+          <p class="index-excerpt">
+              
+              
+                
+              
+              标准答案：我不知道。
+          </p>
+          <div class="index-btm post-metas">
+            
+              
+                <time datetime="2024-03-03 09:52" pubdate>
+                  2024-03-03
+                </time>
+              
             
             
               
-            
-            标准答案：我不知道。
-        </p>
-        <div class="index-btm post-metas">
-          
-            
-              <time datetime="2024-03-03 09:52" pubdate>
-                2024-03-03
-              </time>
-            
-          
-          
-            
-              
-                <span class="p-dot"></span><a href="/categories/%E8%A7%A3%E5%AF%86/">解密</a>
+                
+                  <span class="p-dot"></span><a href="/categories/%E8%A7%A3%E5%AF%86/">解密</a>
+                
               
             
-          
-        </div>
-      </article>
-    </div>
+          </div>
+        </article>
+      </div>
+    
   
-    <div class="index-card">
-      
-      <article class="index-card-info">
-        <h3 class="index-header">
-          <a href="/2023/05/23/how-to-solve-element-misconfigured/">
-          
-          安装完PC版Element后，如何解决“Your Element is misconfigured”问题</a>
-        </h3>
-        <p class="index-excerpt">
+    
+      <div class="index-card">
+        
+        <article class="index-card-info">
+          <h3 class="index-header">
+            <a href="/2023/05/23/how-to-solve-element-misconfigured/">
+            
+            安装完PC版Element后，如何解决“Your Element is misconfigured”问题</a>
+          </h3>
+          <p class="index-excerpt">
+              
+              
+                
+              
+              如题所示。
+          </p>
+          <div class="index-btm post-metas">
+            
+              
+                <time datetime="2023-05-23 22:37" pubdate>
+                  2023-05-23
+                </time>
+              
             
             
               
-            
-            如题所示。
-        </p>
-        <div class="index-btm post-metas">
-          
-            
-              <time datetime="2023-05-23 22:37" pubdate>
-                2023-05-23
-              </time>
-            
-          
-          
-            
-              
-                <span class="p-dot"></span><a href="/categories/%E6%95%99%E7%A8%8B/">教程</a>
+                
+                  <span class="p-dot"></span><a href="/categories/%E6%95%99%E7%A8%8B/">教程</a>
+                
               
             
-          
-        </div>
-      </article>
-    </div>
+          </div>
+        </article>
+      </div>
+    
   
-    <div class="index-card">
-      
-      <article class="index-card-info">
-        <h3 class="index-header">
-          <a href="/2023/02/01/LocusAzzurro-4th-CTF-Writeup/">
-          
-          蓝鸡鸡的2023生日会解密 Writeup</a>
-        </h3>
-        <p class="index-excerpt">
+    
+      <div class="index-card">
+        
+        <article class="index-card-info">
+          <h3 class="index-header">
+            <a href="/2023/02/01/LocusAzzurro-4th-CTF-Writeup/">
+            
+            蓝鸡鸡的2023生日会解密 Writeup</a>
+          </h3>
+          <p class="index-excerpt">
+              
+              
+                
+              
+              Good Game!
+          </p>
+          <div class="index-btm post-metas">
+            
+              
+                <time datetime="2023-02-01 22:19" pubdate>
+                  2023-02-01
+                </time>
+              
             
             
               
-            
-            Good Game!
-        </p>
-        <div class="index-btm post-metas">
-          
-            
-              <time datetime="2023-02-01 22:19" pubdate>
-                2023-02-01
-              </time>
-            
-          
-          
-            
-              
-                <span class="p-dot"></span><a href="/categories/%E8%A7%A3%E5%AF%86/">解密</a>
+                
+                  <span class="p-dot"></span><a href="/categories/%E8%A7%A3%E5%AF%86/">解密</a>
+                
               
             
-          
-        </div>
-      </article>
-    </div>
+          </div>
+        </article>
+      </div>
+    
   
-    <div class="index-card">
-      
-      <article class="index-card-info">
-        <h3 class="index-header">
-          <a href="/2022/10/03/3rd-locusazzurro-ctf-writeup/">
-          
-          咸鱼人的⌈蓝鸡的绿宝石竞速解密活动⌋Writeup</a>
-        </h3>
-        <p class="index-excerpt">
+    
+      <div class="index-card">
+        
+        <article class="index-card-info">
+          <h3 class="index-header">
+            <a href="/2022/10/03/3rd-locusazzurro-ctf-writeup/">
+            
+            咸鱼人的⌈蓝鸡的绿宝石竞速解密活动⌋Writeup</a>
+          </h3>
+          <p class="index-excerpt">
+              
+              
+                
+              
+              友情提示：这个B没解出来。
+          </p>
+          <div class="index-btm post-metas">
+            
+              
+                <time datetime="2022-10-03 23:34" pubdate>
+                  2022-10-03
+                </time>
+              
             
             
               
-            
-            友情提示：这个B没解出来。
-        </p>
-        <div class="index-btm post-metas">
-          
-            
-              <time datetime="2022-10-03 23:34" pubdate>
-                2022-10-03
-              </time>
-            
-          
-          
-            
-              
-                <span class="p-dot"></span><a href="/categories/%E8%A7%A3%E5%AF%86/">解密</a>
+                
+                  <span class="p-dot"></span><a href="/categories/%E8%A7%A3%E5%AF%86/">解密</a>
+                
               
             
-          
-        </div>
-      </article>
-    </div>
+          </div>
+        </article>
+      </div>
+    
   
-    <div class="index-card">
-      
-      <article class="index-card-info">
-        <h3 class="index-header">
-          <a href="/2022/07/02/sample-reels/">
-          
-          ETW的作品集</a>
-        </h3>
-        <p class="index-excerpt">
+    
+      <div class="index-card">
+        
+        <article class="index-card-info">
+          <h3 class="index-header">
+            <a href="/2022/07/02/sample-reels/">
+            
+            ETW的作品集</a>
+          </h3>
+          <p class="index-excerpt">
+              
+              
+                
+              
+              一篇总结了ETW从接触渲染以来的作品集。
+          </p>
+          <div class="index-btm post-metas">
+            
+              
+                <time datetime="2022-07-02 10:01" pubdate>
+                  2022-07-02
+                </time>
+              
             
             
               
-            
-            一篇总结了ETW从接触渲染以来的作品集。
-        </p>
-        <div class="index-btm post-metas">
-          
-            
-              <time datetime="2022-07-02 10:01" pubdate>
-                2022-07-02
-              </time>
-            
-          
-          
-            
-              
-                <span class="p-dot"></span><a href="/categories/%E4%BD%9C%E5%93%81%E9%9B%86/">作品集</a>
+                
+                  <span class="p-dot"></span><a href="/categories/%E4%BD%9C%E5%93%81%E9%9B%86/">作品集</a>
+                
               
             
-          
-        </div>
-      </article>
-    </div>
+          </div>
+        </article>
+      </div>
+    
   
-    <div class="index-card">
-      
-      <article class="index-card-info">
-        <h3 class="index-header">
-          <a href="/2022/01/16/2021-summary/">
-          
-          2021年，我摸了多少鱼？</a>
-        </h3>
-        <p class="index-excerpt">
+    
+      <div class="index-card">
+        
+        <article class="index-card-info">
+          <h3 class="index-header">
+            <a href="/2022/01/16/2021-summary/">
+            
+            2021年，我摸了多少鱼？</a>
+          </h3>
+          <p class="index-excerpt">
+              
+              
+                
+              
+              这是一篇迟到的摸鱼总结。在过去的一年里，除开自己在现实生活中必须去做的事情，我在业余生活中，摸了多少鱼呢？
+          </p>
+          <div class="index-btm post-metas">
+            
+              
+                <time datetime="2022-01-16 22:01" pubdate>
+                  2022-01-16
+                </time>
+              
             
             
               
-            
-            这是一篇迟到的摸鱼总结。在过去的一年里，除开自己在现实生活中必须去做的事情，我在业余生活中，摸了多少鱼呢？
-        </p>
-        <div class="index-btm post-metas">
-          
-            
-              <time datetime="2022-01-16 22:01" pubdate>
-                2022-01-16
-              </time>
-            
-          
-          
-            
-              
-                <span class="p-dot"></span><a href="/categories/%E6%80%BB%E7%BB%93/">总结</a>
+                
+                  <span class="p-dot"></span><a href="/categories/%E6%80%BB%E7%BB%93/">总结</a>
+                
               
             
-          
-        </div>
-      </article>
-    </div>
+          </div>
+        </article>
+      </div>
+    
   
-    <div class="index-card">
-      
-      <article class="index-card-info">
-        <h3 class="index-header">
-          <a href="/2020/10/01/how-to-import-surroundings/">
-          
-          一帖搞定地图导入问题！</a>
-        </h3>
-        <p class="index-excerpt">
+    
+      <div class="index-card">
+        
+        <article class="index-card-info">
+          <h3 class="index-header">
+            <a href="/2020/10/01/how-to-import-surroundings/">
+            
+            一帖搞定地图导入问题！</a>
+          </h3>
+          <p class="index-excerpt">
+              
+              
+                
+              
+              好的环境往往是一张渲染图的重要组成部分，这次我们来探讨一下如何以正确的姿势导入Minecraft地图及其相应的材质，以及如何更换你所希望的资源包。
+          </p>
+          <div class="index-btm post-metas">
+            
+              
+                <time datetime="2020-10-01 08:31" pubdate>
+                  2020-10-01
+                </time>
+              
             
             
               
-            
-            好的环境往往是一张渲染图的重要组成部分，这次我们来探讨一下如何以正确的姿势导入Minecraft地图及其相应的材质，以及如何更换你所希望的资源包。
-        </p>
-        <div class="index-btm post-metas">
-          
-            
-              <time datetime="2020-10-01 08:31" pubdate>
-                2020-10-01
-              </time>
-            
-          
-          
-            
-              
-                <span class="p-dot"></span><a href="/categories/%E6%95%99%E7%A8%8B/">教程</a>
+                
+                  <span class="p-dot"></span><a href="/categories/%E6%95%99%E7%A8%8B/">教程</a>
+                
               
             
-          
-        </div>
-      </article>
-    </div>
+          </div>
+        </article>
+      </div>
+    
   
 </div>
 </div>
@@ -814,22 +845,22 @@ header .header__right .dropdown-menus .dropdown-menu {
     
     
     
-    <p>&copy;  2020 - 2021&nbsp;&nbsp;Theme Miracle</p>
+    <p>&copy;  2020 - 2024&nbsp;&nbsp;Theme Miracle</p>
     
-    <p>Powered by <a href="https://hexo.io" target="_blank">Hexo</a> | Theme by <a href="https://github.com/hifun-team/hexo-theme-miracle" target="_blank">Miracle</a></p>
+    <p>Powered by <a href="https://hexo.io" target="_blank">Hexo</a> | Theme by <a href="https://github.com/oCoke/hexo-theme-miracle" target="_blank">Miracle</a></p>
     
     
 </footer>
 
 <div class="p-btn">
     
-    <a href="#top" class="click-btn">
+    
+    <a href="javascript:window.scrollTo({top:0,behavior:'smooth'});" class="click-btn">
       <i id="i-up"></i>
     </a>
 </div>
 
 <!-- SCRIPTS -->
-
 
 
 
@@ -855,6 +886,10 @@ header .header__right .dropdown-menus .dropdown-menu {
   },1);
     
 </script>
+
+
+
+
 
 
 

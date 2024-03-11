@@ -16,6 +16,7 @@
     <meta name="description" content="业余人的博客">
     <meta name="author" content="Eric Zane">
     <meta name="keywords" content="">
+    
     <style>
 
 
@@ -109,17 +110,18 @@
 #page-main,footer,.p-btn{
     display: none;
 }
-html,body{
+html, body {
     margin: 0;
     padding: 0;
     width: 100%;
     height: 100%;
-    overflow-y: overlay;
 }
-body{
+body {
     background-color: var(--page-bkg-color);
     color: var(--second-text-color);
     overflow-y: scroll;
+    overflow-x: hidden;
+    transition: all .3s;
 }
 a {
     color: var(--default-link-color);
@@ -195,6 +197,8 @@ header {
     z-index: 10;
     border-bottom: 1px solid var(--bkg-m);
     background-color: var(--nav-bkg);
+    backdrop-filter: blur(4px);
+    transition: all .3s;
 }
 header .header__left, header .header__right {
     display: flex;
@@ -378,6 +382,10 @@ header .header__right .dropdown-menus .dropdown-menu {
 			<div class="navbar-menu">分类</div>
 		</a>
 		
+		<a href="/frequently-used-software/" class="button">
+			<div class="navbar-menu">常用网站</div>
+		</a>
+		
 		<a href="/links/" class="button">
 			<div class="navbar-menu">友链</div>
 		</a>
@@ -428,6 +436,9 @@ header .header__right .dropdown-menus .dropdown-menu {
 		<a href="/categories/" class="dropdown-menu button">分类</a>
 		<br>
 		
+		<a href="/frequently-used-software/" class="dropdown-menu button">常用网站</a>
+		<br>
+		
 		<a href="/links/" class="dropdown-menu button">友链</a>
 		<br>
 		
@@ -446,176 +457,186 @@ header .header__right .dropdown-menus .dropdown-menu {
 <div class="post-card-center">
 <div class="post-card-main">
 
-    <div class="index-card">
-      
-      <article class="index-card-info">
-        <h3 class="index-header">
-          <a href="/2020/09/21/blender-import-surroundings/">
-          
-          导入地形——Blender学习笔记②</a>
-        </h3>
-        <p class="index-excerpt">
+    
+      <div class="index-card">
+        
+        <article class="index-card-info">
+          <h3 class="index-header">
+            <a href="/2020/09/21/blender-import-surroundings/">
+            
+            导入地形——Blender学习笔记②</a>
+          </h3>
+          <p class="index-excerpt">
+              
+              
+                
+              
+              教你如何将Minecraft地图导出到Blender中~
+          </p>
+          <div class="index-btm post-metas">
+            
+              
+                <time datetime="2020-09-21 15:53" pubdate>
+                  2020-09-21
+                </time>
+              
             
             
               
-            
-            教你如何将Minecraft地图导出到Blender中~
-        </p>
-        <div class="index-btm post-metas">
-          
-            
-              <time datetime="2020-09-21 15:53" pubdate>
-                2020-09-21
-              </time>
-            
-          
-          
-            
-              
-                <span class="p-dot"></span><a href="/categories/%E6%95%99%E7%A8%8B/">教程</a>
+                
+                  <span class="p-dot"></span><a href="/categories/%E6%95%99%E7%A8%8B/">教程</a>
+                
               
             
-          
-        </div>
-      </article>
-    </div>
+          </div>
+        </article>
+      </div>
+    
   
-    <div class="index-card">
-      
-      <article class="index-card-info">
-        <h3 class="index-header">
-          <a href="/2019/09/15/pipe-dream/">
-          
-          Pipe Dream</a>
-        </h3>
-        <p class="index-excerpt">
+    
+      <div class="index-card">
+        
+        <article class="index-card-info">
+          <h3 class="index-header">
+            <a href="/2019/09/15/pipe-dream/">
+            
+            Pipe Dream</a>
+          </h3>
+          <p class="index-excerpt">
+              
+              
+                
+              
+              『去看生活，去看世界；去目击伟大的历史事件；去看穷人的面孔和骄傲者的姿态；去看不同寻常的事物——机器、军队、群众、以及丛林中和月球上的阴影；……
+          </p>
+          <div class="index-btm post-metas">
+            
+              
+                <time datetime="2019-09-15 20:03" pubdate>
+                  2019-09-15
+                </time>
+              
             
             
               
-            
-            『去看生活，去看世界；去目击伟大的历史事件；去看穷人的面孔和骄傲者的姿态；去看不同寻常的事物——机器、军队、群众、以及丛林中和月球上的阴影；……
-        </p>
-        <div class="index-btm post-metas">
-          
-            
-              <time datetime="2019-09-15 20:03" pubdate>
-                2019-09-15
-              </time>
-            
-          
-          
-            
-              
-                <span class="p-dot"></span><a href="/categories/Render/">Render</a>
+                
+                  <span class="p-dot"></span><a href="/categories/Render/">Render</a>
+                
               
             
-          
-        </div>
-      </article>
-    </div>
+          </div>
+        </article>
+      </div>
+    
   
-    <div class="index-card">
-      
-      <article class="index-card-info">
-        <h3 class="index-header">
-          <a href="/2019/09/11/blender-beginning/">
-          
-          新的旅程 - Blender学习笔记①</a>
-        </h3>
-        <p class="index-excerpt">
+    
+      <div class="index-card">
+        
+        <article class="index-card-info">
+          <h3 class="index-header">
+            <a href="/2019/09/11/blender-beginning/">
+            
+            新的旅程 - Blender学习笔记①</a>
+          </h3>
+          <p class="index-excerpt">
+              
+              
+                
+              
+              很古早的一篇Blender学习笔记了，但是现在还是有点参考价值的。
+          </p>
+          <div class="index-btm post-metas">
+            
+              
+                <time datetime="2019-09-11 09:14" pubdate>
+                  2019-09-11
+                </time>
+              
             
             
               
-            
-            很古早的一篇Blender学习笔记了，但是现在还是有点参考价值的。
-        </p>
-        <div class="index-btm post-metas">
-          
-            
-              <time datetime="2019-09-11 09:14" pubdate>
-                2019-09-11
-              </time>
-            
-          
-          
-            
-              
-                <span class="p-dot"></span><a href="/categories/%E6%95%99%E7%A8%8B/">教程</a>
+                
+                  <span class="p-dot"></span><a href="/categories/%E6%95%99%E7%A8%8B/">教程</a>
+                
               
             
-          
-        </div>
-      </article>
-    </div>
+          </div>
+        </article>
+      </div>
+    
   
-    <div class="index-card">
-      
-      <article class="index-card-info">
-        <h3 class="index-header">
-          <a href="/2019/01/19/2018miracles/">
-          
-          2018,Miracles.</a>
-        </h3>
-        <p class="index-excerpt">
+    
+      <div class="index-card">
+        
+        <article class="index-card-info">
+          <h3 class="index-header">
+            <a href="/2019/01/19/2018miracles/">
+            
+            2018,Miracles.</a>
+          </h3>
+          <p class="index-excerpt">
+              
+              
+                
+              
+              大概是人生最美好的一年之一吧。
+          </p>
+          <div class="index-btm post-metas">
+            
+              
+                <time datetime="2019-01-19 10:42" pubdate>
+                  2019-01-19
+                </time>
+              
             
             
               
-            
-            大概是人生最美好的一年之一吧。
-        </p>
-        <div class="index-btm post-metas">
-          
-            
-              <time datetime="2019-01-19 10:42" pubdate>
-                2019-01-19
-              </time>
-            
-          
-          
-            
-              
-                <span class="p-dot"></span><a href="/categories/College/">College</a>
+                
+                  <span class="p-dot"></span><a href="/categories/College/">College</a>
+                
               
             
-          
-        </div>
-      </article>
-    </div>
+          </div>
+        </article>
+      </div>
+    
   
-    <div class="index-card">
-      
-      <article class="index-card-info">
-        <h3 class="index-header">
-          <a href="/2018/10/04/move-to-new-site/">
-          
-          原站点已搬迁至此站点</a>
-        </h3>
-        <p class="index-excerpt">
+    
+      <div class="index-card">
+        
+        <article class="index-card-info">
+          <h3 class="index-header">
+            <a href="/2018/10/04/move-to-new-site/">
             
-            
+            原站点已搬迁至此站点</a>
+          </h3>
+          <p class="index-excerpt">
               
-            
-            原站点的服务商决定停止免费服务器服务，所以我就把站点搬迁至现有站点了。 Have fun!
+              
+                
+              
+              原站点的服务商决定停止免费服务器服务，所以我就把站点搬迁至现有站点了。 Have fun!
 
-        </p>
-        <div class="index-btm post-metas">
-          
-            
-              <time datetime="2018-10-04 20:31" pubdate>
-                2018-10-04
-              </time>
-            
-          
-          
+          </p>
+          <div class="index-btm post-metas">
             
               
-                <span class="p-dot"></span><a href="/categories/%E6%9C%AA%E5%88%86%E7%B1%BB/">未分类</a>
+                <time datetime="2018-10-04 20:31" pubdate>
+                  2018-10-04
+                </time>
               
             
-          
-        </div>
-      </article>
-    </div>
+            
+              
+                
+                  <span class="p-dot"></span><a href="/categories/%E6%9C%AA%E5%88%86%E7%B1%BB/">未分类</a>
+                
+              
+            
+          </div>
+        </article>
+      </div>
+    
   
 </div>
 </div>
@@ -634,22 +655,22 @@ header .header__right .dropdown-menus .dropdown-menu {
     
     
     
-    <p>&copy;  2020 - 2021&nbsp;&nbsp;Theme Miracle</p>
+    <p>&copy;  2020 - 2024&nbsp;&nbsp;Theme Miracle</p>
     
-    <p>Powered by <a href="https://hexo.io" target="_blank">Hexo</a> | Theme by <a href="https://github.com/hifun-team/hexo-theme-miracle" target="_blank">Miracle</a></p>
+    <p>Powered by <a href="https://hexo.io" target="_blank">Hexo</a> | Theme by <a href="https://github.com/oCoke/hexo-theme-miracle" target="_blank">Miracle</a></p>
     
     
 </footer>
 
 <div class="p-btn">
     
-    <a href="#top" class="click-btn">
+    
+    <a href="javascript:window.scrollTo({top:0,behavior:'smooth'});" class="click-btn">
       <i id="i-up"></i>
     </a>
 </div>
 
 <!-- SCRIPTS -->
-
 
 
 
@@ -675,6 +696,10 @@ header .header__right .dropdown-menus .dropdown-menu {
   },1);
     
 </script>
+
+
+
+
 
 
 

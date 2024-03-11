@@ -16,6 +16,7 @@
     <meta name="description" content="业余人的博客">
     <meta name="author" content="Eric Zane">
     <meta name="keywords" content="">
+    <meta property="og:title" content="归档"/>
     <style>
 
 
@@ -109,17 +110,18 @@
 #page-main,footer,.p-btn{
     display: none;
 }
-html,body{
+html, body {
     margin: 0;
     padding: 0;
     width: 100%;
     height: 100%;
-    overflow-y: overlay;
 }
-body{
+body {
     background-color: var(--page-bkg-color);
     color: var(--second-text-color);
     overflow-y: scroll;
+    overflow-x: hidden;
+    transition: all .3s;
 }
 a {
     color: var(--default-link-color);
@@ -195,6 +197,8 @@ header {
     z-index: 10;
     border-bottom: 1px solid var(--bkg-m);
     background-color: var(--nav-bkg);
+    backdrop-filter: blur(4px);
+    transition: all .3s;
 }
 header .header__left, header .header__right {
     display: flex;
@@ -385,6 +389,10 @@ header .header__right .dropdown-menus .dropdown-menu {
 			<div class="navbar-menu">分类</div>
 		</a>
 		
+		<a href="/frequently-used-software/" class="button">
+			<div class="navbar-menu">常用网站</div>
+		</a>
+		
 		<a href="/links/" class="button">
 			<div class="navbar-menu">友链</div>
 		</a>
@@ -435,6 +443,9 @@ header .header__right .dropdown-menus .dropdown-menu {
 		<a href="/categories/" class="dropdown-menu button">分类</a>
 		<br>
 		
+		<a href="/frequently-used-software/" class="dropdown-menu button">常用网站</a>
+		<br>
+		
 		<a href="/links/" class="dropdown-menu button">友链</a>
 		<br>
 		
@@ -458,90 +469,114 @@ header .header__right .dropdown-menus .dropdown-menu {
     
       
         
-        <p class="h5">2024</p>
+          
+          <p class="h5">2024</p>
+        
+        <a href="/2024/03/10/saltyfish-mans-lightroom-for-minecraft-skins-render/" class="list-group-item list-group-item-action">
+          <span class="archive-post-title">咸鱼人的灯房V2——一个不普通的皮肤渲染模板</span>
+          <time style="float: right;">03-10</time>
+        </a>
       
-      <a href="/2024/03/10/saltyfish-mans-lightroom-for-minecraft-skins-render/" class="list-group-item list-group-item-action">
-        <span class="archive-post-title">咸鱼人的灯房V2——一个不普通的皮肤渲染模板</span>
-        <time style="float: right;">03-10</time>
-      </a>
-    
-      
-      <a href="/2024/03/10/make-non-shader-minecraft-skin-preview/" class="list-group-item list-group-item-action">
-        <span class="archive-post-title">使用Blender制作MC皮肤的无光影预览图</span>
-        <time style="float: right;">03-10</time>
-      </a>
-    
-      
-      <a href="/2024/03/10/make-avatar-with-minecraft-skin/" class="list-group-item list-group-item-action">
-        <span class="archive-post-title">用Blender制作你的经典风格MC头像【内附模板】</span>
-        <time style="float: right;">03-10</time>
-      </a>
-    
-      
-      <a href="/2024/03/03/LocusAzzurro-5th-CTF-Writeup/" class="list-group-item list-group-item-action">
-        <span class="archive-post-title">蓝鸡鸡的2024生日会解密 Writeup</span>
-        <time style="float: right;">03-03</time>
-      </a>
     
       
         
-        <p class="h5">2023</p>
+        <a href="/2024/03/10/make-non-shader-minecraft-skin-preview/" class="list-group-item list-group-item-action">
+          <span class="archive-post-title">使用Blender制作MC皮肤的无光影预览图</span>
+          <time style="float: right;">03-10</time>
+        </a>
       
-      <a href="/2023/05/23/how-to-solve-element-misconfigured/" class="list-group-item list-group-item-action">
-        <span class="archive-post-title">安装完PC版Element后，如何解决“Your Element is misconfigured”问题</span>
-        <time style="float: right;">05-23</time>
-      </a>
-    
-      
-      <a href="/2023/02/01/LocusAzzurro-4th-CTF-Writeup/" class="list-group-item list-group-item-action">
-        <span class="archive-post-title">蓝鸡鸡的2023生日会解密 Writeup</span>
-        <time style="float: right;">02-01</time>
-      </a>
     
       
         
-        <p class="h5">2022</p>
+        <a href="/2024/03/10/make-avatar-with-minecraft-skin/" class="list-group-item list-group-item-action">
+          <span class="archive-post-title">用Blender制作你的经典风格MC头像【内附模板】</span>
+          <time style="float: right;">03-10</time>
+        </a>
       
-      <a href="/2022/10/03/3rd-locusazzurro-ctf-writeup/" class="list-group-item list-group-item-action">
-        <span class="archive-post-title">咸鱼人的⌈蓝鸡的绿宝石竞速解密活动⌋Writeup</span>
-        <time style="float: right;">10-03</time>
-      </a>
-    
-      
-      <a href="/2022/07/02/sample-reels/" class="list-group-item list-group-item-action">
-        <span class="archive-post-title">ETW的作品集</span>
-        <time style="float: right;">07-02</time>
-      </a>
-    
-      
-      <a href="/2022/01/16/2021-summary/" class="list-group-item list-group-item-action">
-        <span class="archive-post-title">2021年，我摸了多少鱼？</span>
-        <time style="float: right;">01-16</time>
-      </a>
     
       
         
-        <p class="h5">2020</p>
+        <a href="/2024/03/03/LocusAzzurro-5th-CTF-Writeup/" class="list-group-item list-group-item-action">
+          <span class="archive-post-title">蓝鸡鸡的2024生日会解密 Writeup</span>
+          <time style="float: right;">03-03</time>
+        </a>
       
-      <a href="/2020/10/01/how-to-import-surroundings/" class="list-group-item list-group-item-action">
-        <span class="archive-post-title">一帖搞定地图导入问题！</span>
-        <time style="float: right;">10-01</time>
-      </a>
-    
-      
-      <a href="/2020/09/21/blender-import-surroundings/" class="list-group-item list-group-item-action">
-        <span class="archive-post-title">导入地形——Blender学习笔记②</span>
-        <time style="float: right;">09-21</time>
-      </a>
     
       
         
-        <p class="h5">2019</p>
+          
+          <p class="h5">2023</p>
+        
+        <a href="/2023/05/23/how-to-solve-element-misconfigured/" class="list-group-item list-group-item-action">
+          <span class="archive-post-title">安装完PC版Element后，如何解决“Your Element is misconfigured”问题</span>
+          <time style="float: right;">05-23</time>
+        </a>
       
-      <a href="/2019/09/15/pipe-dream/" class="list-group-item list-group-item-action">
-        <span class="archive-post-title">Pipe Dream</span>
-        <time style="float: right;">09-15</time>
-      </a>
+    
+      
+        
+        <a href="/2023/02/01/LocusAzzurro-4th-CTF-Writeup/" class="list-group-item list-group-item-action">
+          <span class="archive-post-title">蓝鸡鸡的2023生日会解密 Writeup</span>
+          <time style="float: right;">02-01</time>
+        </a>
+      
+    
+      
+        
+          
+          <p class="h5">2022</p>
+        
+        <a href="/2022/10/03/3rd-locusazzurro-ctf-writeup/" class="list-group-item list-group-item-action">
+          <span class="archive-post-title">咸鱼人的⌈蓝鸡的绿宝石竞速解密活动⌋Writeup</span>
+          <time style="float: right;">10-03</time>
+        </a>
+      
+    
+      
+        
+        <a href="/2022/07/02/sample-reels/" class="list-group-item list-group-item-action">
+          <span class="archive-post-title">ETW的作品集</span>
+          <time style="float: right;">07-02</time>
+        </a>
+      
+    
+      
+        
+        <a href="/2022/01/16/2021-summary/" class="list-group-item list-group-item-action">
+          <span class="archive-post-title">2021年，我摸了多少鱼？</span>
+          <time style="float: right;">01-16</time>
+        </a>
+      
+    
+      
+        
+          
+          <p class="h5">2020</p>
+        
+        <a href="/2020/10/01/how-to-import-surroundings/" class="list-group-item list-group-item-action">
+          <span class="archive-post-title">一帖搞定地图导入问题！</span>
+          <time style="float: right;">10-01</time>
+        </a>
+      
+    
+      
+        
+        <a href="/2020/09/21/blender-import-surroundings/" class="list-group-item list-group-item-action">
+          <span class="archive-post-title">导入地形——Blender学习笔记②</span>
+          <time style="float: right;">09-21</time>
+        </a>
+      
+    
+      
+        
+          
+          <p class="h5">2019</p>
+        
+        <a href="/2019/09/15/pipe-dream/" class="list-group-item list-group-item-action">
+          <span class="archive-post-title">Pipe Dream</span>
+          <time style="float: right;">09-15</time>
+        </a>
+      
     
 
     <nav aria-label="navigation">
@@ -560,22 +595,22 @@ header .header__right .dropdown-menus .dropdown-menu {
     
     
     
-    <p>&copy;  2020 - 2021&nbsp;&nbsp;Theme Miracle</p>
+    <p>&copy;  2020 - 2024&nbsp;&nbsp;Theme Miracle</p>
     
-    <p>Powered by <a href="https://hexo.io" target="_blank">Hexo</a> | Theme by <a href="https://github.com/hifun-team/hexo-theme-miracle" target="_blank">Miracle</a></p>
+    <p>Powered by <a href="https://hexo.io" target="_blank">Hexo</a> | Theme by <a href="https://github.com/oCoke/hexo-theme-miracle" target="_blank">Miracle</a></p>
     
     
 </footer>
 
 <div class="p-btn">
     
-    <a href="#top" class="click-btn">
+    
+    <a href="javascript:window.scrollTo({top:0,behavior:'smooth'});" class="click-btn">
       <i id="i-up"></i>
     </a>
 </div>
 
 <!-- SCRIPTS -->
-
 
 
 
@@ -601,6 +636,10 @@ header .header__right .dropdown-menus .dropdown-menu {
   },1);
     
 </script>
+
+
+
+
 
 
 
