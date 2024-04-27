@@ -1,530 +1,335 @@
+
+
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="zh-CN" data-default-color-scheme=auto>
+
 
 
 <head>
-    <meta charset="UTF-8">
-    
-    <link rel="apple-touch-icon" sizes="76x76" href="/img/cod.png">
-    <link rel="icon" type="image/png" href="/img/cod.png">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5">
-    <title>蓝鸡鸡的2023生日会解密 Writeup - ETW的破站</title>
-    
-    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
-    
-    
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/cod.png">
+  <link rel="icon" href="/img/cod.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="Eric Zane">
+  <meta name="keywords" content="">
+  
     <meta name="description" content="Good Game!">
-    <meta name="author" content="Eric Zane">
-    <meta name="keywords" content="">
-    <meta property="og:title" content="蓝鸡鸡的2023生日会解密 Writeup"/>
-    <style>
+<meta property="og:type" content="article">
+<meta property="og:title" content="蓝鸡鸡的2023生日会解密 Writeup">
+<meta property="og:url" content="http://etwzero.github.io/2023/02/01/LocusAzzurro-4th-CTF-Writeup/">
+<meta property="og:site_name" content="ETW的破站">
+<meta property="og:description" content="Good Game!">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://s1.ax1x.com/2023/02/06/pScg1yQ.jpg">
+<meta property="og:image" content="https://s1.ax1x.com/2023/02/06/pScglQg.png">
+<meta property="og:image" content="https://s1.ax1x.com/2023/02/07/pS21BlT.png">
+<meta property="og:image" content="https://s1.ax1x.com/2023/02/07/pS210pV.png">
+<meta property="og:image" content="https://s1.ax1x.com/2023/02/07/pS21Ukn.png">
+<meta property="og:image" content="https://s1.ax1x.com/2023/02/07/pS21aYq.png">
+<meta property="og:image" content="https://s1.ax1x.com/2023/02/07/pS21df0.png">
+<meta property="og:image" content="https://s1.ax1x.com/2023/02/06/pScguJf.jpg">
+<meta property="og:image" content="https://s1.ax1x.com/2023/02/06/pScgnFP.jpg">
+<meta property="og:image" content="https://s1.ax1x.com/2023/02/06/pScgKW8.png">
+<meta property="og:image" content="https://s1.ax1x.com/2023/02/06/pScgQSS.png">
+<meta property="og:image" content="https://s1.ax1x.com/2023/02/06/pScg3Lj.jpg">
+<meta property="og:image" content="https://s1.ax1x.com/2023/02/07/pS21LtI.png">
+<meta property="og:image" content="https://s1.ax1x.com/2023/02/07/pS21qAA.png">
+<meta property="og:image" content="https://s1.ax1x.com/2023/02/07/pS2170H.png">
+<meta property="og:image" content="https://s1.ax1x.com/2023/02/07/pS21H7d.png">
+<meta property="og:image" content="https://s1.ax1x.com/2023/02/08/pS2wxmt.png">
+<meta property="article:published_time" content="2023-02-01T14:19:22.000Z">
+<meta property="article:modified_time" content="2023-02-08T00:15:37.373Z">
+<meta property="article:author" content="Eric Zane">
+<meta property="article:tag" content="解密">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://s1.ax1x.com/2023/02/06/pScg1yQ.jpg">
+  
+  
+  
+  <title>蓝鸡鸡的2023生日会解密 Writeup - ETW的破站</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
 
-    
-    :root{
-        --shadow-color: rgba(0,0,0,0.2);
-        --sec-shadow: rgba(0,0,0,0.03);
-        --shadow-hover-color: rgba(0,0,0,0.28);
-        --first-text-color: #475b6d;
-        --second-text-color: #37475b;
-        --third-text-color: #858585;
-        --default-text-color: #505050;
-        --default-link-color: #007bff;
-        --link-color: #000000;
-        --second-link-color: #4F9BFA;
-        --code-color:rgba(27,31,35,.05);
-        --post-bkg-color: #fff;
-        --page-bkg-color: #f2f5f8;
-        --nav-a-hover-color: #3498db;
-        --post-sec-text-color: #718096;
-        --sec-bkg: #f2f5f8;
-        --color-mode: 'light';
-        --bkg-h: rgba(255,255,255,0.6);
-        --bkg-m: #e1e4e8;
-        --home-title-color: #4169E1;
-        --shadow: 0 4px 10px rgba(0,2,4,0.06),0 0 1px rgba(0,2,4,0.11);
-        --hr-color: #ddd;
-        --bg-t: #f4f4f4;
-        --nav-bkg: rgba(255,255,255,0.6);
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"etwzero.github.io","root":"/","version":"1.9.7","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":true,"offset_factor":2,"loadingImage":"/img/loading.svg"},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
     }
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --color-mode: 'dark';
-  }
-
-  :root:not([data-theme]) {
-    --first-text-color: hsla(0,0%,100%,0.92);
-    --second-text-color: hsla(0,0%,100%,0.86);
-    --third-text-color: #a7a9ad;
-    --default-text-color: #505050;
-    --default-link-color: #1589e9;
-    --link-color: #000000;
-    --second-link-color: #30a9de;
-    --post-bkg-color: #252d38;
-    --page-bkg-color: #181c27;
-    --nav-a-hover-color: #3498db;
-    --post-sec-text-color: #a7a9ad;
-    --sec-bkg: #364151;
-    --bkg-h: rgba(255,255,255,0.2);
-    --bkg-m: rgba(255,255,255,0.1);
-    --home-title-color: rgb(226, 82, 90);
-    --code-color:#3e4b5e;
-    --shadow: none;
-    --hr-color: #718096;
-    --bg-t: #364151;
-    --nav-bkg: rgba(13,17,23,0.6);
-  }
-}
-
-[data-theme='dark'] {
-    --shadow-color: rgba(0,0,0,0.2);
-    --shadow-hover-color: rgba(0,0,0,0.28);
-    --first-text-color: hsla(0,0%,100%,0.92);
-    --second-text-color: hsla(0,0%,100%,0.86);
-    --third-text-color: #a7a9ad;
-    --default-text-color: #505050;
-    --default-link-color: #1589e9;
-    --link-color: #000000;
-    --second-link-color: #30a9de;
-    --post-bkg-color: #252d38;
-    --page-bkg-color: #181c27;
-    --nav-a-hover-color: #3498db;
-    --post-sec-text-color: #a7a9ad;
-    --sec-bkg: #364151;
-    --bkg-h: rgba(255,255,255,0.2);
-    --bkg-m: rgba(255,255,255,0.1);
-    --home-title-color: rgb(226, 82, 90);
-    --code-color:#3e4b5e;
-    --shadow: none;
-    --hr-color: #718096;
-    --bg-t: #364151;
-    --nav-bkg: rgba(13,17,23,0.6);
-}
-
-</style>
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
 
 
-
-<style>
-#page-main,footer,.p-btn{
-    display: none;
-}
-html, body {
-    margin: 0;
-    padding: 0;
-    width: 100%;
-    height: 100%;
-}
-body {
-    background-color: var(--page-bkg-color);
-    color: var(--second-text-color);
-    overflow-y: scroll;
-    overflow-x: hidden;
-    transition: all .3s;
-}
-a {
-    color: var(--default-link-color);
-    text-decoration: none;
-    background-color: transparent;
-}
-a:hover{
-    color: var(--second-link-color);
-}
-.main-content,.post-card-main{
-    margin: 30px;
-}
-
-
-
-@media (max-width: 410px){
-    .post-card-main{
-        max-width: 350px!important;
-    }
-}
-
-@media (max-width: 980px){
-    .post-card-main{
-        max-width: 520px!important;
-    }
-}
-
-
-@media (min-width: 780px){ 
-    h3{
-        font-size: 1.5rem;
-        line-height: 1.5em;
-    }
-}
-@media (min-width: 1280px){ 
-    h3{
-        font-size: 1.7rem;
-        line-height: 1.5em;
-    }
-}
-@media (min-width: 2096px){ 
-    h3{
-        font-size: 1.8rem;
-        line-height: 1.5em;
-    }
-}
-
-.text-center{
-    text-align: center!important;
-}
-.middle-center{
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-align: center;
-    -ms-flex-align: center;
-    align-items: center;
-    -webkit-box-pack: center;
-    -ms-flex-pack: center;
-    justify-content: center;
-    height: 100%;
-}
-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    position: fixed;
-    height: 54px;
-    padding: 0 1.25rem;
-    top: 0;
-    left: 0;
-    right: 0;
-    z-index: 10;
-    border-bottom: 1px solid var(--bkg-m);
-    background-color: var(--nav-bkg);
-    backdrop-filter: blur(4px);
-    transition: all .3s;
-}
-header .header__left, header .header__right {
-    display: flex;
-    align-items: center;
-    font-family: rubik,sans-serif,Varela Round;
-}
-header .header__left .logo__text {
-    font-size: 18px;
-    font-weight: 450;
-    padding: 14.5px 10px;
-    border-radius: 5px;
-    color: var(--second-text-color);
-}
-header .header__right .navbar__menus {
-    height: 54px;
-    padding: 0 0 0 15px;
-}
-header .header__right .button {
-    color: var(--second-text-color);
-}
-header .header__right .navbar__menus .navbar-menu {
-    display: inline-block;
-    align-items: center;
-    height: 54px;
-    padding: 0 10px;
-    font-size: 16px;
-    line-height: 54px;
-}
-header .header__right .dropdown-icon {
-    display: none;
-    height: 54px;
-    padding: 15px 10px;
-    border: 0;
-    background-color: transparent;
-}
-header .header__right .dropdown-menus {
-    line-height: 2rem;
-    animation: slide-in .15s ease 1;
-    display: none;
-    position: absolute;
-    left: 12px;
-    right: 12px;
-    top: calc(54px + 10px);
-    border-radius: 6px;
-    padding: 24px;
-    background-color: var(--page-bkg-color);
-    border: 1px solid var(--bkg-m);
-    z-index: 9999;
-    justify-items: center;
-    justify-content: center;
-    flex-direction: column;
-}
-header .header__right #btn-search, header .header__right #btn-toggle-dark{
-    display: inline-block;
-    padding:  18px 10px;
-    height: 25px;
-}
-header .header__right #btn-dropdown{
-  display: inline-block;
-  padding:  13.5px 0;
-}
-header .header__right .dropdown-menus .dropdown-menu {
-    padding: 10px;
-    color: var(--second-text-color);
-}
-@media screen and (max-width: 764px){
-.navbar__menus {
-    display: none!important;
-}
-.dropdown-icon {
-    display: inline-block!important;
-}
-}
-.p-btn{
-    position: fixed;
-    bottom: 1.2rem;
-    right: 1.2rem;
-    contain: layout;
-}
-.toc-btn,.click-btn{
-    cursor: pointer;
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    appearance: none;
-    align-items: center;
-    margin-top: .5rem;
-    font-size: .75rem;
-    background-color: var(--sec-bkg);
-    display: block;
-    padding: 0.9rem;
-    box-shadow: 0 0.3rem 0.6rem rgba(48,55,66,.15);
-    border: none;
-    border-radius: 0.5rem;
-    line-height: 1;
-    color: var(--first-text-color);
-}
-.toc-link{
-    color: var(--second-text-color);
-}
-
-#css-loading h3{
-    font-weight: 500;
-    font-size: 1.4rem;
-    text-align: center;
-    position: fixed;
-    top: 200px;
-    left: 0;
-    right: 0;
-    opacity: 0;
-    animation: cssLoad;
-    animation-delay: 0.3s;
-    -webkit-animation: cssLoad;
-    -webkit-animation-delay: 0.3s;
-}
-@keyframes cssLoad {
-    from {
-        opacity: 0;
-    }
-    to {
-        opacity: 0.9;
-    }
-}
-
-
-.memorial {
-    -webkit-filter: grayscale(100%);
-    -moz-filter: grayscale(100%);
-    -ms-filter: grayscale(100%);
-    -o-filter: grayscale(100%);
-    filter: grayscale(100%);
-    filter:progid:DXImageTransform.Microsoft.BasicImage(grayscale=1); filter:gray;
-}
-
-
-    .post-copyright:after {
-        position: absolute;
-        color: #fff;
-        background: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 496 512'%3E%3Cpath fill='gray' d='M245.8 214.9l-33.2 17.3c-9.4-19.6-25.2-20-27.4-20-22.2 0-33.3 14.6-33.3 43.9 0 23.5 9.2 43.8 33.3 43.8 14.4 0 24.6-7 30.5-21.3l30.6 15.5a73.2 73.2 0 01-65.1 39c-22.6 0-74-10.3-74-77 0-58.7 43-77 72.6-77 30.8-.1 52.7 11.9 66 35.8zm143 0l-32.7 17.3c-9.5-19.8-25.7-20-27.9-20-22.1 0-33.2 14.6-33.2 43.9 0 23.5 9.2 43.8 33.2 43.8 14.5 0 24.7-7 30.5-21.3l31 15.5c-2 3.8-21.3 39-65 39-22.7 0-74-9.9-74-77 0-58.7 43-77 72.6-77C354 179 376 191 389 214.8zM247.7 8C104.7 8 0 123 0 256c0 138.4 113.6 248 247.6 248C377.5 504 496 403 496 256 496 118 389.4 8 247.6 8zm.8 450.8c-112.5 0-203.7-93-203.7-202.8 0-105.5 85.5-203.3 203.8-203.3A201.7 201.7 0 01451.3 256c0 121.7-99.7 202.9-202.9 202.9z'/%3E%3C/svg%3E");
-        content: ' ';
-        height: 10rem;
-        width: 10rem;
-        right: -2rem;
-        top: -2rem;
-        opacity: .1;
-    }
-
-</style>
-
-    
-
-    
-        <!--
-        <link rel="stylesheet" href="/css/page.css" media="print"
-            onload="this.media='all';this.onload=null">
-        <noscript>-->
-            <link rel="stylesheet" href="/css/page.css">
-        <!--</noscript>-->
-    
-    
-    <link rel="stylesheet" href="/css/main.css" media="print" onload="this.media='all';this.onload=null">
-    <noscript>
-        <link rel="stylesheet" href="/css/main.css">
-    </noscript>
-
-    
-    <script src="/js/main.js"></script>
-    
+  
 <meta name="generator" content="Hexo 6.3.0"></head>
 
-    <body>
-        <header>
-            
-<div class="header__left">
-	<a href="/" class="button"><span class="logo__text">ETW&#39;s Blog</span></a>
-</div>
-<div class="header__right">
-	<div class="navbar__menus">
-		
-		<a href="/" class="button">
-			<div class="navbar-menu">首页</div>
-		</a>
-		
-		<a href="/archives/" class="button">
-			<div class="navbar-menu">归档</div>
-		</a>
-		
-		<a href="/categories/" class="button">
-			<div class="navbar-menu">分类</div>
-		</a>
-		
-		<a href="/frequently-used-software/" class="button">
-			<div class="navbar-menu">常用网站</div>
-		</a>
-		
-		<a href="/links/" class="button">
-			<div class="navbar-menu">友链</div>
-		</a>
-		
-		<a href="/about/" class="button">
-			<div class="navbar-menu">关于</div>
-		</a>
-		
-	</div>
-	
-	<a href="/search/" class="button">
-		<div id="btn-search">
-			<svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 1024 1024" width="24" height="24" fill="currentColor"
-				stroke="currentColor" stroke-width="32">
-				<path
-					d="M192 448c0-141.152 114.848-256 256-256s256 114.848 256 256-114.848 256-256 256-256-114.848-256-256z m710.624 409.376l-206.88-206.88A318.784 318.784 0 0 0 768 448c0-176.736-143.264-320-320-320S128 271.264 128 448s143.264 320 320 320a318.784 318.784 0 0 0 202.496-72.256l206.88 206.88 45.248-45.248z">
-				</path>
-			</svg>
-		</div>
-	</a>
-	
-	<a href="javaScript:void(0);" class="button" id="btn-toggle-dark">
-		<div>
-			<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewbox="0 0 24 24" fill="none"
-				stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-				<path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
-			</svg>
-		</div>
-	</a>
-	<a href="javaScript:void(0);" class="dropdown-icon button">
-		<div id="btn-dropdown">
-			<svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 1024 1024" width="24" height="24" fill="currentColor"
-				stroke="currentColor" stroke-width="32" stroke-linecap="round">
-				<path
-					d="M903.43 561.52H148.8c-13.25 0-24-10.75-24-24s10.75-24 24-24h754.63c13.25 0 24 10.75 24 24s-10.75 24-24 24zM903.43 204.31H148.8c-13.25 0-24-10.75-24-24s10.75-24 24-24h754.63c13.25 0 24 10.75 24 24s-10.75 24-24 24zM903.43 918.73H148.8c-13.25 0-24-10.75-24-24s10.75-24 24-24h754.63c13.25 0 24 10.75 24 24s-10.75 24-24 24z"
-					fill="currentColor"></path>
-			</svg>
-		</div>
-	</a>
-	<div class="dropdown-menus" id="dropdown-menus">
-		
-		<a href="/" class="dropdown-menu button">首页</a>
-		<br>
-		
-		<a href="/archives/" class="dropdown-menu button">归档</a>
-		<br>
-		
-		<a href="/categories/" class="dropdown-menu button">分类</a>
-		<br>
-		
-		<a href="/frequently-used-software/" class="dropdown-menu button">常用网站</a>
-		<br>
-		
-		<a href="/links/" class="dropdown-menu button">友链</a>
-		<br>
-		
-		<a href="/about/" class="dropdown-menu button">关于</a>
-		<br>
-		
-	</div>
-</div>
 
-        </header>
-        <div id="top"></div>
-        <div id="page-main" class="main-content">
-        <div class="mg-top">
-            
+<body>
+  
 
-<article class="page">
-<div id="post-meta-m">
-    <div class="post-meta" id="post-meta">
-  <h3>蓝鸡鸡的2023生日会解密 Writeup</h3>
+  <header>
     
-      <span class="post-meta-label">
-        Eric Zane
-      </span>
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>ETW&#39;s Blog</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/" target="_self">
+                <i class="iconfont icon-home-fill"></i>
+                <span>首页</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/" target="_self">
+                <i class="iconfont icon-books"></i>
+                <span>归档</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/" target="_self">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>标签</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/frequently-used-software/" target="_self">
+                <i class="iconfont icon-briefcase"></i>
+                <span>常用软件</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/links/" target="_self">
+                <i class="iconfont icon-link-fill"></i>
+                <span>友链</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/" target="_self">
+                <i class="iconfont icon-user-fill"></i>
+                <span>关于</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('https://www.z4a.net/images/2024/04/27/Fall-Fashion35d033c7731359e6.jpg') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="蓝鸡鸡的2023生日会解密 Writeup"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
     
     
-      <span class="post-meta-label">
-        <span class="p-dot"></span>
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
         <time datetime="2023-02-01 22:19" pubdate>
-          2023-02-01
+          2023年2月1日 晚上
         </time>
       </span>
     
+  </div>
+
+  <div class="mt-1">
     
-      
-      <span class="post-meta">
-        <span class="p-dot"></span>
-        共 2.7k 字
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          2.4k 字
+        
       </span>
     
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          20 分钟
+        
+      </span>
+    
+
     
     
   </div>
-  
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
 </div>
-<div class="article-m">
-  <div class="post-toc">
+
+</div>
+
+  </header>
+
+  <main>
     
-      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#0-%E6%96%87%E4%BB%B6%E7%9A%84%E8%8E%B7%E5%8F%96"><span class="toc-number">1.</span> <span class="toc-text">0. 文件的获取</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-%E6%96%87%E4%BB%B6%E5%88%86%E6%9E%90"><span class="toc-number">2.</span> <span class="toc-text">1. 文件分析</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#data-2302"><span class="toc-number">2.0.1.</span> <span class="toc-text">data_2302</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#data-7cca0dd5"><span class="toc-number">2.0.2.</span> <span class="toc-text">data_7cca0dd5</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#dir-qnginhyg"><span class="toc-number">2.1.</span> <span class="toc-text">dir_qnginhyg</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#data-7dcffd91-png"><span class="toc-number">2.1.1.</span> <span class="toc-text">data_7dcffd91.png</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#data-13145bf4-wav"><span class="toc-number">2.1.2.</span> <span class="toc-text">data_13145bf4.wav</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#data-2443630b-zip"><span class="toc-number">2.1.3.</span> <span class="toc-text">data_2443630b.zip</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#data-ed9b1b6d-schem"><span class="toc-number">2.1.4.</span> <span class="toc-text">data_ed9b1b6d.schem</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#dir-qrpgbbyf"><span class="toc-number">2.2.</span> <span class="toc-text">dir_qrpgbbyf</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#data-4f0256af-png"><span class="toc-number">2.2.1.</span> <span class="toc-text">data_4f0256af.png</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#data-5de34ba6-png"><span class="toc-number">2.2.2.</span> <span class="toc-text">data_5de34ba6.png</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#P1-TL-png"><span class="toc-number">2.2.3.</span> <span class="toc-text">P1_TL.png</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#data-550ce377-png"><span class="toc-number">2.2.4.</span> <span class="toc-text">data_550ce377.png</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#data-6d177ad9-mp3"><span class="toc-number">2.2.5.</span> <span class="toc-text">data_6d177ad9.mp3</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#data-031c6f61-zip"><span class="toc-number">2.2.6.</span> <span class="toc-text">data_031c6f61.zip</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#data-387d677f-zip%E5%92%8Cdata-c03fc8b0-zip"><span class="toc-number">2.2.7.</span> <span class="toc-text">data_387d677f.zip和data_c03fc8b0.zip</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%B4%BB%E5%8A%A8%E7%9A%84%E6%8F%90%E7%A4%BA"><span class="toc-number">2.3.</span> <span class="toc-text">活动的提示</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%8E%9F%E5%B8%96%E7%9A%84%E9%82%A3%E4%B8%AA%E7%AC%A6"><span class="toc-number">2.3.1.</span> <span class="toc-text">原帖的那个符</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BE%A4%E7%BB%84%E5%86%85%E7%9A%84%E9%82%A3%E4%B8%AA%E5%9B%BE%E7%89%87"><span class="toc-number">2.4.</span> <span class="toc-text">群组内的那个图片</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#B%E7%AB%99%E5%8A%A8%E6%80%81"><span class="toc-number">2.5.</span> <span class="toc-text">B站动态</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-x2F-27%E6%97%A5%E7%9A%84%E6%8F%90%E7%A4%BA"><span class="toc-number">2.6.</span> <span class="toc-text">1&#x2F;27日的提示</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-%E7%BB%93%E8%AE%BA%E4%B8%8E%E8%8A%B1%E7%B5%AE"><span class="toc-number">3.</span> <span class="toc-text">3.结论与花絮</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%80%E6%AC%A1%E6%B5%8B%E8%AF%953%E4%B8%AA%E5%8E%8B%E7%BC%A9%E5%8C%85%E5%AF%86%E7%A0%81"><span class="toc-number">3.1.</span> <span class="toc-text">一次测试3个压缩包密码</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%9F%B3%E9%A2%91%E5%88%86%E6%9E%90"><span class="toc-number">3.2.</span> <span class="toc-text">音频分析</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9B%BE%E5%83%8F%E5%88%86%E6%9E%90"><span class="toc-number">3.3.</span> <span class="toc-text">图像分析</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BF%A1%E5%8F%B7%E5%88%86%E6%9E%90"><span class="toc-number">3.4.</span> <span class="toc-text">信号分析</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BC%BA%E5%B0%91%E7%9A%84%E4%BF%A1%E6%81%AF%E4%B8%8E%E5%88%86%E6%9E%90%E6%96%B9%E5%BC%8F%E6%80%BB%E7%BB%93"><span class="toc-number">3.5.</span> <span class="toc-text">缺少的信息与分析方式总结</span></a></li></ol></li></ol>
-    
-  </div>
-    <div id="article">
-      <div id="post-content" class="markdown-body textretty">
-        <p>蓝鸡生快捏。</p>
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <h1 id="seo-header">蓝鸡鸡的2023生日会解密 Writeup</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <p>蓝鸡生快捏。</p>
 <p>题目地址：<a target="_blank" rel="noopener" href="https://www.mcbbs.net/thread-1417951-1-1.html">https://www.mcbbs.net/thread-1417951-1-1.html</a></p>
 <h2 id="0-文件的获取"><a href="#0-文件的获取" class="headerlink" title="0. 文件的获取"></a>0. 文件的获取</h2><p>套路和之前一样，首先注意到帖子存在黑色底色的文字，可以得知文件的百度网盘和提取码：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">1nnxk_S-W2-mfLo9J2GlhrA // blck</span><br></pre></td></tr></table></figure>
+<figure class="highlight armasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs armasm"><span class="hljs-number">1</span>nnxk_S-<span class="hljs-built_in">W2</span>-mfLo9J2GlhrA <span class="hljs-comment">// blck</span><br></code></pre></td></tr></table></figure>
 
 <p>在段文字之后有size&#x3D;0px的隐藏文字，可以开F12打开开发者工具来确认压缩包密码：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">417a7a7572726f</span><br></pre></td></tr></table></figure>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs">417a7a7572726f<br></code></pre></td></tr></table></figure>
 
 <p>至此可以正式开始解密了。</p>
 <p>文件存档：</p>
 <h2 id="1-文件分析"><a href="#1-文件分析" class="headerlink" title="1. 文件分析"></a>1. 文件分析</h2><h4 id="data-2302"><a href="#data-2302" class="headerlink" title="data_2302"></a>data_2302</h4><p>是一个压缩包，解压后可获得解密的主体文件，即下方的所有文件。</p>
 <hr>
 <h4 id="data-7cca0dd5"><a href="#data-7cca0dd5" class="headerlink" title="data_7cca0dd5"></a>data_7cca0dd5</h4><p>该文件是一个文本文档，内容如下：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Cladeships of the 3 tactical troika classification in communion militant of Varpulis Subclade of Perun Clade encountered the Ancient Enemy Azdaja at reverse-time co-ordinates 1673482349 while processing in sub-18 exclave of conduit loop construct-405. Absolute imperative of poshlost extirpation against Azdaja was invoked without acceptable material realization. Tactical troika of Varpulis Subclade placed a casting of absorbed data into the cladeflow for reflection of Convocation of Triglav Outside the Struggle.</span><br></pre></td></tr></table></figure>
+<figure class="highlight livecodeserver"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs livecodeserver">Cladeships <span class="hljs-keyword">of</span> <span class="hljs-keyword">the</span> <span class="hljs-number">3</span> tactical troika classification <span class="hljs-keyword">in</span> communion militant <span class="hljs-keyword">of</span> Varpulis Subclade <span class="hljs-keyword">of</span> Perun Clade encountered <span class="hljs-keyword">the</span> Ancient Enemy Azdaja <span class="hljs-keyword">at</span> reverse-<span class="hljs-built_in">time</span> co-ordinates <span class="hljs-number">1673482349</span> <span class="hljs-keyword">while</span> processing <span class="hljs-keyword">in</span> sub<span class="hljs-number">-18</span> exclave <span class="hljs-keyword">of</span> conduit loop construct<span class="hljs-number">-405.</span> Absolute imperative <span class="hljs-keyword">of</span> poshlost extirpation against Azdaja was invoked <span class="hljs-keyword">without</span> acceptable material realization. Tactical troika <span class="hljs-keyword">of</span> Varpulis Subclade placed <span class="hljs-keyword">a</span> casting <span class="hljs-keyword">of</span> absorbed data <span class="hljs-keyword">into</span> <span class="hljs-keyword">the</span> cladeflow <span class="hljs-keyword">for</span> reflection <span class="hljs-keyword">of</span> Convocation <span class="hljs-keyword">of</span> Triglav Outside <span class="hljs-keyword">the</span> Struggle.<br></code></pre></td></tr></table></figure>
 
 <p>必应一下，发现是来自这个网站的内容：  </p>
 <p><a target="_blank" rel="noopener" href="https://www.alpha-orbital.com/news/the-complete-lore-of-the-triglavian-collective">https://www.alpha-orbital.com/news/the-complete-lore-of-the-triglavian-collective</a> </p>
 <p>相关解析网站：</p>
 <p>三进制数据档案（AEA篇）<br><a target="_blank" rel="noopener" href="https://www.bilibili.com/read/cv11474124">https://www.bilibili.com/read/cv11474124</a>  </p>
 <p>原文如下:</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Cladeships of the 3 tactical troika classification in communion militant of Varpulis Subclade of Perun Clade encountered the Ancient Enemy Azdaja at reverse-time co-ordinates (indecipherable) while processing in sub-18 exclave of conduit loop construct-405. Absolute imperative of poshlost extirpation against Azdaja was invoked without acceptable material realization. Tactical troika of Varpulis Subclade placed a casting of absorbed data into the cladeflow for reflection of Convocation of Triglav Outside the Struggle.```</span><br></pre></td></tr></table></figure>
+<figure class="highlight livecodeserver"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs livecodeserver">Cladeships <span class="hljs-keyword">of</span> <span class="hljs-keyword">the</span> <span class="hljs-number">3</span> tactical troika classification <span class="hljs-keyword">in</span> communion militant <span class="hljs-keyword">of</span> Varpulis Subclade <span class="hljs-keyword">of</span> Perun Clade encountered <span class="hljs-keyword">the</span> Ancient Enemy Azdaja <span class="hljs-keyword">at</span> reverse-<span class="hljs-built_in">time</span> co-ordinates (indecipherable) <span class="hljs-keyword">while</span> processing <span class="hljs-keyword">in</span> sub<span class="hljs-number">-18</span> exclave <span class="hljs-keyword">of</span> conduit loop construct<span class="hljs-number">-405.</span> Absolute imperative <span class="hljs-keyword">of</span> poshlost extirpation against Azdaja was invoked <span class="hljs-keyword">without</span> acceptable material realization. Tactical troika <span class="hljs-keyword">of</span> Varpulis Subclade placed <span class="hljs-keyword">a</span> casting <span class="hljs-keyword">of</span> absorbed data <span class="hljs-keyword">into</span> <span class="hljs-keyword">the</span> cladeflow <span class="hljs-keyword">for</span> reflection <span class="hljs-keyword">of</span> Convocation <span class="hljs-keyword">of</span> Triglav Outside <span class="hljs-keyword">the</span> Struggle.```<br></code></pre></td></tr></table></figure>
 
 <p>可以发现和原文的关系，是将原文的(indecipherable)（释义为无法理解的词语或说出来的话语）替换为了<code>1673482349</code>，是一个时间戳，时间为<code>2023-01-12 08:12:29</code>，文件的修改时间为<code>2023-01-12 08:12:34</code>。</p>
 <hr>
-<h3 id="dir-qnginhyg"><a href="#dir-qnginhyg" class="headerlink" title="dir_qnginhyg"></a>dir_qnginhyg</h3><h4 id="data-7dcffd91-png"><a href="#data-7dcffd91-png" class="headerlink" title="data_7dcffd91.png"></a>data_7dcffd91.png</h4><p><img src="https://s1.ax1x.com/2023/02/06/pScg1yQ.jpg" class="lazyload-img" data-srcset="https://s1.ax1x.com/2023/02/06/pScg1yQ.jpg" srcset="/img/loading.svg"></p>
+<h3 id="dir-qnginhyg"><a href="#dir-qnginhyg" class="headerlink" title="dir_qnginhyg"></a>dir_qnginhyg</h3><h4 id="data-7dcffd91-png"><a href="#data-7dcffd91-png" class="headerlink" title="data_7dcffd91.png"></a>data_7dcffd91.png</h4><p><img src="https://s1.ax1x.com/2023/02/06/pScg1yQ.jpg" srcset="/img/loading.gif" lazyload></p>
 <p>是一个PNG文件，调整曝光进行边缘检测后是20x20的码表。</p>
-<p><img src="https://s1.ax1x.com/2023/02/06/pScglQg.png" class="lazyload-img" data-srcset="https://s1.ax1x.com/2023/02/06/pScglQg.png" srcset="/img/loading.svg"></p>
+<p><img src="https://s1.ax1x.com/2023/02/06/pScglQg.png" srcset="/img/loading.gif" lazyload></p>
 <p>以Hex格式打开文件，文件头部存在Brainfuck代码：</p>
 <p><code>++++++++++[&lt;++++++&gt;-]&lt;+++++++&gt;&gt;++++++[&lt;+++&gt;-]&lt;[&lt;.&gt;-]&lt;+++++&gt;&gt;&gt;+++[&lt;++&gt;-]&lt;[&lt;+++&gt;-]&lt;[&lt;.&gt;-]&lt;++++++.+...</code>  </p>
 <p>解码为：<code>CCCCCCCCCCCCCCCCCCHHHHHHHHHHHHHHHHHHNOOO</code>  </p>
@@ -532,26 +337,26 @@ header .header__right .dropdown-menus .dropdown-menu {
 <p>因此推测可能是某种物质的化学式，搜索<code>c18h27no3</code>后得知这种物质为辣椒素，英文为<code>capsaicin</code>。</p>
 <p>因此推断该码表拥有码表+密钥的组合，但并未解出来该如何解码。</p>
 <h4 id="data-13145bf4-wav"><a href="#data-13145bf4-wav" class="headerlink" title="data_13145bf4.wav"></a>data_13145bf4.wav</h4><p>是一个WAV文件，观察到左声道明显为莫尔斯电码，可以通过在线解码，解码后的结果如下：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">R A J Q W D M 相隔0.5秒</span><br><span class="line">Y T D W Y F F A U O N M Z C X I A I S N U E L M A V F H E O V X M U V Y F P X 相隔1秒</span><br><span class="line">I Q B V G O I E W M V V J Y D L U Y F U L S 相隔1秒</span><br><span class="line">Z 相隔一段时间</span><br><span class="line">F</span><br></pre></td></tr></table></figure>
+<figure class="highlight mathematica"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs mathematica"><span class="hljs-variable">R</span> <span class="hljs-variable">A</span> <span class="hljs-variable">J</span> <span class="hljs-variable">Q</span> <span class="hljs-variable">W</span> <span class="hljs-built_in">D</span> <span class="hljs-variable">M</span> 相隔<span class="hljs-number">0.5</span>秒<br><span class="hljs-variable">Y</span> <span class="hljs-variable">T</span> <span class="hljs-built_in">D</span> <span class="hljs-variable">W</span> <span class="hljs-variable">Y</span> <span class="hljs-variable">F</span> <span class="hljs-variable">F</span> <span class="hljs-variable">A</span> <span class="hljs-variable">U</span> <span class="hljs-built_in">O</span> <span class="hljs-built_in">N</span> <span class="hljs-variable">M</span> <span class="hljs-variable">Z</span> <span class="hljs-built_in">C</span> <span class="hljs-variable">X</span> <span class="hljs-built_in">I</span> <span class="hljs-variable">A</span> <span class="hljs-built_in">I</span> <span class="hljs-variable">S</span> <span class="hljs-built_in">N</span> <span class="hljs-variable">U</span> <span class="hljs-built_in">E</span> <span class="hljs-variable">L</span> <span class="hljs-variable">M</span> <span class="hljs-variable">A</span> <span class="hljs-variable">V</span> <span class="hljs-variable">F</span> <span class="hljs-variable">H</span> <span class="hljs-built_in">E</span> <span class="hljs-built_in">O</span> <span class="hljs-variable">V</span> <span class="hljs-variable">X</span> <span class="hljs-variable">M</span> <span class="hljs-variable">U</span> <span class="hljs-variable">V</span> <span class="hljs-variable">Y</span> <span class="hljs-variable">F</span> <span class="hljs-variable">P</span> <span class="hljs-variable">X</span> 相隔<span class="hljs-number">1</span>秒<br><span class="hljs-built_in">I</span> <span class="hljs-variable">Q</span> <span class="hljs-variable">B</span> <span class="hljs-variable">V</span> <span class="hljs-variable">G</span> <span class="hljs-built_in">O</span> <span class="hljs-built_in">I</span> <span class="hljs-built_in">E</span> <span class="hljs-variable">W</span> <span class="hljs-variable">M</span> <span class="hljs-variable">V</span> <span class="hljs-variable">V</span> <span class="hljs-variable">J</span> <span class="hljs-variable">Y</span> <span class="hljs-built_in">D</span> <span class="hljs-variable">L</span> <span class="hljs-variable">U</span> <span class="hljs-variable">Y</span> <span class="hljs-variable">F</span> <span class="hljs-variable">U</span> <span class="hljs-variable">L</span> <span class="hljs-variable">S</span> 相隔<span class="hljs-number">1</span>秒<br><span class="hljs-variable">Z</span> 相隔一段时间<br><span class="hljs-variable">F</span><br></code></pre></td></tr></table></figure>
 
 <p>连起来后如下：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">R A J Q W D M Y T D W Y F F A U O N M Z C X I A I S N U E L M A V F H E O V X M U V Y F P X I Q B V G O I E W M V V J Y D L U Y F U L S Z F</span><br></pre></td></tr></table></figure>
+<figure class="highlight mathematica"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs mathematica"><span class="hljs-variable">R</span> <span class="hljs-variable">A</span> <span class="hljs-variable">J</span> <span class="hljs-variable">Q</span> <span class="hljs-variable">W</span> <span class="hljs-built_in">D</span> <span class="hljs-variable">M</span> <span class="hljs-variable">Y</span> <span class="hljs-variable">T</span> <span class="hljs-built_in">D</span> <span class="hljs-variable">W</span> <span class="hljs-variable">Y</span> <span class="hljs-variable">F</span> <span class="hljs-variable">F</span> <span class="hljs-variable">A</span> <span class="hljs-variable">U</span> <span class="hljs-built_in">O</span> <span class="hljs-built_in">N</span> <span class="hljs-variable">M</span> <span class="hljs-variable">Z</span> <span class="hljs-built_in">C</span> <span class="hljs-variable">X</span> <span class="hljs-built_in">I</span> <span class="hljs-variable">A</span> <span class="hljs-built_in">I</span> <span class="hljs-variable">S</span> <span class="hljs-built_in">N</span> <span class="hljs-variable">U</span> <span class="hljs-built_in">E</span> <span class="hljs-variable">L</span> <span class="hljs-variable">M</span> <span class="hljs-variable">A</span> <span class="hljs-variable">V</span> <span class="hljs-variable">F</span> <span class="hljs-variable">H</span> <span class="hljs-built_in">E</span> <span class="hljs-built_in">O</span> <span class="hljs-variable">V</span> <span class="hljs-variable">X</span> <span class="hljs-variable">M</span> <span class="hljs-variable">U</span> <span class="hljs-variable">V</span> <span class="hljs-variable">Y</span> <span class="hljs-variable">F</span> <span class="hljs-variable">P</span> <span class="hljs-variable">X</span> <span class="hljs-built_in">I</span> <span class="hljs-variable">Q</span> <span class="hljs-variable">B</span> <span class="hljs-variable">V</span> <span class="hljs-variable">G</span> <span class="hljs-built_in">O</span> <span class="hljs-built_in">I</span> <span class="hljs-built_in">E</span> <span class="hljs-variable">W</span> <span class="hljs-variable">M</span> <span class="hljs-variable">V</span> <span class="hljs-variable">V</span> <span class="hljs-variable">J</span> <span class="hljs-variable">Y</span> <span class="hljs-built_in">D</span> <span class="hljs-variable">L</span> <span class="hljs-variable">U</span> <span class="hljs-variable">Y</span> <span class="hljs-variable">F</span> <span class="hljs-variable">U</span> <span class="hljs-variable">L</span> <span class="hljs-variable">S</span> <span class="hljs-variable">Z</span> <span class="hljs-variable">F</span><br></code></pre></td></tr></table></figure>
 
 <p>共70个字母，推测可能和密码表+密钥组合获得答案，但解码方式未知。</p>
 <p>右声道是我并不了解的信号制式，开头有明显的稳定频率的声音，分别为<code>1506Hz,1899Hz,  2301Hz</code>，单个频率的持续时间为100毫秒，以0，1，2表征后的信息如下：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">10102020111111</span><br></pre></td></tr></table></figure>
+<figure class="highlight dns"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs dns"><span class="hljs-number">10102020111111</span><br></code></pre></td></tr></table></figure>
 
 <h4 id="data-2443630b-zip"><a href="#data-2443630b-zip" class="headerlink" title="data_2443630b.zip"></a>data_2443630b.zip</h4><p>zip文件，有密码保护 ，猜测密码应该就是上面信号+密码表+密钥的结果。其中的文件名为Final.png，结合后文P1_TL.png的命名格式，推测该文件有特殊用途。</p>
-<h4 id="data-ed9b1b6d-schem"><a href="#data-ed9b1b6d-schem" class="headerlink" title="data_ed9b1b6d.schem"></a>data_ed9b1b6d.schem</h4><p><img src="https://s1.ax1x.com/2023/02/07/pS21BlT.png" class="lazyload-img" data-srcset="https://s1.ax1x.com/2023/02/07/pS21BlT.png" srcset="/img/loading.svg"></p>
+<h4 id="data-ed9b1b6d-schem"><a href="#data-ed9b1b6d-schem" class="headerlink" title="data_ed9b1b6d.schem"></a>data_ed9b1b6d.schem</h4><p><img src="https://s1.ax1x.com/2023/02/07/pS21BlT.png" srcset="/img/loading.gif" lazyload></p>
 <p>一个Minecraft Schem文件，导入到地图后第一层为二维码，将黑曜石replace成白色后扫码可得 <a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1sW4y1g7By/">https://www.bilibili.com/video/BV1sW4y1g7By/</a> ，视频内容为乌鸦级旋转一分钟。</p>
 <p>往下几层由不同的方块随机分布，其中嵌入了一个Piet的图像。</p>
-<p><img src="https://s1.ax1x.com/2023/02/07/pS210pV.png" class="lazyload-img" data-srcset="https://s1.ax1x.com/2023/02/07/pS210pV.png" srcset="/img/loading.svg"></p>
+<p><img src="https://s1.ax1x.com/2023/02/07/pS210pV.png" srcset="/img/loading.gif" lazyload></p>
 <p>不同方块的数量统计如图所示。</p>
-<p><img src="https://s1.ax1x.com/2023/02/07/pS21Ukn.png" class="lazyload-img" data-srcset="https://s1.ax1x.com/2023/02/07/pS21Ukn.png" srcset="/img/loading.svg"></p>
-<p><img src="https://s1.ax1x.com/2023/02/07/pS21aYq.png" class="lazyload-img" data-srcset="https://s1.ax1x.com/2023/02/07/pS21aYq.png" srcset="/img/loading.svg"></p>
-<p><img src="https://s1.ax1x.com/2023/02/07/pS21df0.png" class="lazyload-img" data-srcset="https://s1.ax1x.com/2023/02/07/pS21df0.png" srcset="/img/loading.svg"></p>
+<p><img src="https://s1.ax1x.com/2023/02/07/pS21Ukn.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="https://s1.ax1x.com/2023/02/07/pS21aYq.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="https://s1.ax1x.com/2023/02/07/pS21df0.png" srcset="/img/loading.gif" lazyload></p>
 <hr>
-<h3 id="dir-qrpgbbyf"><a href="#dir-qrpgbbyf" class="headerlink" title="dir_qrpgbbyf"></a>dir_qrpgbbyf</h3><h4 id="data-4f0256af-png"><a href="#data-4f0256af-png" class="headerlink" title="data_4f0256af.png"></a>data_4f0256af.png</h4><p><img src="https://s1.ax1x.com/2023/02/06/pScguJf.jpg" class="lazyload-img" data-srcset="https://s1.ax1x.com/2023/02/06/pScguJf.jpg" srcset="/img/loading.svg"></p>
+<h3 id="dir-qrpgbbyf"><a href="#dir-qrpgbbyf" class="headerlink" title="dir_qrpgbbyf"></a>dir_qrpgbbyf</h3><h4 id="data-4f0256af-png"><a href="#data-4f0256af-png" class="headerlink" title="data_4f0256af.png"></a>data_4f0256af.png</h4><p><img src="https://s1.ax1x.com/2023/02/06/pScguJf.jpg" srcset="/img/loading.gif" lazyload></p>
 <p>一个PNG图像文件，上面有一些彩色的线条。联想到药剂工艺的合成路线图，经过查阅Wiki后确认了结论，得出各个颜色所代表的路径：</p>
 <p>棕色：Firebell</p>
 <p>蓝色：Icefruit</p>
@@ -562,18 +367,18 @@ header .header__right .dropdown-menus .dropdown-menu {
 <p>由1&#x2F;27日给出的提示，可以得出一个密码：</p>
 <p><code>FirebellIcefruitWeirdshroomFluffbloomTangleweedLavaroot</code></p>
 <p>验证后可以解压<code>data_031c6f61</code>压缩包。</p>
-<h4 id="data-5de34ba6-png"><a href="#data-5de34ba6-png" class="headerlink" title="data_5de34ba6.png"></a>data_5de34ba6.png</h4><p><img src="https://s1.ax1x.com/2023/02/06/pScgnFP.jpg" class="lazyload-img" data-srcset="https://s1.ax1x.com/2023/02/06/pScgnFP.jpg" srcset="/img/loading.svg"></p>
+<h4 id="data-5de34ba6-png"><a href="#data-5de34ba6-png" class="headerlink" title="data_5de34ba6.png"></a>data_5de34ba6.png</h4><p><img src="https://s1.ax1x.com/2023/02/06/pScgnFP.jpg" srcset="/img/loading.gif" lazyload></p>
 <p>一个PNG图像文件，上面有一个类似路线图的标识，里面的文字由来自《EVE: Online》的深渊三神裔文字所表示，换成英文结果如下：</p>
-<p><img src="https://s1.ax1x.com/2023/02/06/pScgKW8.png" class="lazyload-img" data-srcset="https://s1.ax1x.com/2023/02/06/pScgKW8.png" srcset="/img/loading.svg"></p>
+<p><img src="https://s1.ax1x.com/2023/02/06/pScgKW8.png" srcset="/img/loading.gif" lazyload></p>
 <p>其中，kino是きの的罗马音，译为菌株，nani是なに的罗马音，译为什么。Ala的含义未知，其他数字的意义未知。</p>
 <p>该文件的文件头EXIF部分存在一个长度巨大的EXIF信息，约3100字节，其中有一些字节存在规律，但规律没有搞清楚。</p>
 <p>同时，该文件还包含一个压缩包，解压后文件为P1_TL.png。</p>
-<h4 id="P1-TL-png"><a href="#P1-TL-png" class="headerlink" title="P1_TL.png"></a>P1_TL.png</h4><p><img src="https://s1.ax1x.com/2023/02/06/pScgQSS.png" class="lazyload-img" data-srcset="https://s1.ax1x.com/2023/02/06/pScgQSS.png" srcset="/img/loading.svg"></p>
+<h4 id="P1-TL-png"><a href="#P1-TL-png" class="headerlink" title="P1_TL.png"></a>P1_TL.png</h4><p><img src="https://s1.ax1x.com/2023/02/06/pScgQSS.png" srcset="/img/loading.gif" lazyload></p>
 <p>该文件为Piet图像的一部分。</p>
-<h4 id="data-550ce377-png"><a href="#data-550ce377-png" class="headerlink" title="data_550ce377.png"></a>data_550ce377.png</h4><p><img src="https://s1.ax1x.com/2023/02/06/pScg3Lj.jpg" class="lazyload-img" data-srcset="https://s1.ax1x.com/2023/02/06/pScg3Lj.jpg" srcset="/img/loading.svg"></p>
+<h4 id="data-550ce377-png"><a href="#data-550ce377-png" class="headerlink" title="data_550ce377.png"></a>data_550ce377.png</h4><p><img src="https://s1.ax1x.com/2023/02/06/pScg3Lj.jpg" srcset="/img/loading.gif" lazyload></p>
 <p>该文件是一个图像文件，看起来像一个蓝色波浪线的壁纸。</p>
 <p>同时，该文件包含一个mp3文件，data_6d177ad9.mp3。</p>
-<h4 id="data-6d177ad9-mp3"><a href="#data-6d177ad9-mp3" class="headerlink" title="data_6d177ad9.mp3"></a>data_6d177ad9.mp3</h4><p><img src="https://s1.ax1x.com/2023/02/07/pS21LtI.png" class="lazyload-img" data-srcset="https://s1.ax1x.com/2023/02/07/pS21LtI.png" srcset="/img/loading.svg"></p>
+<h4 id="data-6d177ad9-mp3"><a href="#data-6d177ad9-mp3" class="headerlink" title="data_6d177ad9.mp3"></a>data_6d177ad9.mp3</h4><p><img src="https://s1.ax1x.com/2023/02/07/pS21LtI.png" srcset="/img/loading.gif" lazyload></p>
 <p>该文件是一个mp3文件，是一段剪贴而成的音频文件，音频处理的时候注意降低音量。分析的音频片段结论如下：</p>
 <p>00:00 - 00:10 幅值巨大的噪音  </p>
 <p>00:10 - 00:50 C418 - alpha  </p>
@@ -587,12 +392,12 @@ header .header__right .dropdown-menus .dropdown-menu {
 <p>alphabluezenithstillaliveinternetoverdose</p>
 <h4 id="data-031c6f61-zip"><a href="#data-031c6f61-zip" class="headerlink" title="data_031c6f61.zip"></a>data_031c6f61.zip</h4><p>压缩包解压密码为FirebellIcefruitWeirdshroomFluffbloomTangleweedLavaroot。</p>
 <p>解压后文件明显为base64编码的文字或图像，经过转换后确认是图像，是piet被Minecraft方块遮住的结果。</p>
-<p><img src="https://s1.ax1x.com/2023/02/07/pS21qAA.png" class="lazyload-img" data-srcset="https://s1.ax1x.com/2023/02/07/pS21qAA.png" srcset="/img/loading.svg"></p>
-<p><img src="https://s1.ax1x.com/2023/02/07/pS2170H.png" class="lazyload-img" data-srcset="https://s1.ax1x.com/2023/02/07/pS2170H.png" srcset="/img/loading.svg"></p>
+<p><img src="https://s1.ax1x.com/2023/02/07/pS21qAA.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="https://s1.ax1x.com/2023/02/07/pS2170H.png" srcset="/img/loading.gif" lazyload></p>
 <p>猜测最后的结果可能是以该文件作为基底，用其他谜题的结果填充该图像，进而获得最终结果。</p>
-<p><img src="https://s1.ax1x.com/2023/02/07/pS21H7d.png" class="lazyload-img" data-srcset="https://s1.ax1x.com/2023/02/07/pS21H7d.png" srcset="/img/loading.svg"></p>
+<p><img src="https://s1.ax1x.com/2023/02/07/pS21H7d.png" srcset="/img/loading.gif" lazyload></p>
 <p>仔细发现可以将这个图片上的四个小碎片合成一个大碎片，于是有了下图的结果：</p>
-<p><img src="https://s1.ax1x.com/2023/02/08/pS2wxmt.png" class="lazyload-img" data-srcset="https://s1.ax1x.com/2023/02/08/pS2wxmt.png" srcset="/img/loading.svg"></p>
+<p><img src="https://s1.ax1x.com/2023/02/08/pS2wxmt.png" srcset="/img/loading.gif" lazyload></p>
 <h4 id="data-387d677f-zip和data-c03fc8b0-zip"><a href="#data-387d677f-zip和data-c03fc8b0-zip" class="headerlink" title="data_387d677f.zip和data_c03fc8b0.zip"></a>data_387d677f.zip和data_c03fc8b0.zip</h4><p>两个压缩包均包含密码，猜测分别为三角形路线图的解密结果和音频听力题的解密结果。</p>
 <hr>
 <h3 id="活动的提示"><a href="#活动的提示" class="headerlink" title="活动的提示"></a>活动的提示</h3><h4 id="原帖的那个符"><a href="#原帖的那个符" class="headerlink" title="原帖的那个符"></a>原帖的那个符</h4><p>图像包含一个文本文件，内容如下：</p>
@@ -604,11 +409,11 @@ header .header__right .dropdown-menus .dropdown-menu {
 <h3 id="B站动态"><a href="#B站动态" class="headerlink" title="B站动态"></a>B站动态</h3><p>蓝鸡的B站动态提供了一个正则表达式：</p>
 <p><code>/[a-z]&#123;74&#125;/</code></p>
 <p>说明可能存在一串内容为从a到z的74位密文。</p>
-<h3 id="1-x2F-27日的提示"><a href="#1-x2F-27日的提示" class="headerlink" title="1&#x2F;27日的提示"></a>1&#x2F;27日的提示</h3><p><a target="_blank" rel="noopener" href="https://www.mcbbs.net/forum.php?mod=redirect&goto=findpost&ptid=1417951&pid=27984743">原帖链接</a></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">The experts at the Ishukone Corporation have shared the following information in an effort to facilitate the decryption process.  </span><br><span class="line">Three pairings of the data files exist in one of the data directories.  </span><br><span class="line">Some of the codes used has a pattern that conforms to the following rule:  </span><br><span class="line">/([A-Z]&#123;1&#125;[a-z]&#123;5,10&#125;)&#123;2,6&#125;/</span><br><span class="line">Only select codes used in encryption contain numerical digits.  </span><br><span class="line">Special note about 6d177ad9: 0002.</span><br></pre></td></tr></table></figure>
+<h3 id="1-27日的提示"><a href="#1-27日的提示" class="headerlink" title="1&#x2F;27日的提示"></a>1&#x2F;27日的提示</h3><p><a target="_blank" rel="noopener" href="https://www.mcbbs.net/forum.php?mod=redirect&goto=findpost&ptid=1417951&pid=27984743">原帖链接</a></p>
+<figure class="highlight fortran"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs fortran">The experts at the Ishukone Corporation have <span class="hljs-keyword">shared</span> the following information <span class="hljs-keyword">in</span> an effort to facilitate the decryption process.  <br>Three pairings of the <span class="hljs-keyword">data</span> files <span class="hljs-keyword">exist</span> <span class="hljs-keyword">in</span> one of the <span class="hljs-keyword">data</span> directories.  <br>Some of the codes used has a pattern that conforms to the following rule:  <br>/([A-Z]&#123;<span class="hljs-number">1</span>&#125;[a-z]&#123;<span class="hljs-number">5</span>,<span class="hljs-number">10</span>&#125;)&#123;<span class="hljs-number">2</span>,<span class="hljs-number">6</span>&#125;/<br><span class="hljs-keyword">Only</span> <span class="hljs-keyword">select</span> codes used <span class="hljs-keyword">in</span> encryption contain numerical <span class="hljs-built_in">digits</span>.  <br>Special note about <span class="hljs-number">6d177</span>ad9: <span class="hljs-number">0002.</span><br></code></pre></td></tr></table></figure>
 
 <p>大意如下：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">Ishukone Corporation的专家分享了以下信息，以促进解密过程。</span><br><span class="line">其中一个数据目录中存在三对数据文件。</span><br><span class="line">使用的某些代码具有符合以下规则的模式：</span><br><span class="line">/([A-Z]&#123;1&#125;[a-z]&#123;5,10&#125;)&#123;2,6&#125;/</span><br><span class="line">只有用于加密的选定代码包含数字。</span><br><span class="line">关于6d177ad9的特别说明: 0002。</span><br></pre></td></tr></table></figure>
+<figure class="highlight dust"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs dust"><span class="language-xml">Ishukone Corporation的专家分享了以下信息，以促进解密过程。</span><br><span class="language-xml">其中一个数据目录中存在三对数据文件。</span><br><span class="language-xml">使用的某些代码具有符合以下规则的模式：</span><br><span class="language-xml">/([A-Z]</span><span class="hljs-template-variable">&#123;1&#125;</span><span class="language-xml">[a-z]</span><span class="hljs-template-variable">&#123;5,10&#125;</span><span class="language-xml">)</span><span class="hljs-template-variable">&#123;2,6&#125;</span><span class="language-xml">/</span><br><span class="language-xml">只有用于加密的选定代码包含数字。</span><br><span class="language-xml">关于6d177ad9的特别说明: 0002。</span><br></code></pre></td></tr></table></figure>
 
 <p>Ishukone Corporation是EVE: Online的异株湖集团。</p>
 <p>其中一个数据目录中存在三对数据文件，很明显是三张图+三个压缩包的那个文件夹（dir_qrpgbbyf），但是更加明显的是我只解出来一个。</p>
@@ -617,7 +422,7 @@ header .header__right .dropdown-menus .dropdown-menu {
 <p>6d177ad9是那个音频听力题目，给出的0002也无法得知含义是什么。</p>
 <h2 id="3-结论与花絮"><a href="#3-结论与花絮" class="headerlink" title="3.结论与花絮"></a>3.结论与花絮</h2><p>这次只拿到了三个获取最终结果的flag碎片，因为春节期间确实也是很忙的，包括假期后还搬了一次家，然后提示比较少，很多地方串不起来，串起来也不知道怎么分析，何况不够二次元，一些基本的信息也拿不到，这次活动基本上就划水了。</p>
 <h3 id="一次测试3个压缩包密码"><a href="#一次测试3个压缩包密码" class="headerlink" title="一次测试3个压缩包密码"></a>一次测试3个压缩包密码</h3><p>代码如下，将数组的元素改成压缩包位置，之后跑这个脚本输入密码即可，密码正确不提示，然后解压正确的压缩包，密码错误提示密码错误。</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> zipfile</span><br><span class="line"></span><br><span class="line"><span class="built_in">zip</span> = [<span class="string">&#x27;dir_qrpgbbyf/data_031c6f61.zip&#x27;</span>,\</span><br><span class="line">        <span class="string">&#x27;dir_qrpgbbyf/data_387d677f.zip&#x27;</span>,\</span><br><span class="line">        <span class="string">&#x27;dir_qrpgbbyf/data_c03fc8b0.zip&#x27;</span>,]</span><br><span class="line"></span><br><span class="line">pwd = <span class="built_in">bytes</span>(<span class="built_in">input</span>(<span class="string">&#x27;Enter the password:\n&gt;&#x27;</span>), <span class="string">&#x27;ascii&#x27;</span>)</span><br><span class="line"></span><br><span class="line">zip_file = []</span><br><span class="line"><span class="keyword">for</span> filename <span class="keyword">in</span> <span class="built_in">zip</span>:</span><br><span class="line">    zip_file.append(zipfile.ZipFile(filename, <span class="string">&#x27;r&#x27;</span>))</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> file <span class="keyword">in</span> zip_file:</span><br><span class="line">    <span class="keyword">try</span>:</span><br><span class="line">        file.extractall(file.filename[<span class="number">0</span>:-<span class="number">4</span>]+<span class="string">&quot;_extract/&quot;</span>,pwd=pwd)</span><br><span class="line">    <span class="keyword">except</span>:</span><br><span class="line">        <span class="built_in">print</span>(file.filename + <span class="string">&#x27; password is wrong!&#x27;</span>)</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">import</span> zipfile<br><br><span class="hljs-built_in">zip</span> = [<span class="hljs-string">&#x27;dir_qrpgbbyf/data_031c6f61.zip&#x27;</span>,\<br>        <span class="hljs-string">&#x27;dir_qrpgbbyf/data_387d677f.zip&#x27;</span>,\<br>        <span class="hljs-string">&#x27;dir_qrpgbbyf/data_c03fc8b0.zip&#x27;</span>,]<br><br>pwd = <span class="hljs-built_in">bytes</span>(<span class="hljs-built_in">input</span>(<span class="hljs-string">&#x27;Enter the password:\n&gt;&#x27;</span>), <span class="hljs-string">&#x27;ascii&#x27;</span>)<br><br>zip_file = []<br><span class="hljs-keyword">for</span> filename <span class="hljs-keyword">in</span> <span class="hljs-built_in">zip</span>:<br>    zip_file.append(zipfile.ZipFile(filename, <span class="hljs-string">&#x27;r&#x27;</span>))<br><br><span class="hljs-keyword">for</span> file <span class="hljs-keyword">in</span> zip_file:<br>    <span class="hljs-keyword">try</span>:<br>        file.extractall(file.filename[<span class="hljs-number">0</span>:-<span class="hljs-number">4</span>]+<span class="hljs-string">&quot;_extract/&quot;</span>,pwd=pwd)<br>    <span class="hljs-keyword">except</span>:<br>        <span class="hljs-built_in">print</span>(file.filename + <span class="hljs-string">&#x27; password is wrong!&#x27;</span>)<br></code></pre></td></tr></table></figure>
 
 <p>写这个脚本的原因很简单，拿到密码后，测试密码太折磨人了。于是就有了这个脚本程序。</p>
 <h3 id="音频分析"><a href="#音频分析" class="headerlink" title="音频分析"></a>音频分析</h3><p>八音盒的那部分由于频率比较单一且明显，于是考虑通过扒谱来辅助作答。于是准备了wavetone然后一顿扒谱，生成的midi结果喂给网易云的结果是巴赫的某组曲，很明显是不对的。不知道midi有没有八音盒的采样，如果有的话可以考虑再试试。</p>
@@ -628,240 +433,374 @@ header .header__right .dropdown-menus .dropdown-menu {
 <p>信号分析题右声道的信号制式未知。</p>
 <p>三角路线图的含义未知，其中包含的EXIF信息规律未知。</p>
 
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E8%A7%A3%E5%AF%86/" class="category-chain-item">解密</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/%E8%A7%A3%E5%AF%86/" class="print-no-link">#解密</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>蓝鸡鸡的2023生日会解密 Writeup</div>
+      <div>http://etwzero.github.io/2023/02/01/LocusAzzurro-4th-CTF-Writeup/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>Eric Zane</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2023年2月1日</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>许可协议</div>
+          <div>
+            
+              
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-by"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2023/05/23/how-to-solve-element-misconfigured/" title="安装完PC版Element后，如何解决“Your Element is misconfigured”问题">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">安装完PC版Element后，如何解决“Your Element is misconfigured”问题</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2022/10/03/3rd-locusazzurro-ctf-writeup/" title="咸鱼人的⌈蓝鸡的绿宝石竞速解密活动⌋Writeup">
+                        <span class="hidden-mobile">咸鱼人的⌈蓝鸡的绿宝石竞速解密活动⌋Writeup</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
       </div>
     </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>目录</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
 </div>
 
-<div class="post-category">
 
-    <div id="p-meta-i">
-        
-              
-                <a class="hover-with-bg" href="/categories/%E8%A7%A3%E5%AF%86/">解密</a>
-              
-          
-          
-              
-                <a class="hover-with-bg" href="/tags/%E8%A7%A3%E5%AF%86/"># 解密</a>
-              
-          
+
+  </aside>
+
+
     </div>
-</div>
-
-
-<div class="post-footer">
-  
-
-  <div class="post-copyright">
-    <p style="margin: 5px 0;">文章作者：<a href="/">Eric Zane</a></p>
-    <p style="margin: 5px 0;">文章链接：<a href="http://etwzero.github.io/2023/02/01/LocusAzzurro-4th-CTF-Writeup/">http://etwzero.github.io/2023/02/01/LocusAzzurro-4th-CTF-Writeup/</a></p>
-    <p style="margin: 5px 0;">版权声明：本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-NC-SA 4.0 协议</a> ，转载请注明出处，谢谢。</p>
   </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+  
   
 </div>
 
-    <!-- Comments -->
-    <div class="comments">
-        
-        
-    </div>
+  </footer>
 
-</article>
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
 
 
-        </div>
-        
-<footer class="text-center">
-    
-    
-    
-    
-    
-    <p>&copy;  2020 - 2024&nbsp;&nbsp;Theme Miracle</p>
-    
-    <p>Powered by <a href="https://hexo.io" target="_blank">Hexo</a> | Theme by <a href="https://github.com/oCoke/hexo-theme-miracle" target="_blank">Miracle</a></p>
-    
-    
-</footer>
+<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
 
-<div class="p-btn">
-    
-        <a class="toc-btn" id="toc-btn"><i id="i-menu"></i></a>
-    
-    
-      <a class="toc-btn" id="share-btn"><i>
-        <svg t="1670124379155" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="2683" width="25" height="25"><path d="M395.946667 234.666667v64H256v469.333333h512V522.666667h64V768a64 64 0 0 1-64 64H256a64 64 0 0 1-64-64V298.666667a64 64 0 0 1 64-64h139.946667z m335.850666-87.914667l150.848 150.826667-158.378666 158.4-45.269334-45.248L748.394667 341.333333H672c-121.685333 0-220.714667 97.024-223.914667 217.941334L448 565.333333v85.333334h-64v-85.333334C384 406.272 512.938667 277.333333 672 277.333333h99.861333l-85.312-85.333333 45.248-45.248z" p-id="2684" fill="var(--first-text-color)"></path></svg>
-      </i></a>
-    
-    <a href="javascript:window.scrollTo({top:0,behavior:'smooth'});" class="click-btn">
-      <i id="i-up"></i>
-    </a>
-</div>
 
-<!-- SCRIPTS -->
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
 
 
 
 
+  
+    
+      <script  src="/js/img-lazyload.js" ></script>
+    
+  
 
 
+
+
+  
 <script>
-    document.getElementById("btn-dropdown").addEventListener('click', () => {
-      toggleClass("#dropdown-menus","display-inline");
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.20.1/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
     });
-    console.log('\n' + ' %c Powered by Hexo Theme Miracle ' + ' %c https://github.com/hifun-team/hexo-theme-miracle ' + '\n' + '\n', 'color: #fff; background: #4F9BFA; padding:5px 0;', 'background: #FFF; padding:5px 0;');
-
-    
-
-    
-  /* 小彩蛋: 饮茶先啦 */
-  setTimeout(() => {
-    var time = new Date();
-    if (time.getHours() == 15) {
-      let comment = document.createComment(' 三点几嚟！饮茶先啦！ ');
-      document.body.insertBefore(comment, document.getElementsByTagName('header')[0]);
-    }
-  },1);
-    
+  });
 </script>
 
 
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
 <script>
-    var postImg = document.querySelectorAll("article[class=page] img");
-    for (let imgi = 0; imgi < postImg.length; imgi++) {
-        postImg[imgi].onclick = () => {
-            let zoomImg = document.createElement("div");
-            zoomImg.id = "zoomImg";
-            zoomImg.innerHTML = `<div id="zoom-picture"></div>
-    <div class="poptrox-overlay"
-        style="position: fixed; left: 0px; top: 0px; z-index: 20000; width: 100%; height: 100%; text-align: center; cursor: zoom-out; opacity: 1;">
-        <div style="display:inline-block;height:100%;vertical-align:middle;"></div>
-        <div
-            style="position:absolute;left:0;top:0;width:100%;height:100%;background:#000000;opacity:0;filter:alpha(opacity=0);">
-        </div>
-        <div class="poptrox-popup"
-            style="display: inline-block; vertical-align: middle; position: relative; z-index: 1; cursor: zoom-out; min-width: 10px; min-height: 10px; width: auto; height: auto;">
-            <div class="loader" style="display: none;"></div>
-            <div class="pic" style="text-indent: 0px;"><img
-                    src="${ postImg[imgi].srcset || postImg[imgi].src }" alt="Loading..."
-                    style="vertical-align: bottom; max-width: 85vw; max-height: 85vh;"></div>
-        </div>
-    </div>`;
-            document.body.appendChild(zoomImg);
-                document.querySelector("#zoomImg").onclick = () => {
-                    document.querySelector("#zoomImg").remove();
-                }
-        }
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/4.3.1/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
     }
-    
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
 </script>
 
 
-
+  
 <script>
-        try {
-            var io = new IntersectionObserver(function (entries) {
-                entries.forEach(function (entry) {
-                    if (entry.isIntersecting) {
-                        var img = entry.target;
-                        img.srcset = img.getAttribute('data-srcset');
-                        img.className += ' loaded'
-                        io.unobserve(img);
-                    }
-                });
-            });
-        } catch (e) {
-            console.info(e);
-        }
-        query('.lazyload-img').forEach(function (item) {
-            try {
-                io.observe(item);
-            } catch (e) {
-                console.info(e);
-            }
-        });
-    </script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
 
 
-    <script>
-        query("#toc-btn")[0].onclick = () => {
-            if (query(".post-toc")[0].innerHTML) {
-                toggleClass(".post-toc", "display-inline");
-            }
-        }
+  <script>Fluid.plugins.imageCaption();</script>
 
-        if (!query(".post-toc")[0].innerHTML) {
-            addClass("#toc-btn","display-none");
-        }
-    </script>
-
-
-
-    <script>
-        query("#share-btn")[0].onclick = async () => {
-            let url = `${location.protocol}//${location.hostname}${location.port ? ":"+location.port:location.port}${location.pathname}#read=${sessionStorage.getItem(location.pathname+"_read_y") || ""}`;
-            try {
-                await navigator.clipboard.writeText(url);
-                prompt_core("分享链接已经复制至剪贴板", 4800, true);
-            } catch(e) {
-                prompt_core("分享链接复制失败，请手动复制<br/>"+url, 4800, false);
-            }
-        }
-    </script>
+  <script  src="/js/local-search.js" ></script>
 
 
 
 
 
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
 
 
-    <script>
-        const getScrollPosition = (el = window) => ({
-            x: el.pageXOffset !== undefined ? el.pageXOffset : el.scrollLeft,
-            y: el.pageYOffset !== undefined ? el.pageYOffset : el.scrollTop
-        });
-        // 此处的 750 是「页面元素的最大宽度」
-        var wx = document.getElementsByClassName("article-m")[0].clientWidth;
-        var wy = document.getElementsByClassName("article-m")[0].clientHeight;
-        function windowScroll() {
-            // 反复修改 确保页面尺寸不改变
-            wx = document.getElementsByClassName("article-m")[0].clientWidth;
-            wy = document.getElementsByClassName("article-m")[0].clientHeight;
-            let y = Math.round(getScrollPosition().y);
-            // console.log(y);
-            // 组合字符串，同时记录页面坐标，页面宽度和高度
-            let p = `${y}:${wx}:${wy}`;
-            // 写入到 sessionStorage 中
-            sessionStorage.setItem(location.pathname + "_read_y", p);
-        }
-        // URL 中是否包含传递的坐标信息
-        setTimeout(() => {
-            if (location.hash.split("#read=").length > 1) {
-                prompt_core("已有阅读进度，正在跳转", 4800, true);
-                // 分离字符串
-                let read_y = location.hash.split("#read=")[1];
-                read_y = read_y.split(":");
-                // 组合乘积，顺滑移动至坐标
-                window.scrollTo({top: Math.round(Number(read_y[0]) * Number(read_y[1] * Number(read_y[2] / wx / wy))), behavior: "smooth"});
-            } else {
-                // 从 sessionStorage 中获取
-                let read_y = sessionStorage.getItem(location.pathname + "_read_y") || "0:0:0";
-                read_y = read_y.split(":");
-                if (read_y[0] != "0") prompt_core("已有阅读进度，正在跳转", 4800, true);
-                window.scrollTo({top: Math.round(Number(read_y[0]) * Number(read_y[1] * Number(read_y[2] / wx / wy))), behavior: "smooth"});
-            }
-        }, 500);
-        window.onscroll = windowScroll;
-    </script>
+  
 
-
-
-
-
-        </div>
-        <div id="css-loading">
-            <h3 class="text-center">加载中...</h3>
-        </div>
-        
-    </body>
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
 </html>

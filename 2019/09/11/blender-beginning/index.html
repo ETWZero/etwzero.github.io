@@ -1,504 +1,310 @@
+
+
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="zh-CN" data-default-color-scheme=auto>
+
 
 
 <head>
-    <meta charset="UTF-8">
-    
-    <link rel="apple-touch-icon" sizes="76x76" href="/img/cod.png">
-    <link rel="icon" type="image/png" href="/img/cod.png">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5">
-    <title>新的旅程 - Blender学习笔记① - ETW的破站</title>
-    
-    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
-    
-    
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/cod.png">
+  <link rel="icon" href="/img/cod.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="Eric Zane">
+  <meta name="keywords" content="">
+  
     <meta name="description" content="很古早的一篇Blender学习笔记了，但是现在还是有点参考价值的。">
-    <meta name="author" content="Eric Zane">
-    <meta name="keywords" content="">
-    <meta property="og:title" content="新的旅程 - Blender学习笔记①"/>
-    <style>
+<meta property="og:type" content="article">
+<meta property="og:title" content="新的旅程 - Blender学习笔记①">
+<meta property="og:url" content="http://etwzero.github.io/2019/09/11/blender-beginning/">
+<meta property="og:site_name" content="ETW的破站">
+<meta property="og:description" content="很古早的一篇Blender学习笔记了，但是现在还是有点参考价值的。">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://www.z4a.net/images/2019/09/01/1a25bd71bedc2b30c.png">
+<meta property="og:image" content="https://www.z4a.net/images/2019/09/01/2b331bc4ab8d768b3.png">
+<meta property="og:image" content="https://www.z4a.net/images/2019/09/01/7.png">
+<meta property="og:image" content="https://www.z4a.net/images/2019/09/01/33e62cc23471940f6.png">
+<meta property="og:image" content="https://www.z4a.net/images/2019/09/01/45b4920de1f5a99d9.png">
+<meta property="og:image" content="https://www.z4a.net/images/2019/09/01/54c715799ac290fb0.png">
+<meta property="og:image" content="https://www.z4a.net/images/2019/09/01/6fa866740ffff7acd.png">
+<meta property="og:image" content="https://www.z4a.net/images/2019/09/01/8.png">
+<meta property="og:image" content="https://www.z4a.net/images/2019/09/01/9.png">
+<meta property="og:image" content="https://www.z4a.net/images/2019/09/01/10.png">
+<meta property="og:image" content="https://www.z4a.net/images/2019/09/01/114b896cd205fe41c3.png">
+<meta property="og:image" content="https://www.z4a.net/images/2019/09/01/130ebcda06181feec5.png">
+<meta property="og:image" content="https://www.z4a.net/images/2019/09/01/14fbd49055eaad1c2c.png">
+<meta property="og:image" content="https://www.z4a.net/images/2019/09/01/15731c44f24690ad52.png">
+<meta property="og:image" content="https://www.z4a.net/images/2019/09/01/16530f61af3b2e9af2.png">
+<meta property="og:image" content="https://www.z4a.net/images/2019/09/01/171edfa21f5590d76f.png">
+<meta property="og:image" content="https://www.z4a.net/images/2019/09/01/18.png">
+<meta property="og:image" content="https://www.z4a.net/images/2019/09/01/20.png">
+<meta property="article:published_time" content="2019-09-11T01:14:23.000Z">
+<meta property="article:modified_time" content="2022-01-18T11:20:32.438Z">
+<meta property="article:author" content="Eric Zane">
+<meta property="article:tag" content="教程">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://www.z4a.net/images/2019/09/01/1a25bd71bedc2b30c.png">
+  
+  
+  
+  <title>新的旅程 - Blender学习笔记① - ETW的破站</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
 
-    
-    :root{
-        --shadow-color: rgba(0,0,0,0.2);
-        --sec-shadow: rgba(0,0,0,0.03);
-        --shadow-hover-color: rgba(0,0,0,0.28);
-        --first-text-color: #475b6d;
-        --second-text-color: #37475b;
-        --third-text-color: #858585;
-        --default-text-color: #505050;
-        --default-link-color: #007bff;
-        --link-color: #000000;
-        --second-link-color: #4F9BFA;
-        --code-color:rgba(27,31,35,.05);
-        --post-bkg-color: #fff;
-        --page-bkg-color: #f2f5f8;
-        --nav-a-hover-color: #3498db;
-        --post-sec-text-color: #718096;
-        --sec-bkg: #f2f5f8;
-        --color-mode: 'light';
-        --bkg-h: rgba(255,255,255,0.6);
-        --bkg-m: #e1e4e8;
-        --home-title-color: #4169E1;
-        --shadow: 0 4px 10px rgba(0,2,4,0.06),0 0 1px rgba(0,2,4,0.11);
-        --hr-color: #ddd;
-        --bg-t: #f4f4f4;
-        --nav-bkg: rgba(255,255,255,0.6);
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"etwzero.github.io","root":"/","version":"1.9.7","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":true,"offset_factor":2,"loadingImage":"/img/loading.svg"},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
     }
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --color-mode: 'dark';
-  }
-
-  :root:not([data-theme]) {
-    --first-text-color: hsla(0,0%,100%,0.92);
-    --second-text-color: hsla(0,0%,100%,0.86);
-    --third-text-color: #a7a9ad;
-    --default-text-color: #505050;
-    --default-link-color: #1589e9;
-    --link-color: #000000;
-    --second-link-color: #30a9de;
-    --post-bkg-color: #252d38;
-    --page-bkg-color: #181c27;
-    --nav-a-hover-color: #3498db;
-    --post-sec-text-color: #a7a9ad;
-    --sec-bkg: #364151;
-    --bkg-h: rgba(255,255,255,0.2);
-    --bkg-m: rgba(255,255,255,0.1);
-    --home-title-color: rgb(226, 82, 90);
-    --code-color:#3e4b5e;
-    --shadow: none;
-    --hr-color: #718096;
-    --bg-t: #364151;
-    --nav-bkg: rgba(13,17,23,0.6);
-  }
-}
-
-[data-theme='dark'] {
-    --shadow-color: rgba(0,0,0,0.2);
-    --shadow-hover-color: rgba(0,0,0,0.28);
-    --first-text-color: hsla(0,0%,100%,0.92);
-    --second-text-color: hsla(0,0%,100%,0.86);
-    --third-text-color: #a7a9ad;
-    --default-text-color: #505050;
-    --default-link-color: #1589e9;
-    --link-color: #000000;
-    --second-link-color: #30a9de;
-    --post-bkg-color: #252d38;
-    --page-bkg-color: #181c27;
-    --nav-a-hover-color: #3498db;
-    --post-sec-text-color: #a7a9ad;
-    --sec-bkg: #364151;
-    --bkg-h: rgba(255,255,255,0.2);
-    --bkg-m: rgba(255,255,255,0.1);
-    --home-title-color: rgb(226, 82, 90);
-    --code-color:#3e4b5e;
-    --shadow: none;
-    --hr-color: #718096;
-    --bg-t: #364151;
-    --nav-bkg: rgba(13,17,23,0.6);
-}
-
-</style>
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
 
 
-
-<style>
-#page-main,footer,.p-btn{
-    display: none;
-}
-html, body {
-    margin: 0;
-    padding: 0;
-    width: 100%;
-    height: 100%;
-}
-body {
-    background-color: var(--page-bkg-color);
-    color: var(--second-text-color);
-    overflow-y: scroll;
-    overflow-x: hidden;
-    transition: all .3s;
-}
-a {
-    color: var(--default-link-color);
-    text-decoration: none;
-    background-color: transparent;
-}
-a:hover{
-    color: var(--second-link-color);
-}
-.main-content,.post-card-main{
-    margin: 30px;
-}
-
-
-
-@media (max-width: 410px){
-    .post-card-main{
-        max-width: 350px!important;
-    }
-}
-
-@media (max-width: 980px){
-    .post-card-main{
-        max-width: 520px!important;
-    }
-}
-
-
-@media (min-width: 780px){ 
-    h3{
-        font-size: 1.5rem;
-        line-height: 1.5em;
-    }
-}
-@media (min-width: 1280px){ 
-    h3{
-        font-size: 1.7rem;
-        line-height: 1.5em;
-    }
-}
-@media (min-width: 2096px){ 
-    h3{
-        font-size: 1.8rem;
-        line-height: 1.5em;
-    }
-}
-
-.text-center{
-    text-align: center!important;
-}
-.middle-center{
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-align: center;
-    -ms-flex-align: center;
-    align-items: center;
-    -webkit-box-pack: center;
-    -ms-flex-pack: center;
-    justify-content: center;
-    height: 100%;
-}
-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    position: fixed;
-    height: 54px;
-    padding: 0 1.25rem;
-    top: 0;
-    left: 0;
-    right: 0;
-    z-index: 10;
-    border-bottom: 1px solid var(--bkg-m);
-    background-color: var(--nav-bkg);
-    backdrop-filter: blur(4px);
-    transition: all .3s;
-}
-header .header__left, header .header__right {
-    display: flex;
-    align-items: center;
-    font-family: rubik,sans-serif,Varela Round;
-}
-header .header__left .logo__text {
-    font-size: 18px;
-    font-weight: 450;
-    padding: 14.5px 10px;
-    border-radius: 5px;
-    color: var(--second-text-color);
-}
-header .header__right .navbar__menus {
-    height: 54px;
-    padding: 0 0 0 15px;
-}
-header .header__right .button {
-    color: var(--second-text-color);
-}
-header .header__right .navbar__menus .navbar-menu {
-    display: inline-block;
-    align-items: center;
-    height: 54px;
-    padding: 0 10px;
-    font-size: 16px;
-    line-height: 54px;
-}
-header .header__right .dropdown-icon {
-    display: none;
-    height: 54px;
-    padding: 15px 10px;
-    border: 0;
-    background-color: transparent;
-}
-header .header__right .dropdown-menus {
-    line-height: 2rem;
-    animation: slide-in .15s ease 1;
-    display: none;
-    position: absolute;
-    left: 12px;
-    right: 12px;
-    top: calc(54px + 10px);
-    border-radius: 6px;
-    padding: 24px;
-    background-color: var(--page-bkg-color);
-    border: 1px solid var(--bkg-m);
-    z-index: 9999;
-    justify-items: center;
-    justify-content: center;
-    flex-direction: column;
-}
-header .header__right #btn-search, header .header__right #btn-toggle-dark{
-    display: inline-block;
-    padding:  18px 10px;
-    height: 25px;
-}
-header .header__right #btn-dropdown{
-  display: inline-block;
-  padding:  13.5px 0;
-}
-header .header__right .dropdown-menus .dropdown-menu {
-    padding: 10px;
-    color: var(--second-text-color);
-}
-@media screen and (max-width: 764px){
-.navbar__menus {
-    display: none!important;
-}
-.dropdown-icon {
-    display: inline-block!important;
-}
-}
-.p-btn{
-    position: fixed;
-    bottom: 1.2rem;
-    right: 1.2rem;
-    contain: layout;
-}
-.toc-btn,.click-btn{
-    cursor: pointer;
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    appearance: none;
-    align-items: center;
-    margin-top: .5rem;
-    font-size: .75rem;
-    background-color: var(--sec-bkg);
-    display: block;
-    padding: 0.9rem;
-    box-shadow: 0 0.3rem 0.6rem rgba(48,55,66,.15);
-    border: none;
-    border-radius: 0.5rem;
-    line-height: 1;
-    color: var(--first-text-color);
-}
-.toc-link{
-    color: var(--second-text-color);
-}
-
-#css-loading h3{
-    font-weight: 500;
-    font-size: 1.4rem;
-    text-align: center;
-    position: fixed;
-    top: 200px;
-    left: 0;
-    right: 0;
-    opacity: 0;
-    animation: cssLoad;
-    animation-delay: 0.3s;
-    -webkit-animation: cssLoad;
-    -webkit-animation-delay: 0.3s;
-}
-@keyframes cssLoad {
-    from {
-        opacity: 0;
-    }
-    to {
-        opacity: 0.9;
-    }
-}
-
-
-.memorial {
-    -webkit-filter: grayscale(100%);
-    -moz-filter: grayscale(100%);
-    -ms-filter: grayscale(100%);
-    -o-filter: grayscale(100%);
-    filter: grayscale(100%);
-    filter:progid:DXImageTransform.Microsoft.BasicImage(grayscale=1); filter:gray;
-}
-
-
-    .post-copyright:after {
-        position: absolute;
-        color: #fff;
-        background: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 496 512'%3E%3Cpath fill='gray' d='M245.8 214.9l-33.2 17.3c-9.4-19.6-25.2-20-27.4-20-22.2 0-33.3 14.6-33.3 43.9 0 23.5 9.2 43.8 33.3 43.8 14.4 0 24.6-7 30.5-21.3l30.6 15.5a73.2 73.2 0 01-65.1 39c-22.6 0-74-10.3-74-77 0-58.7 43-77 72.6-77 30.8-.1 52.7 11.9 66 35.8zm143 0l-32.7 17.3c-9.5-19.8-25.7-20-27.9-20-22.1 0-33.2 14.6-33.2 43.9 0 23.5 9.2 43.8 33.2 43.8 14.5 0 24.7-7 30.5-21.3l31 15.5c-2 3.8-21.3 39-65 39-22.7 0-74-9.9-74-77 0-58.7 43-77 72.6-77C354 179 376 191 389 214.8zM247.7 8C104.7 8 0 123 0 256c0 138.4 113.6 248 247.6 248C377.5 504 496 403 496 256 496 118 389.4 8 247.6 8zm.8 450.8c-112.5 0-203.7-93-203.7-202.8 0-105.5 85.5-203.3 203.8-203.3A201.7 201.7 0 01451.3 256c0 121.7-99.7 202.9-202.9 202.9z'/%3E%3C/svg%3E");
-        content: ' ';
-        height: 10rem;
-        width: 10rem;
-        right: -2rem;
-        top: -2rem;
-        opacity: .1;
-    }
-
-</style>
-
-    
-
-    
-        <!--
-        <link rel="stylesheet" href="/css/page.css" media="print"
-            onload="this.media='all';this.onload=null">
-        <noscript>-->
-            <link rel="stylesheet" href="/css/page.css">
-        <!--</noscript>-->
-    
-    
-    <link rel="stylesheet" href="/css/main.css" media="print" onload="this.media='all';this.onload=null">
-    <noscript>
-        <link rel="stylesheet" href="/css/main.css">
-    </noscript>
-
-    
-    <script src="/js/main.js"></script>
-    
+  
 <meta name="generator" content="Hexo 6.3.0"></head>
 
-    <body>
-        <header>
-            
-<div class="header__left">
-	<a href="/" class="button"><span class="logo__text">ETW&#39;s Blog</span></a>
-</div>
-<div class="header__right">
-	<div class="navbar__menus">
-		
-		<a href="/" class="button">
-			<div class="navbar-menu">首页</div>
-		</a>
-		
-		<a href="/archives/" class="button">
-			<div class="navbar-menu">归档</div>
-		</a>
-		
-		<a href="/categories/" class="button">
-			<div class="navbar-menu">分类</div>
-		</a>
-		
-		<a href="/frequently-used-software/" class="button">
-			<div class="navbar-menu">常用网站</div>
-		</a>
-		
-		<a href="/links/" class="button">
-			<div class="navbar-menu">友链</div>
-		</a>
-		
-		<a href="/about/" class="button">
-			<div class="navbar-menu">关于</div>
-		</a>
-		
-	</div>
-	
-	<a href="/search/" class="button">
-		<div id="btn-search">
-			<svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 1024 1024" width="24" height="24" fill="currentColor"
-				stroke="currentColor" stroke-width="32">
-				<path
-					d="M192 448c0-141.152 114.848-256 256-256s256 114.848 256 256-114.848 256-256 256-256-114.848-256-256z m710.624 409.376l-206.88-206.88A318.784 318.784 0 0 0 768 448c0-176.736-143.264-320-320-320S128 271.264 128 448s143.264 320 320 320a318.784 318.784 0 0 0 202.496-72.256l206.88 206.88 45.248-45.248z">
-				</path>
-			</svg>
-		</div>
-	</a>
-	
-	<a href="javaScript:void(0);" class="button" id="btn-toggle-dark">
-		<div>
-			<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewbox="0 0 24 24" fill="none"
-				stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-				<path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
-			</svg>
-		</div>
-	</a>
-	<a href="javaScript:void(0);" class="dropdown-icon button">
-		<div id="btn-dropdown">
-			<svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 1024 1024" width="24" height="24" fill="currentColor"
-				stroke="currentColor" stroke-width="32" stroke-linecap="round">
-				<path
-					d="M903.43 561.52H148.8c-13.25 0-24-10.75-24-24s10.75-24 24-24h754.63c13.25 0 24 10.75 24 24s-10.75 24-24 24zM903.43 204.31H148.8c-13.25 0-24-10.75-24-24s10.75-24 24-24h754.63c13.25 0 24 10.75 24 24s-10.75 24-24 24zM903.43 918.73H148.8c-13.25 0-24-10.75-24-24s10.75-24 24-24h754.63c13.25 0 24 10.75 24 24s-10.75 24-24 24z"
-					fill="currentColor"></path>
-			</svg>
-		</div>
-	</a>
-	<div class="dropdown-menus" id="dropdown-menus">
-		
-		<a href="/" class="dropdown-menu button">首页</a>
-		<br>
-		
-		<a href="/archives/" class="dropdown-menu button">归档</a>
-		<br>
-		
-		<a href="/categories/" class="dropdown-menu button">分类</a>
-		<br>
-		
-		<a href="/frequently-used-software/" class="dropdown-menu button">常用网站</a>
-		<br>
-		
-		<a href="/links/" class="dropdown-menu button">友链</a>
-		<br>
-		
-		<a href="/about/" class="dropdown-menu button">关于</a>
-		<br>
-		
-	</div>
-</div>
 
-        </header>
-        <div id="top"></div>
-        <div id="page-main" class="main-content">
-        <div class="mg-top">
-            
+<body>
+  
 
-<article class="page">
-<div id="post-meta-m">
-    <div class="post-meta" id="post-meta">
-  <h3>新的旅程 - Blender学习笔记①</h3>
+  <header>
     
-      <span class="post-meta-label">
-        Eric Zane
-      </span>
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>ETW&#39;s Blog</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/" target="_self">
+                <i class="iconfont icon-home-fill"></i>
+                <span>首页</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/" target="_self">
+                <i class="iconfont icon-books"></i>
+                <span>归档</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/" target="_self">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>标签</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/frequently-used-software/" target="_self">
+                <i class="iconfont icon-briefcase"></i>
+                <span>常用软件</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/links/" target="_self">
+                <i class="iconfont icon-link-fill"></i>
+                <span>友链</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/" target="_self">
+                <i class="iconfont icon-user-fill"></i>
+                <span>关于</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('https://www.z4a.net/images/2024/04/27/Fall-Fashion35d033c7731359e6.jpg') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="新的旅程 - Blender学习笔记①"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
     
     
-      <span class="post-meta-label">
-        <span class="p-dot"></span>
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
         <time datetime="2019-09-11 09:14" pubdate>
-          2019-09-11
+          2019年9月11日 上午
         </time>
       </span>
     
+  </div>
+
+  <div class="mt-1">
     
-      
-      <span class="post-meta">
-        <span class="p-dot"></span>
-        共 3.5k 字
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          3.4k 字
+        
       </span>
     
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          29 分钟
+        
+      </span>
+    
+
     
     
   </div>
-  
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
 </div>
-<div class="article-m">
-  <div class="post-toc">
+
+</div>
+
+  </header>
+
+  <main>
     
       
-    
-  </div>
-    <div id="article">
-      <div id="post-content" class="markdown-body textretty">
-        <p>0、概述 （俗称废话，但是还是有点用的）</p>
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <h1 id="seo-header">新的旅程 - Blender学习笔记①</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <p>0、概述 （俗称废话，但是还是有点用的）</p>
 <p>本系列学习笔记主要围绕Blender以及Minecraft及其相关内容进行相关的介绍，面向对象是0基础的小白或者希望熟悉Blender操作的用户。</p>
 <p>1）（这是废话）什么是Blender？</p>
 <p>Blender is the free and open source 3D creation suite. It supports the entirety of the 3D pipeline—modeling, rigging, animation, simulation, rendering, compositing and motion tracking, video editing and 2D animation pipeline.</p>
@@ -509,66 +315,66 @@ header .header__right .dropdown-menus .dropdown-menu {
 <p>③逐渐强大的中文社区。我是新人，不做评判，但是就本地化而言社区的确贡献了很大的力量，包括软件的翻译和用户手册的翻译。</p>
 <p>3）（有点重要）如何进行下载与安装，以及一些个人认为比较重要的准备工作？</p>
 <p>①下载：进入blender.org，页面里有一个大大的下载按钮（Download Blender 2.80）。推荐直接下载Windows Installer 64bit（安装包版），当然如果希望拷到移动硬盘里带着可以下载压缩包版——如果有其他系统（比如Linux或Mac OS）或者其他架构也可以选择相应平台的可执行文件。（官网的下载速度感人，请做好下载半个小时乃至一个小时的准备，本贴末尾会给一个备用网盘地址）（极其不推荐32位！请尽量下载64位的软件！）</p>
-<p><img src="https://www.z4a.net/images/2019/09/01/1a25bd71bedc2b30c.png" class="lazyload-img" data-srcset="https://www.z4a.net/images/2019/09/01/1a25bd71bedc2b30c.png" srcset="/img/loading.svg"></p>
+<p><img src="https://www.z4a.net/images/2019/09/01/1a25bd71bedc2b30c.png" srcset="/img/loading.gif" lazyload></p>
 <p>②安装：一路下一步即可，不用担心捆绑软件的问题，还可以把Blender装在非系统盘里。</p>
 <p>③准备工作（使用Windows平台）：</p>
 <p>a)将软件注册到系统用户：在blender安装目录下按住shift右键，选择“在此处打开命令提示符”（如果是Powershell，同样打开即可，只不过需要在Powershell里输入“cmd”并回车），输入以下命令并回车：</p>
 <p>blender.exe -R</p>
 <p>此时会弹出对话框，提示软件已经注册到该用户，如果要安装到所有用户用管理员权限执行即可。</p>
-<p><img src="https://www.z4a.net/images/2019/09/01/2b331bc4ab8d768b3.png" class="lazyload-img" data-srcset="https://www.z4a.net/images/2019/09/01/2b331bc4ab8d768b3.png" srcset="/img/loading.svg" alt="https://www.z4a.net/images/2019/09/01/2b331bc4ab8d768b3.png"></p>
+<p><img src="https://www.z4a.net/images/2019/09/01/2b331bc4ab8d768b3.png" srcset="/img/loading.gif" lazyload alt="https://www.z4a.net/images/2019/09/01/2b331bc4ab8d768b3.png"></p>
 <p>此后，你可以通过文件管理器看到.blend文件的缩略图了，同样双击可以直接打开这类文件了。</p>
-<p><img src="https://www.z4a.net/images/2019/09/01/7.png" class="lazyload-img" data-srcset="https://www.z4a.net/images/2019/09/01/7.png" srcset="/img/loading.svg" alt="https://www.z4a.net/images/2019/09/01/7.png"></p>
+<p><img src="https://www.z4a.net/images/2019/09/01/7.png" srcset="/img/loading.gif" lazyload alt="https://www.z4a.net/images/2019/09/01/7.png"></p>
 <p>（这一步当然可以省略，但是如果没有这一步的话，有可能会无法像其他3D软件一样在文件管理器里直接查看工程缩略图）</p>
 <p>b)软件内的设置：</p>
 <p>·第一次运行的设置。按照默认的设置即可，选择键设置在鼠标左键就行</p>
 <p>·本地化。选择”Edit”-&gt;”Interface”，勾选”Translation”前的复选框，同时在下面的复选框选中”Tooltips”（工具提示）和”Interface”（界面），新建数据可以按照个人喜好勾选。</p>
-<p><img src="https://www.z4a.net/images/2019/09/01/33e62cc23471940f6.png" class="lazyload-img" data-srcset="https://www.z4a.net/images/2019/09/01/33e62cc23471940f6.png" srcset="/img/loading.svg" alt="https://www.z4a.net/images/2019/09/01/33e62cc23471940f6.png"></p>
+<p><img src="https://www.z4a.net/images/2019/09/01/33e62cc23471940f6.png" srcset="/img/loading.gif" lazyload alt="https://www.z4a.net/images/2019/09/01/33e62cc23471940f6.png"></p>
 <p>·硬件加速。Blender的Cycle渲染器支持CUDA加速和OpenCL加速，如果显卡较好的话推荐启用。选择“编辑”-&gt;“系统”，将Cycle渲染设备里的“无”改成“CUDA”或“OpenCL”，我的显卡是英伟达的GTX1050ti，自然选择CUDA加速：把CPU和GPU都勾上即可。（我手上没有A卡，估计A卡用OpenCL，如果有多张显卡交火或桥接记得打好驱动，把所有GPU全部勾上即可，加一点私货，AMDYES!）</p>
-<p><img src="https://www.z4a.net/images/2019/09/01/45b4920de1f5a99d9.png" class="lazyload-img" data-srcset="https://www.z4a.net/images/2019/09/01/45b4920de1f5a99d9.png" srcset="/img/loading.svg" alt="https://www.z4a.net/images/2019/09/01/45b4920de1f5a99d9.png"></p>
+<p><img src="https://www.z4a.net/images/2019/09/01/45b4920de1f5a99d9.png" srcset="/img/loading.gif" lazyload alt="https://www.z4a.net/images/2019/09/01/45b4920de1f5a99d9.png"></p>
 <p>·内置插件推荐。选择“编辑”-&gt;“插件”，勾选如下插件（灵活使用搜索功能进行插件查找）：</p>
 <p>Import Images as Planes &#x2F;&#x2F;作为平面导入图片。 Material Library &#x2F;&#x2F;内置材质库，质量还可以，有条件可以下一个PBR Materials插件，也是材质库，质量很高，免费下载。 Auto Tile Size &#x2F;&#x2F;自动调节渲染区块大小，大部分情况可以略微提升渲染速度。 Dynamic Sky &#x2F;&#x2F;动态天空，如果没有天空HDR可以将就用一下，纯节点材质。</p>
-<p><img src="https://www.z4a.net/images/2019/09/01/54c715799ac290fb0.png" class="lazyload-img" data-srcset="https://www.z4a.net/images/2019/09/01/54c715799ac290fb0.png" srcset="/img/loading.svg" alt="https://www.z4a.net/images/2019/09/01/54c715799ac290fb0.png"></p>
+<p><img src="https://www.z4a.net/images/2019/09/01/54c715799ac290fb0.png" srcset="/img/loading.gif" lazyload alt="https://www.z4a.net/images/2019/09/01/54c715799ac290fb0.png"></p>
 <p>1、基础操作</p>
 <p>现在我们能够打开Blender2.80了，首先来看一下软件的布局吧：</p>
-<p><img src="https://www.z4a.net/images/2019/09/01/6fa866740ffff7acd.png" class="lazyload-img" data-srcset="https://www.z4a.net/images/2019/09/01/6fa866740ffff7acd.png" srcset="/img/loading.svg" alt="https://www.z4a.net/images/2019/09/01/6fa866740ffff7acd.png"></p>
+<p><img src="https://www.z4a.net/images/2019/09/01/6fa866740ffff7acd.png" srcset="/img/loading.gif" lazyload alt="https://www.z4a.net/images/2019/09/01/6fa866740ffff7acd.png"></p>
 <p>_Blender窗口的默认布局。 顶栏(蓝色)，工作区(绿色)和状态栏(红色)。_[2]</p>
 <p>看完了，我们就可以尝试把玩这个软件了。这次做一张非常简单的图，只有4个元素：一个猴头、两个灯光、一个平面。（为照顾低配机器先使用EEVEE渲染器，另一个后面讲）</p>
 <p>首先“新建文件”-&gt;“常规”，创建一个工程。</p>
 <p>我们的三维视图里出现了一个正方体、一个摄像机、一个灯光。</p>
-<p><img src="https://www.z4a.net/images/2019/09/01/8.png" class="lazyload-img" data-srcset="https://www.z4a.net/images/2019/09/01/8.png" srcset="/img/loading.svg" alt="https://www.z4a.net/images/2019/09/01/8.png"></p>
+<p><img src="https://www.z4a.net/images/2019/09/01/8.png" srcset="/img/loading.gif" lazyload alt="https://www.z4a.net/images/2019/09/01/8.png"></p>
 <p>我们可以按下小键盘的“0”键，转到摄像头视角来看初始工程的样子（说实话是真的不够靓），再按下小键盘的”0”键恢复到默认视角：</p>
 <p>选中立方体，按下x键，会提示确定删除的菜单，单击确认：（当然你也可以用Del键直接删除元素）</p>
-<p><img src="https://www.z4a.net/images/2019/09/01/9.png" class="lazyload-img" data-srcset="https://www.z4a.net/images/2019/09/01/9.png" srcset="/img/loading.svg" alt="https://www.z4a.net/images/2019/09/01/9.png"></p>
+<p><img src="https://www.z4a.net/images/2019/09/01/9.png" srcset="/img/loading.gif" lazyload alt="https://www.z4a.net/images/2019/09/01/9.png"></p>
 <p>选择左上角的“添加”（快捷键为Shift+A（dd）），可以添加很多元素，我们本次只用到网格和灯光：</p>
 <p>选择“网格”-&gt;“猴头”，把猴头添加到场景中：</p>
-<p><img src="https://www.z4a.net/images/2019/09/01/10.png" class="lazyload-img" data-srcset="https://www.z4a.net/images/2019/09/01/10.png" srcset="/img/loading.svg" alt="https://www.z4a.net/images/2019/09/01/10.png"></p>
+<p><img src="https://www.z4a.net/images/2019/09/01/10.png" srcset="/img/loading.gif" lazyload alt="https://www.z4a.net/images/2019/09/01/10.png"></p>
 <p>这时会发现一个问题：猴头的位置在原点，所以我们可以将猴头拖动到xy平面上方。选择左侧的移动（快捷键为g（rab））可以看见物体上出现了三个相互垂直的矢量箭头和三个互相垂直的平面。拖动蓝色的箭头（z轴，快捷键为z，用在使用快捷键拖动、缩放和旋转之后）即可在z轴移动元素。在拖动的同时按住Ctrl可以以米为单位拖动，按住Shift可以进行精确的移动（移动速度很慢）。调整到合适的位置即可。</p>
-<p><img src="https://www.z4a.net/images/2019/09/01/114b896cd205fe41c3.png" class="lazyload-img" data-srcset="https://www.z4a.net/images/2019/09/01/114b896cd205fe41c3.png" srcset="/img/loading.svg" alt="https://www.z4a.net/images/2019/09/01/114b896cd205fe41c3.png"></p>
+<p><img src="https://www.z4a.net/images/2019/09/01/114b896cd205fe41c3.png" srcset="/img/loading.gif" lazyload alt="https://www.z4a.net/images/2019/09/01/114b896cd205fe41c3.png"></p>
 <p>猴头看起来有点棱角分明了，所以我们可以尝试把他盘得圆润一些。选中猴头，在右侧选项卡选择修改器（图标是扳手），选择“添加修改器”-&gt;“表面细分”，可以适当提高细分程度。此时猴头就明显变得圆润了。</p>
-<p><img src="https://www.z4a.net/images/2019/09/01/130ebcda06181feec5.png" class="lazyload-img" data-srcset="https://www.z4a.net/images/2019/09/01/130ebcda06181feec5.png" srcset="/img/loading.svg" alt="https://www.z4a.net/images/2019/09/01/130ebcda06181feec5.png"></p>
+<p><img src="https://www.z4a.net/images/2019/09/01/130ebcda06181feec5.png" srcset="/img/loading.gif" lazyload alt="https://www.z4a.net/images/2019/09/01/130ebcda06181feec5.png"></p>
 <p>（如何调整操作视图的位置、缩放和方向呢？可以用右上角的操作栏直接拖动，不过更加快捷的方式是通过快捷键：鼠标中键调整视角方向，Ctrl+鼠标中键为放大&#x2F;缩小视角，Shift+鼠标中键为平移视角）</p>
 <p>选择“网格”-&gt;“平面”，把平面添加到场景中：</p>
 <p>这个平面有点小，所以我们可以通过缩放功能将其放大。选择左侧的缩放（快捷键为s（cale）），可以看见出现了三个相互垂直的调节条、三个互相垂直的平面和两个圆。我们可以拖动内部或者外部的圆来进行整体的缩放，也可以按照坐标轴进行缩放（快捷键为x，y，z，对应于x，y，z轴，用在使用快捷键拖动、缩放和旋转之后）。这个平面尽量大即可。</p>
-<p><img src="https://www.z4a.net/images/2019/09/01/14fbd49055eaad1c2c.png" class="lazyload-img" data-srcset="https://www.z4a.net/images/2019/09/01/14fbd49055eaad1c2c.png" srcset="/img/loading.svg" alt="https://www.z4a.net/images/2019/09/01/14fbd49055eaad1c2c.png"></p>
+<p><img src="https://www.z4a.net/images/2019/09/01/14fbd49055eaad1c2c.png" srcset="/img/loading.gif" lazyload alt="https://www.z4a.net/images/2019/09/01/14fbd49055eaad1c2c.png"></p>
 <p>选择“灯光”-&gt;“点光”，添加一个点光源：</p>
 <p>不过这个点光源的光强有点小，我们在右侧的灯光选项卡把能量调节到300W到500W，此时光强基本就差不多了，按照上面的过程给光源调整一个位置就可以了。</p>
 <p>此外我们可以给这两个光源调整颜色，比如橙色和蓝色，紫色和黄色（才不是赛博朋克风呢#狗头保命）等等，按照自己的喜好配色就可以（滑稽）。</p>
-<p><img src="https://www.z4a.net/images/2019/09/01/15731c44f24690ad52.png" class="lazyload-img" data-srcset="https://www.z4a.net/images/2019/09/01/15731c44f24690ad52.png" srcset="/img/loading.svg" alt="https://www.z4a.net/images/2019/09/01/15731c44f24690ad52.png"></p>
+<p><img src="https://www.z4a.net/images/2019/09/01/15731c44f24690ad52.png" srcset="/img/loading.gif" lazyload alt="https://www.z4a.net/images/2019/09/01/15731c44f24690ad52.png"></p>
 <p>现在就可以预览了，不过你会发现在摄像机视图中物体不在屏幕中央，所以需要调整相机的位置。除了普通的移动相机和旋转相机外，还有两种更加直接的方法：</p>
 <p>1、将操作视角调节到你希望拍摄&#x2F;渲染的位置，按下快捷键“Ctrl+Alt+小键盘0键”即可将活动摄像机调节到当前视角。</p>
 <p>2、在相机视角里按下快捷键“Shift+`（键盘输入区最左上角的那个键，Esc键的下面）”，变成自由视角，此时就像一些游戏的观战视角一样了，wasd移动视角的前后左右，q键视角位置下移，e键视角位置上移，移动到合适角度时记得左键确认，如果像想放弃操作可以右键取消。（这个方法同样适用于操作视角 ）</p>
 <p>这两种方法可以混合使用，以达到最佳的视觉效果。</p>
 <p>此时就可以打开实时渲染了（右上角的最后一种预览方式）：</p>
-<p><img src="https://www.z4a.net/images/2019/09/01/16530f61af3b2e9af2.png" class="lazyload-img" data-srcset="https://www.z4a.net/images/2019/09/01/16530f61af3b2e9af2.png" srcset="/img/loading.svg" alt="https://www.z4a.net/images/2019/09/01/16530f61af3b2e9af2.png"></p>
+<p><img src="https://www.z4a.net/images/2019/09/01/16530f61af3b2e9af2.png" srcset="/img/loading.gif" lazyload alt="https://www.z4a.net/images/2019/09/01/16530f61af3b2e9af2.png"></p>
 <p>就算猴子使用的是默认材质，现在的效果就已经很不错了。</p>
 <p>在此基础上还可以四处玩玩，比如开启环境光遮蔽，辉光，屏幕空间反射等比较好玩的设置，体验一下XD</p>
 <p>如何进行渲染导出呢？选择“渲染”-&gt;“渲染图像”（快捷键为F12）即可，如果电脑配置好的话会立即完成渲染，低配电脑可能需要一段时间的等待。渲染完成即可“Ctrl+S”保存输出图像即可。</p>
-<p><img src="https://www.z4a.net/images/2019/09/01/171edfa21f5590d76f.png" class="lazyload-img" data-srcset="https://www.z4a.net/images/2019/09/01/171edfa21f5590d76f.png" srcset="/img/loading.svg" alt="https://www.z4a.net/images/2019/09/01/171edfa21f5590d76f.png"></p>
+<p><img src="https://www.z4a.net/images/2019/09/01/171edfa21f5590d76f.png" srcset="/img/loading.gif" lazyload alt="https://www.z4a.net/images/2019/09/01/171edfa21f5590d76f.png"></p>
 <p>（EEVEE引擎到此结束（因为本次笔记不涉及自定义材质节点问题），下面内容开始使用Cycle渲染器，上面的操作没有变化）</p>
-<p><img src="https://www.z4a.net/images/2019/09/01/18.png" class="lazyload-img" data-srcset="https://www.z4a.net/images/2019/09/01/18.png" srcset="/img/loading.svg" alt="https://www.z4a.net/images/2019/09/01/18.png"></p>
+<p><img src="https://www.z4a.net/images/2019/09/01/18.png" srcset="/img/loading.gif" lazyload alt="https://www.z4a.net/images/2019/09/01/18.png"></p>
 <p>猴子的材质还是不过瘾啊……整一个好看的材质吧！选中猴子，在右侧的材质栏可以看见当前材质为空，所以我们可以点击下面的“新建”新建一个材质：</p>
 <p>如果安装了推荐插件里的“Material Library”,可以看见材质栏多了一个“Material Library VX”属性，我们将“Select a Library”改为“Cycle Material”，下面会出现很多材质——你可以试一试各种材质！要单击旁边的应用按钮（球型图案）才能应用到物体上。我使用的材质是Ceramic Polished，看起来就是有光泽的陶瓷。</p>
-<p><img src="https://www.z4a.net/images/2019/09/01/20.png" class="lazyload-img" data-srcset="https://www.z4a.net/images/2019/09/01/20.png" srcset="/img/loading.svg" alt="https://www.z4a.net/images/2019/09/01/20.png"></p>
+<p><img src="https://www.z4a.net/images/2019/09/01/20.png" srcset="/img/loading.gif" lazyload alt="https://www.z4a.net/images/2019/09/01/20.png"></p>
 <p>如果自己的电脑配置不高还要使用Cycle渲染器，还希望渲染的速度可以快一些，可以尝试把采样次数降低（比如64,48甚至32），以及开启降噪功能即可。保存渲染图片的方式和上面相同，只是渲染时间很长罢了。</p>
 <p>本篇内容总结：安装及配置软件，初步使用两个渲染器进行简单的制作</p>
 <p>常用的快捷键表（适用于2.80及以上版本，2.79b及以下存在小差异,比如自由视角等快捷键）：</p>
@@ -616,240 +422,374 @@ header .header__right .dropdown-menus .dropdown-menu {
 <p>[2]<a target="_blank" rel="noopener" href="https://docs.blender.org/manual/zh-hans/2.80/interface/window_system/introduction.html">https://docs.blender.org/manual/zh-hans/2.80/interface/window_system&#x2F;introduction.html</a></p>
 <p>（本文首发于MCBBS，转载请标明出处及作者信息）</p>
 
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E6%95%99%E7%A8%8B/" class="category-chain-item">教程</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/%E6%95%99%E7%A8%8B/" class="print-no-link">#教程</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>新的旅程 - Blender学习笔记①</div>
+      <div>http://etwzero.github.io/2019/09/11/blender-beginning/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>Eric Zane</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2019年9月11日</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>许可协议</div>
+          <div>
+            
+              
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-by"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2019/09/15/pipe-dream/" title="Pipe Dream">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">Pipe Dream</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2019/01/19/2018miracles/" title="2018,Miracles.">
+                        <span class="hidden-mobile">2018,Miracles.</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
       </div>
     </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>目录</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
 </div>
 
-<div class="post-category">
 
-    <div id="p-meta-i">
-        
-              
-                <a class="hover-with-bg" href="/categories/%E6%95%99%E7%A8%8B/">教程</a>
-              
-          
-          
-              
-                <a class="hover-with-bg" href="/tags/%E6%95%99%E7%A8%8B/"># 教程</a>
-              
-          
+
+  </aside>
+
+
     </div>
-</div>
-
-
-<div class="post-footer">
-  
-
-  <div class="post-copyright">
-    <p style="margin: 5px 0;">文章作者：<a href="/">Eric Zane</a></p>
-    <p style="margin: 5px 0;">文章链接：<a href="http://etwzero.github.io/2019/09/11/blender-beginning/">http://etwzero.github.io/2019/09/11/blender-beginning/</a></p>
-    <p style="margin: 5px 0;">版权声明：本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-NC-SA 4.0 协议</a> ，转载请注明出处，谢谢。</p>
   </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+  
   
 </div>
 
-    <!-- Comments -->
-    <div class="comments">
-        
-        
-    </div>
+  </footer>
 
-</article>
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
 
 
-        </div>
-        
-<footer class="text-center">
-    
-    
-    
-    
-    
-    <p>&copy;  2020 - 2024&nbsp;&nbsp;Theme Miracle</p>
-    
-    <p>Powered by <a href="https://hexo.io" target="_blank">Hexo</a> | Theme by <a href="https://github.com/oCoke/hexo-theme-miracle" target="_blank">Miracle</a></p>
-    
-    
-</footer>
+<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
 
-<div class="p-btn">
-    
-        <a class="toc-btn" id="toc-btn"><i id="i-menu"></i></a>
-    
-    
-      <a class="toc-btn" id="share-btn"><i>
-        <svg t="1670124379155" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="2683" width="25" height="25"><path d="M395.946667 234.666667v64H256v469.333333h512V522.666667h64V768a64 64 0 0 1-64 64H256a64 64 0 0 1-64-64V298.666667a64 64 0 0 1 64-64h139.946667z m335.850666-87.914667l150.848 150.826667-158.378666 158.4-45.269334-45.248L748.394667 341.333333H672c-121.685333 0-220.714667 97.024-223.914667 217.941334L448 565.333333v85.333334h-64v-85.333334C384 406.272 512.938667 277.333333 672 277.333333h99.861333l-85.312-85.333333 45.248-45.248z" p-id="2684" fill="var(--first-text-color)"></path></svg>
-      </i></a>
-    
-    <a href="javascript:window.scrollTo({top:0,behavior:'smooth'});" class="click-btn">
-      <i id="i-up"></i>
-    </a>
-</div>
 
-<!-- SCRIPTS -->
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
 
 
 
 
+  
+    
+      <script  src="/js/img-lazyload.js" ></script>
+    
+  
 
 
+
+
+  
 <script>
-    document.getElementById("btn-dropdown").addEventListener('click', () => {
-      toggleClass("#dropdown-menus","display-inline");
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.20.1/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
     });
-    console.log('\n' + ' %c Powered by Hexo Theme Miracle ' + ' %c https://github.com/hifun-team/hexo-theme-miracle ' + '\n' + '\n', 'color: #fff; background: #4F9BFA; padding:5px 0;', 'background: #FFF; padding:5px 0;');
-
-    
-
-    
-  /* 小彩蛋: 饮茶先啦 */
-  setTimeout(() => {
-    var time = new Date();
-    if (time.getHours() == 15) {
-      let comment = document.createComment(' 三点几嚟！饮茶先啦！ ');
-      document.body.insertBefore(comment, document.getElementsByTagName('header')[0]);
-    }
-  },1);
-    
+  });
 </script>
 
 
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
 <script>
-    var postImg = document.querySelectorAll("article[class=page] img");
-    for (let imgi = 0; imgi < postImg.length; imgi++) {
-        postImg[imgi].onclick = () => {
-            let zoomImg = document.createElement("div");
-            zoomImg.id = "zoomImg";
-            zoomImg.innerHTML = `<div id="zoom-picture"></div>
-    <div class="poptrox-overlay"
-        style="position: fixed; left: 0px; top: 0px; z-index: 20000; width: 100%; height: 100%; text-align: center; cursor: zoom-out; opacity: 1;">
-        <div style="display:inline-block;height:100%;vertical-align:middle;"></div>
-        <div
-            style="position:absolute;left:0;top:0;width:100%;height:100%;background:#000000;opacity:0;filter:alpha(opacity=0);">
-        </div>
-        <div class="poptrox-popup"
-            style="display: inline-block; vertical-align: middle; position: relative; z-index: 1; cursor: zoom-out; min-width: 10px; min-height: 10px; width: auto; height: auto;">
-            <div class="loader" style="display: none;"></div>
-            <div class="pic" style="text-indent: 0px;"><img
-                    src="${ postImg[imgi].srcset || postImg[imgi].src }" alt="Loading..."
-                    style="vertical-align: bottom; max-width: 85vw; max-height: 85vh;"></div>
-        </div>
-    </div>`;
-            document.body.appendChild(zoomImg);
-                document.querySelector("#zoomImg").onclick = () => {
-                    document.querySelector("#zoomImg").remove();
-                }
-        }
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/4.3.1/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
     }
-    
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
 </script>
 
 
-
+  
 <script>
-        try {
-            var io = new IntersectionObserver(function (entries) {
-                entries.forEach(function (entry) {
-                    if (entry.isIntersecting) {
-                        var img = entry.target;
-                        img.srcset = img.getAttribute('data-srcset');
-                        img.className += ' loaded'
-                        io.unobserve(img);
-                    }
-                });
-            });
-        } catch (e) {
-            console.info(e);
-        }
-        query('.lazyload-img').forEach(function (item) {
-            try {
-                io.observe(item);
-            } catch (e) {
-                console.info(e);
-            }
-        });
-    </script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
 
 
-    <script>
-        query("#toc-btn")[0].onclick = () => {
-            if (query(".post-toc")[0].innerHTML) {
-                toggleClass(".post-toc", "display-inline");
-            }
-        }
+  <script>Fluid.plugins.imageCaption();</script>
 
-        if (!query(".post-toc")[0].innerHTML) {
-            addClass("#toc-btn","display-none");
-        }
-    </script>
-
-
-
-    <script>
-        query("#share-btn")[0].onclick = async () => {
-            let url = `${location.protocol}//${location.hostname}${location.port ? ":"+location.port:location.port}${location.pathname}#read=${sessionStorage.getItem(location.pathname+"_read_y") || ""}`;
-            try {
-                await navigator.clipboard.writeText(url);
-                prompt_core("分享链接已经复制至剪贴板", 4800, true);
-            } catch(e) {
-                prompt_core("分享链接复制失败，请手动复制<br/>"+url, 4800, false);
-            }
-        }
-    </script>
+  <script  src="/js/local-search.js" ></script>
 
 
 
 
 
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
 
 
-    <script>
-        const getScrollPosition = (el = window) => ({
-            x: el.pageXOffset !== undefined ? el.pageXOffset : el.scrollLeft,
-            y: el.pageYOffset !== undefined ? el.pageYOffset : el.scrollTop
-        });
-        // 此处的 750 是「页面元素的最大宽度」
-        var wx = document.getElementsByClassName("article-m")[0].clientWidth;
-        var wy = document.getElementsByClassName("article-m")[0].clientHeight;
-        function windowScroll() {
-            // 反复修改 确保页面尺寸不改变
-            wx = document.getElementsByClassName("article-m")[0].clientWidth;
-            wy = document.getElementsByClassName("article-m")[0].clientHeight;
-            let y = Math.round(getScrollPosition().y);
-            // console.log(y);
-            // 组合字符串，同时记录页面坐标，页面宽度和高度
-            let p = `${y}:${wx}:${wy}`;
-            // 写入到 sessionStorage 中
-            sessionStorage.setItem(location.pathname + "_read_y", p);
-        }
-        // URL 中是否包含传递的坐标信息
-        setTimeout(() => {
-            if (location.hash.split("#read=").length > 1) {
-                prompt_core("已有阅读进度，正在跳转", 4800, true);
-                // 分离字符串
-                let read_y = location.hash.split("#read=")[1];
-                read_y = read_y.split(":");
-                // 组合乘积，顺滑移动至坐标
-                window.scrollTo({top: Math.round(Number(read_y[0]) * Number(read_y[1] * Number(read_y[2] / wx / wy))), behavior: "smooth"});
-            } else {
-                // 从 sessionStorage 中获取
-                let read_y = sessionStorage.getItem(location.pathname + "_read_y") || "0:0:0";
-                read_y = read_y.split(":");
-                if (read_y[0] != "0") prompt_core("已有阅读进度，正在跳转", 4800, true);
-                window.scrollTo({top: Math.round(Number(read_y[0]) * Number(read_y[1] * Number(read_y[2] / wx / wy))), behavior: "smooth"});
-            }
-        }, 500);
-        window.onscroll = windowScroll;
-    </script>
+  
 
-
-
-
-
-        </div>
-        <div id="css-loading">
-            <h3 class="text-center">加载中...</h3>
-        </div>
-        
-    </body>
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
 </html>
