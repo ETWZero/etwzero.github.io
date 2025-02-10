@@ -28,8 +28,10 @@
 <meta property="og:image" content="https://s11.ax1x.com/2024/03/03/pFBEjFx.png">
 <meta property="og:image" content="https://s11.ax1x.com/2024/03/03/pFBExfK.png">
 <meta property="og:image" content="https://s11.ax1x.com/2024/03/03/pFBEOT1.png">
+<meta property="og:image" content="https://img.z4a.net/images/2025/02/10/2025-02-08_23.34.53.jpeg">
+<meta property="og:image" content="https://img.z4a.net/images/2025/02/10/2025-02-08_23.32.20_cracked.png">
 <meta property="article:published_time" content="2024-03-03T01:52:20.000Z">
-<meta property="article:modified_time" content="2024-03-03T03:12:20.711Z">
+<meta property="article:modified_time" content="2025-02-10T10:29:02.127Z">
 <meta property="article:author" content="Eric Zane">
 <meta property="article:tag" content="解密">
 <meta name="twitter:card" content="summary_large_image">
@@ -238,7 +240,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          1k 字
+          1.5k 字
         
       </span>
     
@@ -249,7 +251,7 @@
         
         
         
-          9 分钟
+          13 分钟
         
       </span>
     
@@ -295,10 +297,11 @@
 <p>首先，使用密码解压压缩包，会获得一个名为 <code>msg_231223.eml</code> 的文件，很明显是一个邮件存档文件，使用Outlook打开后，会显示以下内容和四个附件：</p>
 <figure class="highlight txt"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs txt">Sender: &quot;Liminal Cerulean Afterglow Zero&quot;<br>From: &quot;Liminal Cerulean Afterglow Zero&quot;<br>Subject: Extracted Data<br>To: &quot;Azure Fleet Command&quot; &lt;Azure Fleet Command&gt; <br><br>Attached are the only files recovered, hope you&#x27;ll be able to uncover the message.<br><br>- Liminal Cerulean Afterglow Zero<br></code></pre></td></tr></table></figure>
 
-<p>将四个附件 <code>data_01.dat</code> <code>data_01.dat</code> <code>data_01.dat</code> <code>data_01.dat</code> 另存为，准备开始分析文件。</p>
+<p>将四个附件 <code>data_01.dat</code> <code>data_02.dat</code> <code>data_03.dat</code> <code>data_04.dat</code> 另存为，准备开始分析文件。</p>
 <h2 id="data-01-dat"><a href="#data-01-dat" class="headerlink" title="data_01.dat"></a>data_01.dat</h2><p>文件格式是zip，其中包含三个图像文件：</p>
 <p><img src="https://s11.ax1x.com/2024/03/03/pFBELwR.png" srcset="/img/loading.gif" lazyload alt="pFBELwR.png"></p>
 <p>内容分别为四角星形，约8点钟的时钟指针形状，类似花的图案。</p>
+<p>除此之外，将后缀改为rar后，可以发现每个图像文件都包含一个加密的压缩包，猜测压缩包里的文本文档包含最终答案。</p>
 <h2 id="data-02-dat"><a href="#data-02-dat" class="headerlink" title="data_02.dat"></a>data_02.dat</h2><p>文件格式是mkv，是一个“我的世界”的视频录像。</p>
 <h3 id="视频本体的信息"><a href="#视频本体的信息" class="headerlink" title="视频本体的信息"></a>视频本体的信息</h3><p>视频展示了蓝鸡从箱子里拿出了青金石、钻石和木棍，准备制造并附魔一个钻镐的过程，最后打开了一本奇怪的书。</p>
 <p>可以发现，视频本身有字幕，待会儿提取出来。</p>
@@ -497,13 +500,20 @@
 <p>以下为书的所有内容，其中“xxx”词语是书中的乱码。</p>
 <figure class="highlight txt"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs txt">Catalogue<br>by Charles<br>Original<br><br>Nam porttitor finibus ante, non xxx luctus risus viverra dominus auctor non.<br>Cras pretium xxx purus at varius posuere. Sed eget xxxxxx vestibulum neque. Ut volutpat xx posuere mi quis condimentum. Integer cursus volutpat iaculis nec.<br><br>Quisque a metus in mauris optimus feugiat convallis. Phasellus eget elit xx urna ullamcorper molestie fermentum sit ament sem. Duis blandit, neque id ultrices pacificus ullamcorper, erat mi aliquet turpis, sed eleifend.<br><br>Etiam mollis sed diam et pastor gravida. Nullam xxxxxx arcu nec rex enim gravida, quis tincidunt lorem dignssim. Morbi vitae metus xx arcu porta convallis. Maecenas vitae dictum nisi.<br>Vivamus eleifend augue xxx amet xxx.<br><br>Nunc gravida nibh xx xx tempus elementum Iudex. Quisque sollicitudin xxxxxx lacinia.<br>Quisque ultricies dominus libero lorem, xx aliquet odio congue xx. Fusce pretium dignissim pharetra. In metus enim, pretium xxx.<br></code></pre></td></tr></table></figure>
 
+<p>将以上内容喂给Deepseek，Deepseek表示这是拉丁文，并尝试了补全。</p>
+<figure class="highlight txt"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs txt">Nam porttitor finibus ante, non [semper] luctus risus viverra dominus auctor non.<br>Cras pretium [elit] purus at varius posuere. Sed eget [tincidunt] vestibulum neque. Ut volutpat [in] posuere mi quis condimentum. Integer cursus volutpat iaculis nec.<br><br>Quisque a metus in mauris optimus feugiat convallis. Phasellus eget elit [in] urna ullamcorper molestie fermentum sit [amet] sem. Duis blandit, neque id ultrices pacificus ullamcorper, erat mi aliquet turpis, sed eleifend.<br><br>Etiam mollis sed diam et pastor gravida. Nullam [ligula] arcu nec rex enim gravida, quis tincidunt lorem dignissim. Morbi vitae metus [in] arcu porta convallis. Maecenas vitae dictum nisi.<br>Vivamus eleifend augue [sit] amet [dolor].<br><br>Nunc gravida nibh [in] [id] tempus elementum Iudex. Quisque sollicitudin [massa] lacinia.<br>Quisque ultricies dominus libero lorem, [in] aliquet odio congue [dolor]. Fusce pretium dignissim pharetra. In metus enim, pretium [nunc].<br></code></pre></td></tr></table></figure>
+
 <h3 id="视频本体之外的信息"><a href="#视频本体之外的信息" class="headerlink" title="视频本体之外的信息"></a>视频本体之外的信息</h3><p>利用MKV工具，可以提取出除视频外的额外附件：</p>
 <h4 id="data-02-srt"><a href="#data-02-srt" class="headerlink" title="data_02.srt"></a><code>data_02.srt</code></h4><figure class="highlight txt"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><code class="hljs txt">1<br>00:00:00,000 --&gt; 00:00:05,000<br>EMEVHXCEGDOETOISAICRATSSP<br><br>2<br>00:00:05,000 --&gt; 00:00:07,000<br>Wjnrx<br><br>3<br>00:00:07,000 --&gt; 00:00:09,000<br>Ljsjaf<br><br>4<br>00:00:09,000 --&gt; 00:00:11,000<br>Rnqfs<br><br>5<br>00:00:11,000 --&gt; 00:00:13,000<br>Wtyyjwifr<br><br>6<br>00:00:13,000 --&gt; 00:00:15,000<br>Qtsits<br></code></pre></td></tr></table></figure>
 
 <p>我<strong>并没有</strong>发现2-6字幕的原文是欧洲的城市，分别如下：</p>
 <figure class="highlight txt"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs txt">Reims<br>Geneva<br>Milan<br>Rotterdam<br>London<br></code></pre></td></tr></table></figure>
 
+<p>经过 @luoxueyasha 的思路，将<code>EMEVHXCEGDOETOISAICRATSSP</code> 经过<strong>W型栅栏密码</strong>，分为<strong>4栏</strong>时，解密结果为:<code>EXOTIC MESSAGE DISCOVER PATH</code></p>
 <h4 id="cover-png"><a href="#cover-png" class="headerlink" title="cover.png"></a><code>cover.png</code></h4><p><img src="https://s11.ax1x.com/2024/03/03/pFBEjFx.png" srcset="/img/loading.gif" lazyload alt="pFBEjFx.png"></p>
+<p>经过 @luoxueyasha 的思路，text段藏了一段base64，经过解码，可得以下内容：</p>
+<figure class="highlight livecodeserver"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs livecodeserver">The <span class="hljs-keyword">first</span> <span class="hljs-literal">two</span> appeared <span class="hljs-keyword">in</span> <span class="hljs-keyword">the</span> same game. Two <span class="hljs-keyword">of</span> <span class="hljs-keyword">the</span> track names are <span class="hljs-keyword">in</span> latin.<br></code></pre></td></tr></table></figure>
+
 <p>可以发现图像中一些地方有明显失真的地方，猜测使用了LSE隐写技术，使用Stegsolve.jar对图像进行分析，可以发现在RGB低四位的图像中隐写了一些类似二维码的图像：</p>
 <p><img src="https://s11.ax1x.com/2024/03/03/pFBExfK.png" srcset="/img/loading.gif" lazyload alt="pFBExfK.png"></p>
 <p>于是写一个python脚本来提取仅RGB低四位的图像：</p>
@@ -519,8 +529,20 @@
 <p>其他的则是将Botany密钥尝试凯撒移位，得出不同的密钥，判断依据则是和上面密文相似词汇进行类比推理（比如ris，在第3条和第5条同时出现），可以以此类推推断出其他所有的原文：</p>
 <figure class="highlight txt"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs txt">ris keicsgx os kbugoygb<br>ybotan维吉尼亚解密：THE REVERSE OF MAGNOLIA<br><br>ymz loaet gmaer xwmh n dmcpee ms oke gguzxd ndusk fymxsks<br>ybotan维吉尼亚解密：all songs start with a flower or are titled after flowers<br><br>uvx fymxsk ia ris iog<br>botany维吉尼亚解密：the flower in the pot<br><br>gwgd gff gbxgf oofeq dmcpee go o loae oofeq yghxr tpbjbtl<br>botany维吉尼亚解密：find the sixth named flower in a song named after gravity<br><br>hae sggha fymxsk os ris ylbuff loae<br>otanyb维吉尼亚解密：the fifth flower of the flower song<br></code></pre></td></tr></table></figure>
 
+<p>加上<code>The first two appeared in the same game. Two of the track names are in latin.</code>这个提示，猜测可能是需要根据提示来寻找符合条件的歌曲，然后根据这首歌曲的歌词来获得花的名字。</p>
 <p>MAGNOLIA是木兰花。</p>
 <p>解密到此时就完全卡住了。</p>
+<h2 id="新增提示"><a href="#新增提示" class="headerlink" title="新增提示"></a>新增提示</h2><p>下载压缩包，给出密码<code>chronostasis</code>，可获得一个波形文件。</p>
+<p>注意到是SSTV制式的，于是可以通过各类解码软件，将该波形转换为图片：</p>
+<p><img src="https://img.z4a.net/images/2025/02/10/2025-02-08_23.34.53.jpeg" srcset="/img/loading.gif" lazyload alt="2025 02 08 23.34.53"></p>
+<p>可以观察到存在5行密文，我们一行一行看。</p>
+<p>第一行是wingdings，第二行是标准银河字母，第三行是三神裔文字，第四行是一个8位二进制，第五行不清楚是什么密文。</p>
+<p>对着码表进行解码，可以获得以下内容：</p>
+<p><img src="https://img.z4a.net/images/2025/02/10/2025-02-08_23.32.20_cracked.png" srcset="/img/loading.gif" lazyload alt="2025 02 08 23.32.20 cracked"></p>
+<p>第一行是youtube的<a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=Qg6BwvDcANg">一个视频</a>，一个MV，alt-J - Tessellate [OFFICIAL VIDEO]。</p>
+<p>第二行是wings_falling，不理解有什么含义，大概和伊卡洛斯之翼有关？</p>
+<p>第三行是s.559，no.12，不理解什么含义。</p>
+<p>第四行是10001001或01110110，同样不清楚什么含义。</p>
 <h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>谁也不知道咸鱼人为什么会在三月初填一月底的坑的，不愧是咸鱼人！</p>
 
                 
